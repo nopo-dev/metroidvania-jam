@@ -12,19 +12,19 @@ internal struct SaveData
     public int playerHP;
     public int playerEnergy;
     public int playerUpgrades;
-    public int lastSafeLoc;
+    public int lastSaveLoc;
 
-    public SaveData(int playerHP, int playerEnergy, int playerUpgrades, int lastSafeLoc)
+    public SaveData(int playerHP, int playerEnergy, int playerUpgrades, int lastSaveLoc)
     {
         this.playerHP = playerHP;
         this.playerEnergy = playerEnergy;
         this.playerUpgrades = playerUpgrades;
-        this.lastSafeLoc = lastSafeLoc;
+        this.lastSaveLoc = lastSaveLoc;
     }
 
     public override string ToString()
     {
-        return $"HP: {this.playerHP}, energy: {this.playerEnergy}, upgrades: {this.playerUpgrades}, lastSafeLoc: {this.lastSafeLoc}";
+        return $"HP: {this.playerHP}, energy: {this.playerEnergy}, upgrades: {this.playerUpgrades}, lastSaveLoc: {this.lastSaveLoc}";
     }
 }
 
@@ -73,7 +73,7 @@ internal static class SaveDataManager
     }
 
     /*
-     * Writes saveData into safeFile as a JSON string
+     * Writes saveData into saveFile as a JSON string
      */
     public static void writeSaveData(SaveData saveData)
     {
@@ -130,7 +130,7 @@ internal class SaveAndLoad : MonoBehaviour
     [SerializeField] public int HP = 100;
     [SerializeField] public int energy = 100;
     [SerializeField] public int upgrades = 0;
-    [SerializeField] public int lastSafeLoc = 0;
+    [SerializeField] public int lastSaveLoc = 0;
     //private FakePlayer player = new FakePlayer();
     /*
      * A set of functions to return player save data
@@ -151,7 +151,7 @@ internal class SaveAndLoad : MonoBehaviour
     }
     private int getLastSaveLoc()
     {
-        return lastSafeLoc;
+        return lastSaveLoc;
     }
 
     /*
@@ -172,7 +172,7 @@ internal class SaveAndLoad : MonoBehaviour
      *  - player HP
      *  - player energy ?
      *  - player upgrades
-     *  - last safe loc
+     *  - last save loc
      *  - which enemies/bosses dead (might be inferrable from upgrades)
      */
     private void save()
@@ -194,7 +194,7 @@ internal class SaveAndLoad : MonoBehaviour
         HP = saveData.playerHP;
         energy = saveData.playerEnergy;
         upgrades = saveData.playerUpgrades;
-        lastSafeLoc = saveData.lastSafeLoc;
+        lastSaveLoc = saveData.lastSaveLoc;
     }
 
     /*
