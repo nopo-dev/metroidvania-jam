@@ -9,15 +9,6 @@ public struct PlayerInput
     public bool JumpReleased;
 }
 
-/*public interface IPlayerController {
-        Vector3 Velocity { get; }
-        PlayerInput Input { get; }
-        bool JumpingThisFrame { get; }
-        bool LandingThisFrame { get; }
-        Vector3 RawMovement { get; }
-        bool Grounded { get; }
-}*/
-
 public struct RayRange {
     public RayRange(float x1, float y1, float x2, float y2, Vector2 direction) {
         Start = new Vector2(x1, y1);

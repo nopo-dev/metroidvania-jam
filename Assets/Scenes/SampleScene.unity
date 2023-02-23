@@ -4637,11 +4637,11 @@ MonoBehaviour:
     m_Center: {x: 0, y: 0, z: 0}
     m_Extent: {x: 1.25, y: 2, z: 0}
   _rayCount: 5
-  _rayLength: 0.1
+  _rayLength: 0.05
   _rayBuffer: 0
   _maxXSpeed: 15
-  _acceleration: 90
-  _deacceleration: 60
+  _acceleration: 150
+  _deceleration: 150
   _apexBoost: 2
   _maxFallSpeed: -40
   _jumpSpeed: 35
@@ -4649,7 +4649,7 @@ MonoBehaviour:
   - 80
   - 120
   _apexThreshold: 10
-  _coyoteThreshold: 0.1
+  _coyoteThreshold: 0.05
   _jumpBuffer: 0.1
-  _shortJumpGravity: 3
-  _colliderIterations: 10
+  _shortJumpGravity: 4.5
+  _colliderIterations: 25

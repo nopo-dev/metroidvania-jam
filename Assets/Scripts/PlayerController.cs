@@ -32,10 +32,10 @@ public class PlayerController : MonoBehaviour
         GetInput();
         CheckCollisions();
 
-        SetXMovement();
-        SetFallSpeed();
-        SetGravity();
-        SetJump();
+        CalculateXMove();
+        CalculateFallSpeed();
+        CalculateGravity();
+        CalculateJump();
 
         ApplyMovement();
     }
@@ -69,6 +69,14 @@ public class PlayerController : MonoBehaviour
         PositionRayRanges();
 
         bool groundCheck = DetectCollision(_raysDown);
+        if (_collideDown && !groundCheck)
+        {
+            _timeSinceGround = Time.time;
+        }
+        else if (!_collideDown && groundCheck)
+        {
+            _coyoteAllowed = true;
+        }
 
         _collideDown = groundCheck;
         _collideUp = DetectCollision(_raysUp);
@@ -126,12 +134,12 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] private float _maxXSpeed = 15f;
     [SerializeField] private float _acceleration = 90f;
-    [SerializeField] private float _deacceleration = 60f;
+    [SerializeField] private float _deceleration = 60f;
     [SerializeField] private float _apexBoost = 2f;
     private Vector3 _lastPosition;
     private float _xSpeed;
 
-    private void SetXMovement()
+    private void CalculateXMove()
     {
         if (_input.X != 0)
         {
@@ -142,7 +150,7 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
-            _xSpeed = Mathf.MoveTowards(_xSpeed, 0, _deacceleration * Time.deltaTime);
+            _xSpeed = Mathf.MoveTowards(_xSpeed, 0, _deceleration * Time.deltaTime);
         }
 
         if (_xSpeed > 0 && _collideRight || _xSpeed < 0 && _collideLeft)
@@ -154,7 +162,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float _maxFallSpeed = -40f;
     private float _ySpeed, _fallSpeed;
 
-    private void SetGravity()
+    private void CalculateGravity()
     {
         if (_collideDown)
         {
@@ -189,7 +197,7 @@ public class PlayerController : MonoBehaviour
                               _timeSinceGround + _coyoteThreshold > Time.time;
     private bool JumpBuffered => _collideDown && _lastJumpPress + _jumpBuffer > Time.time;
 
-    private void SetFallSpeed()
+    private void CalculateFallSpeed()
     {
         if (!_collideDown)
         {
@@ -202,7 +210,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void SetJump()
+    private void CalculateJump()
     {
         if (_input.JumpPressed && CanCoyote || JumpBuffered)
         {
