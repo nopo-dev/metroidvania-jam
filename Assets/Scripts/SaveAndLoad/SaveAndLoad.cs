@@ -82,8 +82,6 @@ internal class SaveAndLoad : MonoBehaviour
         PlayerStatus.Instance.EnergyManager.setMaximumEnergy(saveData.playerMaxEnergy);
         PlayerStatus.Instance.UpgradeManager.setUpgrade(saveData.playerUpgrades);
         PlayerStatus.Instance.LastSaveLocManager.setLastSaveLoc(saveData.lastSaveLoc);
-        PlayerStatus.Instance.playerCurrentEnergy_debug = saveData.playerCurrentEnergy;
-        PlayerStatus.Instance.playerMaxEnergy_debug = saveData.playerMaxEnergy;
         PlayerStatus.Instance.playerUpgrade_debug = saveData.playerUpgrades;
         PlayerStatus.Instance.lastSaveLoc_debug = saveData.lastSaveLoc;
     }

@@ -16,6 +16,7 @@ public class PlayerStatus : MonoBehaviour
     public LastSaveLocManager LastSaveLocManager { get; private set; }
 
     public TMP_Text healthText;
+    public TMP_Text energyText;
 
     /*
      * Initialize the singleton instance if it does not already exist.
@@ -36,16 +37,13 @@ public class PlayerStatus : MonoBehaviour
     }
 
     // TODO: These are for debug/testing purposes. Necessary? Can HPManager be accessed from inspector ?
-    public int playerCurrentEnergy_debug = 100;
-    public int playerMaxEnergy_debug = 100;
     public Upgrade playerUpgrade_debug;
     public Location lastSaveLoc_debug; // TODO: this one doesn't show in inspector.
     private void Update()
     {
         this.healthText.text = "HP: " + HPManager.getCurrentHP() + "/" + HPManager.getMaximumHP();
+        this.energyText.text = "Energy: " + EnergyManager.getCurrentEnergy() + "/" + EnergyManager.getMaximumEnergy();
 
-        EnergyManager.setCurrentEnergy(playerCurrentEnergy_debug);
-        EnergyManager.setMaximumEnergy(playerMaxEnergy_debug);
         if (UpgradeManager.getUpgrade() != playerUpgrade_debug)
         {
             UpgradeManager.setUpgrade(playerUpgrade_debug);
