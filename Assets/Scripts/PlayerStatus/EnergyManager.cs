@@ -10,6 +10,12 @@ public class EnergyManager
     private int currentEnergy_;
     private int maximumEnergy_;
 
+    public EnergyManager(int maximumEnergy = 100)
+    {
+        this.currentEnergy_ = maximumEnergy;
+        this.maximumEnergy_ = maximumEnergy;
+    }
+
     public int getCurrentEnergy()
     {
         return this.currentEnergy_;
