@@ -13,22 +13,32 @@ public class HPManager
     private int currentHP_; // We could use set/get here but I don't like the format, I'd rather call setCurrentHP. Makes it clearer that it might do some processing on the input.
     private int maximumHP_;
 
-    //public HPManager(int maximumHP = Consts.STARTING_PLAYER_HP)
-   // {
-   //     this.currentHP_ = maximumHP;
-   //     this.maximumHP_ = maximumHP;
-   //     updateUI();
-   // }
+    public HPManager(int maximumHP = Consts.STARTING_PLAYER_HP)
+    {
+        this.currentHP_ = maximumHP;
+        this.maximumHP_ = maximumHP;
+        updateUI();
+    }
 
     public int getCurrentHP()
     {
         return this.currentHP_;
     }
 
+    /*
+     * Sets current HP, including UI and out-of-HP check
+     */
     public void setCurrentHP(int newCurrentHP)
     {
         this.currentHP_ = Utils.Clamp(newCurrentHP, 0, this.maximumHP_);
         updateUI();
+
+        if (isOutOfHP())
+        {
+            // TODO 
+            Debug.Log("HPManager - Out of HP, loading latest save.");
+            SaveAndLoader.Instance.load();
+        }
     }
 
     public void healHP(int healAmount) // TODO: We could get heal power from player status ?

@@ -39,6 +39,7 @@ public class SaveAndLoader : MonoBehaviour
         // Save take prio over load
         if (UnityEngine.Input.GetKeyDown(saveKey))
         {
+            Debug.Log("SaveAndLoader - Manual save is for debug purposes, not guaranteed to be soft-lock-safe.");
             save();
         }
         else if (UnityEngine.Input.GetKeyDown(loadKey))
@@ -82,17 +83,15 @@ public class SaveAndLoader : MonoBehaviour
             Debug.Log("SaveAndLoader - Cannot save at 0 HP");
             return;
         }
-        Debug.Log("SaveAndLoader - Healing to full...");
-        PlayerStatus.Instance.HPManager.healToFull();
         Debug.Log("SaveAndLoader - Saving game...");
         var saveData = getSaveData();
         SaveDataManager.writeSaveData(saveData);
     }
 
     /*
-     * Load the game
+     * Load the game from latest save
      */
-    internal void load()
+    public void load()
     {
         Debug.Log("SaveAndLoader - Loading game...");
         var saveData = SaveDataManager.readSaveData();
@@ -100,12 +99,29 @@ public class SaveAndLoader : MonoBehaviour
         // TODO: need to sanitize this at all? e.g. 0 hp. Probably need to do more processing than just setting, e.g. teleport to location, set camera.
         // But those can be done by Managers.
         // Max needs to be set before current.
+
+        // Step 1: Load raw values. Some UI updates happen as a consequence of these, e.g. setMaximumHP calls updateUI hook.
+        Debug.Log("SaveAndLoader - Loading raw values...");
         PlayerStatus.Instance.HPManager.setMaximumHP(saveData.playerMaxHP);
         PlayerStatus.Instance.HPManager.setCurrentHP(saveData.playerCurrentHP);
         PlayerStatus.Instance.EnergyManager.setMaximumEnergy(saveData.playerMaxEnergy);
         PlayerStatus.Instance.EnergyManager.setCurrentEnergy(saveData.playerCurrentEnergy);
-        PlayerStatus.Instance.UpgradeManager.setUpgrade(saveData.playerUpgrades);
+        PlayerStatus.Instance.UpgradeManager.setUpgrade(saveData.playerUpgrades); // TODO: Hide earned upgrades when loading.
         PlayerStatus.Instance.LastSaveLocManager.setLastSaveLoc(saveData.lastSaveLoc);
+
+        // Step 2: Non-raw-value updates, such as moving the player, hide/showing upgrade items, respawn enemies.
+        teleportPlayer(saveData.lastSaveLoc);
+        PlayerStatus.Instance.UpgradeManager.applyUpgradeItemState();
+        // TODO: respawn enemies.
+    }
+
+    /*
+     * TPs player to location - this could live somewhere else ?
+     */
+    private void teleportPlayer(Location loc)
+    {
+        Debug.Log($"SaveAndLoader - Teleporting to ({loc.x}, {loc.y})...");
+        transform.position = new Vector2(loc.x, loc.y);
     }
 
     /*

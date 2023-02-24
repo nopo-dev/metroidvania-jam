@@ -25,6 +25,28 @@ public class UpgradeManager
         }
         this.currentUpgrade_ = newUpgrade;
     }
+
+    /*
+     * Hide UpgradeItems previous to current upgrade (inclusive).
+     * Show UpgradeItems after current upgrade (exclusive).
+     * TODO: Find a better place for this fn to live.
+     */
+    public void applyUpgradeItemState()
+    {
+        Debug.Log("UpgradeManager - Hiding & showing UpgradeItems based on Player's current upgrade level");
+        int currentUpgradeIndex = (int) currentUpgrade_;
+        for (int i = 1; i <= UpgradeItem.numberOfUpgrades; i++) // Loop starts at 1 because there should be no Upgrade 0.
+        {
+            if (i <= currentUpgradeIndex)
+            {
+                UpgradeItem.hideUpgradeItem((Upgrade) i);
+            }
+            else
+            {
+                UpgradeItem.showUpgradeItem((Upgrade) i);
+            }
+        }
+    }
     
     /*
      * Player has access to all upgrades up to current level.

@@ -35,13 +35,13 @@ internal struct SaveData
         if (startingSaveArea == null)
         {
             Debug.Log("SaveData - No starting save area set. New game will be saved to (0, 0).");
-            return new SaveData(STARTING_PLAYER_HP, STARTING_PLAYER_HP, STARTING_PLAYER_ENERGY, STARTING_PLAYER_ENERGY, Upgrade.Base, new Location(0, 0, 0, 0));
+            return new SaveData(STARTING_PLAYER_HP, STARTING_PLAYER_HP, STARTING_PLAYER_ENERGY, STARTING_PLAYER_ENERGY, Upgrade.Base, new Location(0, 0));
         }
-        return new SaveData(STARTING_PLAYER_HP, STARTING_PLAYER_HP, STARTING_PLAYER_ENERGY, STARTING_PLAYER_ENERGY, Upgrade.Base, startingSaveArea.spawnLocation);
+        return new SaveData(STARTING_PLAYER_HP, STARTING_PLAYER_HP, STARTING_PLAYER_ENERGY, STARTING_PLAYER_ENERGY, Upgrade.Base, startingSaveArea.getSpawnLocation());
     }
 
     public override string ToString()
     {
-        return $"HP: {this.playerCurrentHP} / {this.playerMaxHP}, energy: {this.playerMaxHP} / {this.playerMaxEnergy}, upgrades: {this.playerUpgrades}, lastSaveLoc: {this.lastSaveLoc}"; // TODO: reads to nice string ?
+        return $"HP: {this.playerCurrentHP} / {this.playerMaxHP}, energy: {this.playerMaxHP} / {this.playerMaxEnergy}, upgrades: {this.playerUpgrades}, lastSaveLoc: ({this.lastSaveLoc.x}, {this.lastSaveLoc.y})"; // TODO: reads to nice string ?
     }
 }

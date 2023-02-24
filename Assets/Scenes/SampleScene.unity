@@ -4247,6 +4247,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isStartingSaveArea: 1
+  spawnLocationX_: -21
+  spawnLocationY_: -9
 --- !u!61 &492469767
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4699,6 +4701,7 @@ GameObject:
   - component: {fileID: 982028946}
   - component: {fileID: 982028945}
   - component: {fileID: 982028944}
+  - component: {fileID: 982028948}
   m_Layer: 0
   m_Name: Temp Upgrade Item
   m_TagString: Untagged
@@ -4810,6 +4813,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &982028948
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 982028943}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72297b6990434c34f982ee9bac8d1976, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  upgradeID_: 1
 --- !u!224 &1207059435 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 36135967586203124, guid: 686e8b436877a4335862389ae8b243e4, type: 3}
@@ -4848,6 +4864,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isStartingSaveArea: 0
+  spawnLocationX_: 20
+  spawnLocationY_: -9
 --- !u!50 &1257066263
 Rigidbody2D:
   serializedVersion: 4
@@ -4955,7 +4973,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1257066261}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 20, y: -10, z: 0}
+  m_LocalPosition: {x: 20, y: -9, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
