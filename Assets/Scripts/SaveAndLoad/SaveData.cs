@@ -1,3 +1,4 @@
+using static Consts;
 using UnityEngine;
 
 [System.Serializable]
@@ -34,9 +35,9 @@ internal struct SaveData
         if (startingSaveArea == null)
         {
             Debug.Log("SaveData - No starting save area set. New game will be saved to (0, 0).");
-            return new SaveData(100, 100, 100, 100, Upgrade.Base, new Location(0, 0, 0, 0));
+            return new SaveData(STARTING_PLAYER_HP, STARTING_PLAYER_HP, STARTING_PLAYER_ENERGY, STARTING_PLAYER_ENERGY, Upgrade.Base, new Location(0, 0, 0, 0));
         }
-        return new SaveData(100, 100, 100, 100, Upgrade.Base, startingSaveArea.spawnLocation);
+        return new SaveData(STARTING_PLAYER_HP, STARTING_PLAYER_HP, STARTING_PLAYER_ENERGY, STARTING_PLAYER_ENERGY, Upgrade.Base, startingSaveArea.spawnLocation);
     }
 
     public override string ToString()

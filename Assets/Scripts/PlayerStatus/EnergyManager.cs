@@ -10,7 +10,7 @@ public class EnergyManager
     private int currentEnergy_;
     private int maximumEnergy_;
 
-    public EnergyManager(int maximumEnergy = 100)
+    public EnergyManager(int maximumEnergy = Consts.STARTING_PLAYER_ENERGY)
     {
         this.currentEnergy_ = maximumEnergy;
         this.maximumEnergy_ = maximumEnergy;
