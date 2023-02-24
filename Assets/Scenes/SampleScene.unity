@@ -4545,6 +4545,7 @@ GameObject:
   - component: {fileID: 1722586464}
   - component: {fileID: 1722586466}
   - component: {fileID: 1722586467}
+  - component: {fileID: 1722586468}
   m_Layer: 0
   m_Name: Temp Player
   m_TagString: Untagged
@@ -4666,7 +4667,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 487b01974c2a9f7439186212969bd2be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HP: 100
-  energy: 100
-  upgrades: 0
-  lastSafeLoc: 0
+--- !u!114 &1722586468
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1722586463}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68804da9e790b2f4c9f7fee76eef9205, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerCurrentHP_debug: 100
+  playerMaxHP_debug: 100
+  playerCurrentEnergy_debug: 100
+  playerMaxEnergy_debug: 100
+  playerUpgrade_debug: 0
