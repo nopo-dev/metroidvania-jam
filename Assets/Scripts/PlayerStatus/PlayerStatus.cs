@@ -1,5 +1,7 @@
 using System;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 /*
  * This will be a singleton, there should only be one PlayerStatus
@@ -12,6 +14,8 @@ public class PlayerStatus : MonoBehaviour
     public EnergyManager EnergyManager { get; private set; }
     public UpgradeManager UpgradeManager { get; private set; }
     public LastSaveLocManager LastSaveLocManager { get; private set; }
+
+    public TMP_Text healthText;
 
     /*
      * Initialize the singleton instance if it does not already exist.
@@ -32,27 +36,20 @@ public class PlayerStatus : MonoBehaviour
     }
 
     // TODO: These are for debug/testing purposes. Necessary? Can HPManager be accessed from inspector ?
-    public Boolean enableDebugPlayerStatus = false;
-    public int playerCurrentHP_debug;
-    public int playerMaxHP_debug;
-    public int playerCurrentEnergy_debug;
-    public int playerMaxEnergy_debug;
+    public int playerCurrentEnergy_debug = 100;
+    public int playerMaxEnergy_debug = 100;
     public Upgrade playerUpgrade_debug;
     public Location lastSaveLoc_debug; // TODO: this one doesn't show in inspector.
     private void Update()
     {
-        if (!enableDebugPlayerStatus)
+        this.healthText.text = "HP: " + HPManager.getCurrentHP() + "/" + HPManager.getMaximumHP();
+
+        EnergyManager.setCurrentEnergy(playerCurrentEnergy_debug);
+        EnergyManager.setMaximumEnergy(playerMaxEnergy_debug);
+        if (UpgradeManager.getUpgrade() != playerUpgrade_debug)
         {
-            return;
+            UpgradeManager.setUpgrade(playerUpgrade_debug);
         }
-        Instance.HPManager.setCurrentHP(playerCurrentHP_debug);
-        Instance.HPManager.setMaximumHP(playerMaxHP_debug);
-        Instance.EnergyManager.setCurrentEnergy(playerCurrentEnergy_debug);
-        Instance.EnergyManager.setMaximumEnergy(playerMaxEnergy_debug);
-        if (Instance.UpgradeManager.getUpgrade() != playerUpgrade_debug)
-        {
-            Instance.UpgradeManager.setUpgrade(playerUpgrade_debug);
-        }
-        Instance.LastSaveLocManager.setLastSaveLoc(lastSaveLoc_debug);
+        LastSaveLocManager.setLastSaveLoc(lastSaveLoc_debug);
     }
 }
