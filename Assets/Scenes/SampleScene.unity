@@ -4404,6 +4404,7 @@ GameObject:
   - component: {fileID: 1660437013}
   - component: {fileID: 1660437012}
   - component: {fileID: 1660437015}
+  - component: {fileID: 1660437016}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: Untagged
@@ -4494,7 +4495,7 @@ Camera:
   far clip plane: 1000
   field of view: 60.000004
   orthographic: 0
-  orthographic size: 45
+  orthographic size: 67.5
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
@@ -4533,6 +4534,21 @@ MonoBehaviour:
   m_CropFrameX: 0
   m_CropFrameY: 0
   m_StretchFill: 0
+--- !u!114 &1660437016
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1660437010}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6c5012728fb3486985a82b351b9a6a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 1722586463}
+  offset: 5
+  offsetSmoothing: 2
 --- !u!1 &1722586463
 GameObject:
   m_ObjectHideFlags: 0
@@ -4679,6 +4695,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68804da9e790b2f4c9f7fee76eef9205, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enableDebugPlayerStatus: 0
   playerCurrentHP_debug: 100
   playerMaxHP_debug: 100
   playerCurrentEnergy_debug: 100
