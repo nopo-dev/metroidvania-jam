@@ -12,12 +12,7 @@ internal static class SaveDataManager
     {
         saveFile = UnityEngine.Application.persistentDataPath + "/gamedata.json";
         Debug.Log("Save file location at " + saveFile);
-
-        if (!File.Exists(saveFile))
-        {
-            Debug.Log("Save file does not exist, creating a new one...");
-            writeNewGameSaveData();
-        }
+        writeNewGameSaveData();
     }
 
     /*
