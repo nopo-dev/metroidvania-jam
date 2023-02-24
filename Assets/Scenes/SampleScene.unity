@@ -4781,6 +4781,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthText: {fileID: 474493047}
   energyText: {fileID: 1820100379}
+  enableDebugPlayerStatus: 0
+  playerCurrentHP_debug: 100
+  playerMaxHP_debug: 100
+  playerCurrentEnergy_debug: 100
+  playerMaxEnergy_debug: 100
   playerUpgrade_debug: 0
 --- !u!1 &1820100377
 GameObject:
