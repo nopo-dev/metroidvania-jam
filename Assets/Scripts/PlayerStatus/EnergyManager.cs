@@ -48,10 +48,11 @@ public class EnergyManager
     {
         if (newMaximumEnergy <= 0)
         {
-            Debug.Log("Max Energy must be a positive int.");
+            Debug.Log("EnergyManager - Max Energy must be a positive int.");
             return;
         }
         this.maximumEnergy_ = newMaximumEnergy;
+        updateUI();
     }
 
     public Boolean isOutOfEnergy()

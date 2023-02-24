@@ -13,12 +13,12 @@ public class HPManager
     private int currentHP_; // We could use set/get here but I don't like the format, I'd rather call setCurrentHP. Makes it clearer that it might do some processing on the input.
     private int maximumHP_;
 
-    public HPManager(int maximumHP = Consts.STARTING_PLAYER_HP)
-    {
-        this.currentHP_ = maximumHP;
-        this.maximumHP_ = maximumHP;
-        updateUI();
-    }
+    //public HPManager(int maximumHP = Consts.STARTING_PLAYER_HP)
+   // {
+   //     this.currentHP_ = maximumHP;
+   //     this.maximumHP_ = maximumHP;
+   //     updateUI();
+   // }
 
     public int getCurrentHP()
     {
@@ -57,10 +57,11 @@ public class HPManager
     {
         if (newMaximumHP <= 0)
         {
-            Debug.Log("Max HP must be a positive int.");
+            Debug.Log("HPManager - Max HP must be a positive int.");
             return;
         }
         this.maximumHP_ = newMaximumHP;
+        updateUI();
     }
 
     public Boolean isOutOfHP()

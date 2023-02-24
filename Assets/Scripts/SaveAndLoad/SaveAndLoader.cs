@@ -99,10 +99,11 @@ public class SaveAndLoader : MonoBehaviour
 
         // TODO: need to sanitize this at all? e.g. 0 hp. Probably need to do more processing than just setting, e.g. teleport to location, set camera.
         // But those can be done by Managers.
-        PlayerStatus.Instance.HPManager.setCurrentHP(saveData.playerCurrentHP);
+        // Max needs to be set before current.
         PlayerStatus.Instance.HPManager.setMaximumHP(saveData.playerMaxHP);
-        PlayerStatus.Instance.EnergyManager.setCurrentEnergy(saveData.playerCurrentEnergy);
+        PlayerStatus.Instance.HPManager.setCurrentHP(saveData.playerCurrentHP);
         PlayerStatus.Instance.EnergyManager.setMaximumEnergy(saveData.playerMaxEnergy);
+        PlayerStatus.Instance.EnergyManager.setCurrentEnergy(saveData.playerCurrentEnergy);
         PlayerStatus.Instance.UpgradeManager.setUpgrade(saveData.playerUpgrades);
         PlayerStatus.Instance.LastSaveLocManager.setLastSaveLoc(saveData.lastSaveLoc);
     }
