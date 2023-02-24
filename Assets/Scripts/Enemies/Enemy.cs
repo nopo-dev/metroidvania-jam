@@ -1,5 +1,5 @@
 
-using System.Threading;
+using System;
 using UnityEngine;
 
 /*
@@ -10,18 +10,27 @@ public class Enemy : MonoBehaviour
 {
     public int damagePerSecond;
     private float lastDamageTime;
-
+    private Boolean triggerIn = false;
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        triggerIn = true;
+        PlayerStatus.Instance.HPManager.damageHP(damagePerSecond);
         lastDamageTime = Time.time;
     }
-    private void OnTriggerStay2D(Collider2D other)
+    private void OnTriggerExit2D(Collider2D collision)
     {
-        var now = Time.time;
-        if (now - lastDamageTime >= 1.0)
+        triggerIn = false;
+    }
+    private void Update()
+    {
+        if (triggerIn)
         {
-            PlayerStatus.Instance.HPManager.damageHP(damagePerSecond);
-            lastDamageTime = now;
+            var now = Time.time;
+            if (now - lastDamageTime >= 1.0)
+            {
+                PlayerStatus.Instance.HPManager.damageHP(damagePerSecond);
+                lastDamageTime = now;
+            }
         }
     }
 }
