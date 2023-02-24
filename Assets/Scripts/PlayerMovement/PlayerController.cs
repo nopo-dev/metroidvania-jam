@@ -144,6 +144,14 @@ public class PlayerController : MonoBehaviour
         if (_input.X != 0)
         {
             _xSpeed += _input.X * _acceleration * Time.deltaTime;
+            if (_input.X > 0f)
+            {
+                transform.localScale = new Vector3(1f, 1f);
+            }
+            else if (_input.X < 0f)
+            {
+                transform.localScale = new Vector3(-1f, 1f);
+            }
             _xSpeed = Mathf.Clamp(_xSpeed, -_maxXSpeed, _maxXSpeed);
             float apexBoost = Mathf.Sign(_input.X) * _apexBoost * _apex;
             _xSpeed += apexBoost * Time.deltaTime;
