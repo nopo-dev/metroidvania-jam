@@ -1,24 +1,40 @@
 using UnityEngine;
 
 /*
- * This class communicates between player state and SaveDataManager
- * TODO: can this be static / singleton ? maybe depends how player access goes.
+ * This singleton class communicates between player state and SaveDataManager
  */
-internal class SaveAndLoad : MonoBehaviour
+public class SaveAndLoader : MonoBehaviour
 {
+    public static SaveAndLoader Instance { get; private set; }
+
     // TODO: best way to get key downs?
     private static KeyCode saveKey = KeyCode.S;
     private static KeyCode loadKey = KeyCode.L;
     private static KeyCode restartKey = KeyCode.R;
 
-    void Start()
+    /*
+    * Initialize the singleton instance if it does not already exist.
+    * If it exists & is different from current instance, destroy this instance.
+    */
+    private void Awake()
     {
-        SaveDataManager.initSaveDataManager();
+        if (Instance != null && Instance != this)
+        {
+            Debug.Log("Can only have one SaveAndLoader!");
+            Destroy(this);
+            return;
+        }
+        Instance = this;
+    }
+
+    private void Start()
+    {
+        SaveDataManager.initSaveDataManager(); // SaveDataManager is static, we don't need to own it.
         load();
     }
 
     // TODO: is this really the best way to check for save/load clicks?
-    void Update()
+    private void Update()
     {
         // Save take prio over load
         if (UnityEngine.Input.GetKeyDown(saveKey))
@@ -37,7 +53,7 @@ internal class SaveAndLoad : MonoBehaviour
 
     /*
      * Create a SaveData based on current player state
-     * TODO: HP cannot be 0.
+     * This should only be called by SaveAndLoader.Instance.save(), which guarantees nonzero HP.
      */
     private SaveData getSaveData()
     {
@@ -59,9 +75,16 @@ internal class SaveAndLoad : MonoBehaviour
      *  - last save loc
      *  - which enemies/bosses dead (might be inferrable from upgrades)
      */
-    private void save()
+    internal void save() // TODO: This could be public, but for now only SafeArea and self should be calling it.
     {
-        Debug.Log("Saving game...");
+        if (PlayerStatus.Instance.HPManager.isOutOfHP())
+        {
+            Debug.Log("SaveAndLoader - Cannot save at 0 HP");
+            return;
+        }
+        Debug.Log("SaveAndLoader - Healing to full...");
+        PlayerStatus.Instance.HPManager.healToFull();
+        Debug.Log("SaveAndLoader - Saving game...");
         var saveData = getSaveData();
         SaveDataManager.writeSaveData(saveData);
     }
@@ -69,9 +92,9 @@ internal class SaveAndLoad : MonoBehaviour
     /*
      * Load the game
      */
-    private void load()
+    internal void load()
     {
-        Debug.Log("Loading game...");
+        Debug.Log("SaveAndLoader - Loading game...");
         var saveData = SaveDataManager.readSaveData();
 
         // TODO: need to sanitize this at all? e.g. 0 hp. Probably need to do more processing than just setting, e.g. teleport to location, set camera.
@@ -90,19 +113,10 @@ internal class SaveAndLoad : MonoBehaviour
      * Resets save data for a new game
      * TODO: "Are you sure" prompt, will override old save
      */
-    private void restart()
+    internal void restart()
     {
+        Debug.Log("SaveAndLoader - Restarting game...");
         SaveDataManager.writeNewGameSaveData();
         load();
-    }
-
-    /*
-     * Generates a SaveData instance for a new game.
-     */
-    public static SaveData getNewSave()
-    {
-        // TODO: default new save data
-        // TODO: defaults should be defined somewhere else
-        return new SaveData(100, 100, 100, 100, 0, new Location( 0, 0, 0, 0 ));
     }
 }

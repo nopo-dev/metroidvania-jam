@@ -46,6 +46,6 @@ internal static class SaveDataManager
     public static void writeNewGameSaveData()
     {
         Debug.Log("Writing save data for a new game.");
-        writeSaveData(SaveAndLoad.getNewSave());
+        writeSaveData(SaveData.getNewGameSaveData());
     }
 }

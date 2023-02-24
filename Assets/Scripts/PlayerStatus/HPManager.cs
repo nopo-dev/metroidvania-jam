@@ -41,6 +41,11 @@ public class HPManager
         setCurrentHP(this.currentHP_ - damageAmount);
     }
 
+    public void healToFull()
+    {
+        setCurrentHP(this.maximumHP_);
+    }
+
     public int getMaximumHP()
     {
         return this.maximumHP_;
