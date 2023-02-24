@@ -11,8 +11,12 @@ internal static class SaveDataManager
     public static void initSaveDataManager()
     {
         saveFile = UnityEngine.Application.persistentDataPath + "/gamedata.json";
-        Debug.Log("Save file location at " + saveFile);
-        writeNewGameSaveData();
+        Debug.Log("SaveDataManager - Save file location at " + saveFile);
+        if (!File.Exists(saveFile))
+        {
+            Debug.Log("SaveDataManager - Save file does not exist, creating a new one...");
+            writeNewGameSaveData();
+        }
     }
 
     /*
@@ -22,11 +26,11 @@ internal static class SaveDataManager
     {
         if (!File.Exists(saveFile))
         {
-            Debug.Log("Save file does not exist, unexpected state."); // TODO: crash here ?
+            Debug.Log("SaveDataManager - Save file does not exist, unexpected state."); // TODO: crash here ?
         }
         string fileContents = File.ReadAllText(saveFile);
         SaveData saveData = JsonUtility.FromJson<SaveData>(fileContents);
-        Debug.Log("Loaded data " + saveData);
+        Debug.Log("SaveDataManager - Loaded data " + saveData);
         return saveData;
     }
 
@@ -37,7 +41,7 @@ internal static class SaveDataManager
     {
         string saveJsonString = JsonUtility.ToJson(saveData);
         File.WriteAllText(saveFile, saveJsonString);
-        Debug.Log("Wrote data " + saveData);
+        Debug.Log("SaveDataManager - Wrote data " + saveData);
     }
 
     /*
@@ -45,7 +49,7 @@ internal static class SaveDataManager
      */
     public static void writeNewGameSaveData()
     {
-        Debug.Log("Writing save data for a new game.");
+        Debug.Log("SaveDataManager - Writing save data for a new game.");
         writeSaveData(SaveData.getNewGameSaveData());
     }
 }

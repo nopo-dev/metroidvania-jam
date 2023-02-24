@@ -14,6 +14,7 @@ public class EnergyManager
     {
         this.currentEnergy_ = maximumEnergy;
         this.maximumEnergy_ = maximumEnergy;
+        updateUI();
     }
 
     public int getCurrentEnergy()
@@ -56,5 +57,10 @@ public class EnergyManager
     public Boolean isOutOfEnergy()
     {
         return this.maximumEnergy_ <= 0; // TODO: If we have variable energy costs or energy cost that doesn't evenly divide total energy, this needs to change.
+    }
+
+    private void updateUI()
+    {
+        PlayerStatus.Instance.energyText.text = $"{this.currentEnergy_} / {this.maximumEnergy_}";
     }
 }

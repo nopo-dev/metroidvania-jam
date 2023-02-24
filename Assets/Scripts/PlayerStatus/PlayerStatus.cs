@@ -42,19 +42,4 @@ public class PlayerStatus : MonoBehaviour
         this.UpgradeManager = new UpgradeManager();
         this.LastSaveLocManager = new LastSaveLocManager();
     }
-
-    // TODO: These are for debug/testing purposes. Necessary? Can HPManager be accessed from inspector ?
-    public Upgrade playerUpgrade_debug;
-    public Location lastSaveLoc_debug; // TODO: this one doesn't show in inspector.
-    private void Update()
-    {
-        this.healthText.text = "HP: " + HPManager.getCurrentHP() + "/" + HPManager.getMaximumHP();
-        this.energyText.text = "Energy: " + EnergyManager.getCurrentEnergy() + "/" + EnergyManager.getMaximumEnergy();
-
-        if (UpgradeManager.getUpgrade() != playerUpgrade_debug)
-        {
-            UpgradeManager.setUpgrade(playerUpgrade_debug);
-        }
-        LastSaveLocManager.setLastSaveLoc(lastSaveLoc_debug);
-    }
 }

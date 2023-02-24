@@ -17,6 +17,7 @@ public class HPManager
     {
         this.currentHP_ = maximumHP;
         this.maximumHP_ = maximumHP;
+        updateUI();
     }
 
     public int getCurrentHP()
@@ -27,6 +28,7 @@ public class HPManager
     public void setCurrentHP(int newCurrentHP)
     {
         this.currentHP_ = Utils.Clamp(newCurrentHP, 0, this.maximumHP_);
+        updateUI();
     }
 
     public void healHP(int healAmount) // TODO: We could get heal power from player status ?
@@ -66,4 +68,10 @@ public class HPManager
         return this.currentHP_ <= 0; // really this could just check equality, but ig it's safer this way.
     }
     // TODO: if we want to show % we should have a method to get it.
+
+    // TODO: Following fns can live in some UI class
+    private void updateUI()
+    {
+        PlayerStatus.Instance.healthText.text = $"{this.currentHP_} / {this.maximumHP_}";
+    }
 }
