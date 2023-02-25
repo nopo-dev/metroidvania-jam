@@ -118,7 +118,7 @@ public class SaveAndLoader : MonoBehaviour
     /*
      * TPs player to location - this could live somewhere else ?
      */
-    private void teleportPlayer(Location loc)
+    public void teleportPlayer(Location loc)
     {
         Debug.Log($"SaveAndLoader - Teleporting to ({loc.x}, {loc.y})...");
         transform.position = new Vector2(loc.x, loc.y);
