@@ -16,7 +16,7 @@ public class Trap : Enemy
         PlayerStatus.Instance.HPManager.damageHP(this.damagePerSecond);
         this.lastDamageTime = Time.time;
         // should modify location to last safe location
-        SaveAndLoader.Instance.teleportPlayer(new Location(-12,3));
+        SaveAndLoader.Instance.teleportPlayer(PlayerStatus.Instance.LastSafeLocManager.getLastSafeLoc());
         // might also want to trigger some animation here
     }
 

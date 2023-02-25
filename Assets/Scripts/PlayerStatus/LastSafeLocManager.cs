@@ -14,6 +14,6 @@ public class LastSafeLocManager : MonoBehaviour
 
     public Location getLastSafeLoc()
     {
-        return new Location(-12,3);
+        return this.lastSafeLoc_;
     }
 }
