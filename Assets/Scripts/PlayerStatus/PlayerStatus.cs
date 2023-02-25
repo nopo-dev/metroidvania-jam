@@ -19,6 +19,7 @@ public class PlayerStatus : MonoBehaviour
     public EnergyManager EnergyManager { get; private set; }
     public UpgradeManager UpgradeManager { get; private set; }
     public LastSaveLocManager LastSaveLocManager { get; private set; }
+    public LastSafeLocManager LastSafeLocManager { get; private set; }
 
     // TODO: this is temporary, for testing/debugging
     public TMP_Text healthText;
@@ -41,5 +42,6 @@ public class PlayerStatus : MonoBehaviour
         this.EnergyManager = new EnergyManager();
         this.UpgradeManager = new UpgradeManager();
         this.LastSaveLocManager = new LastSaveLocManager();
+        this.LastSafeLocManager = new LastSafeLocManager();
     }
 }
