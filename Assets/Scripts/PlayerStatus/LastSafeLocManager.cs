@@ -1,7 +1,7 @@
 using UnityEngine;
 
 
-public class LastSafeLocManager : MonoBehaviour
+public class LastSafeLocManager
 {
     private Location lastSafeLoc_;
 

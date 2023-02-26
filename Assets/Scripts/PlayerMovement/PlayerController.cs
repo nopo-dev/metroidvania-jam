@@ -3,41 +3,47 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
+
+// TODO: push player out of colliders if they are inside one
+// preferably towards the closest edge/towards player center
+// TODO: move _playerActive flag to PlayerStatus perhaps?
+// it currently just exists to allow Unity to smooth out before applying movement
+// which solves some weird behavior with pausing and also falling through the floor
 public class PlayerController : MonoBehaviour
 {
-    /*
-    player controller features
-    start here:
-    move left right (can move in air, partial movement?)
-    jump (only when grounded, plan for double jump eventually?)
-
-    later:
-    attack (free, except when ccd in some way)
-    heal (only when grounded? cant move? partial movement?)
-    special (projectile vomit)
-    other stuff eventually...
-
-    think about how i want controlling the character to feel
-    i guess relatively weighty/clunky
-    dont think it really makes much sense for it to be like super nimble
-    probably feel like it should have enough lag in animations
-    */
     private Vector3 _velocity;
+
+    //
+    private bool _playerActive = false;
+    private float _delay = 1f;
+    private void Start()
+    {
+        StartCoroutine(Sleep());
+    }
+
+    IEnumerator Sleep()
+    {
+        yield return new WaitForSeconds(_delay);
+        _playerActive = true;
+    }
 
     private void Update()
     {
         _velocity = (transform.position - _lastPosition) / Time.deltaTime;
         _lastPosition = transform.position;
 
-        GetInput();
-        CheckCollisions();
+        if (_playerActive)
+        {
+            GetInput();
+            CheckCollisions();
 
-        CalculateXMove();
-        CalculateFallSpeed();
-        CalculateGravity();
-        CalculateJump();
+            CalculateXMove();
+            CalculateFallSpeed();
+            CalculateGravity();
+            CalculateJump();
 
-        ApplyMovement();
+            ApplyMovement();
+        }
     }
 
     private PlayerInput _input;
@@ -177,9 +183,6 @@ public class PlayerController : MonoBehaviour
             if (_ySpeed < 0)
             {
                 _ySpeed = 0;
-                // add part here to push player out of colliders if they are inside one
-                // preferably towards the closest edge/towards player center
-                // might need to be added to x movement section as well
             }
         }
         else
