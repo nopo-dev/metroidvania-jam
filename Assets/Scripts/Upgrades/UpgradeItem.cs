@@ -7,7 +7,7 @@ using UnityEngine;
  *  - There should only be one UpgradeItem for each Upgrade,
  *    and no Upgrade 0.
  */
-public class UpgradeItem : MonoBehaviour
+public class UpgradeItem : CollidableArea
 {
     [SerializeField] private Upgrade upgradeID_; // set in inspector.
 
@@ -44,7 +44,7 @@ public class UpgradeItem : MonoBehaviour
      * When triggered, we need to set the new upgrade level on PlayerStatus, and hide this UpgradeItem.
      * TODO: Show UI message on how to use upgrade ?
      */
-    private void OnTriggerEnter2D(Collider2D collision)
+    protected override void collisionHandler(Collider2D other)
     {
         Debug.Log($"UpgradeItem - Obtaining upgrade {this.upgradeID_}");
         PlayerStatus.Instance.UpgradeManager.setUpgrade(this.upgradeID_);

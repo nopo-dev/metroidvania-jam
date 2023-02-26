@@ -4,17 +4,18 @@ using UnityEngine;
 /*
  * This is a (maybe temporary) enemy object,
  * for testing HP management and save/load.
+ * Be careful about inheriting it.
  */
-public class Enemy : MonoBehaviour
+public class Enemy : CollidableArea
 {
-    public int damagePerSecond;
-    protected float lastDamageTime;
+    [SerializeField] private int damagePerSecond_;
+    private float lastDamageTime;
     protected Boolean triggerIn = false;
 
-    protected void OnTriggerEnter2D(Collider2D collision)
+    protected override void collisionHandler(Collider2D collision)
     {
         triggerIn = true;
-        PlayerStatus.Instance.HPManager.damageHP(damagePerSecond);
+        PlayerStatus.Instance.HPManager.damageHP(damagePerSecond_);
         lastDamageTime = Time.time;
     }
 
@@ -30,7 +31,7 @@ public class Enemy : MonoBehaviour
             var now = Time.time;
             if (now - lastDamageTime >= 1.0)
             {
-                PlayerStatus.Instance.HPManager.damageHP(damagePerSecond);
+                PlayerStatus.Instance.HPManager.damageHP(damagePerSecond_);
                 lastDamageTime = now;
             }
         }

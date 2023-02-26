@@ -108,6 +108,7 @@ public class SaveAndLoader : MonoBehaviour
         PlayerStatus.Instance.EnergyManager.setCurrentEnergy(saveData.playerCurrentEnergy);
         PlayerStatus.Instance.UpgradeManager.setUpgrade(saveData.playerUpgrades); // TODO: Hide earned upgrades when loading.
         PlayerStatus.Instance.LastSaveLocManager.setLastSaveLoc(saveData.lastSaveLoc);
+        PlayerStatus.Instance.LastSafeLocManager.setLastSafeLoc(saveData.lastSaveLoc); // When loading a save, last safe loc = last save loc, as fallback.
 
         // Step 2: Non-raw-value updates, such as moving the player, hide/showing upgrade items, respawn enemies.
         teleportPlayer(saveData.lastSaveLoc);
@@ -116,7 +117,7 @@ public class SaveAndLoader : MonoBehaviour
     }
 
     /*
-     * TPs player to location - this could live somewhere else ?
+     * TPs player to location - this could live somewhere else ? Maybe in Consts or PlayerMovement ?
      */
     public void teleportPlayer(Location loc)
     {

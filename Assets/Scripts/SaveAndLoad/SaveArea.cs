@@ -4,7 +4,7 @@ using UnityEngine;
 /**
  * Used for Save Areas. Relies on Collider+RigidBody setup.
  */
-public class SaveArea : MonoBehaviour
+public class SaveArea : CollidableArea
 {
     [SerializeField] private Boolean isStartingSaveArea; // This should be toggleable in inspector.
     [SerializeField] private float spawnLocationX_; // These are set in inspector. We could also use the center of the Save Area, but that might not work in all cases.
@@ -12,7 +12,6 @@ public class SaveArea : MonoBehaviour
 
     internal static SaveArea StartingSaveArea { get; private set; } // There can only be one !
     
-
     private void Awake()
     {
         if (this.isStartingSaveArea)
@@ -39,7 +38,7 @@ public class SaveArea : MonoBehaviour
         PlayerStatus.Instance.HPManager.healToFull();
         SaveAndLoader.Instance.save();
     }
-    private void OnTriggerEnter2D(Collider2D other) // TODO: currently using built-in collision detection, this can be updated.
+    protected override void collisionHandler(Collider2D other)
     {
         doSave();
     }

@@ -4395,7 +4395,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4491df0d8f3100498258b8b75d035ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damagePerSecond: 50
+  damagePerSecond_: 50
 --- !u!50 &529909525
 Rigidbody2D:
   serializedVersion: 4
@@ -5011,7 +5011,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: acd2d27f125fb5e4e87d63f7b6c3c766, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damagePerSecond: 20
+  damage_: 20
 --- !u!50 &1243740573
 Rigidbody2D:
   serializedVersion: 4

@@ -1,3 +1,10 @@
+/*
+ * Theoretically this & LastSafeLocManager could be the same class,
+ * since they do exactly the same thing.
+ * But they might differ as we add more implementation, and I think there's
+ * more clarity in LastSaveLocManager.getLastSaveLoc() 
+ * vs. LastSaveLocManager.getLastLoc().
+ */
 public class LastSaveLocManager
 {
     // We could just make this public.. but I made all the other ones private.

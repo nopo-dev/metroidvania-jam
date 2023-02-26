@@ -1,23 +1,14 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class Trap : Enemy
+public class Trap : CollidableArea
 {
-    private void Awake()
-    {
-        // idk if we want to set these inspector or defined in code.
-        damagePerSecond = 20;
-    }
+    [SerializeField] private int damage_;
 
-    private new void OnTriggerEnter2D(Collider2D collision)
+    protected override void collisionHandler(Collider2D other)
     {
-        this.triggerIn = true;
-        PlayerStatus.Instance.HPManager.damageHP(this.damagePerSecond);
-        this.lastDamageTime = Time.time;
-        // should modify location to last safe location
+        PlayerStatus.Instance.HPManager.damageHP(this.damage_);
         SaveAndLoader.Instance.teleportPlayer(PlayerStatus.Instance.LastSafeLocManager.getLastSafeLoc());
-        // might also want to trigger some animation here
+        // TODO: might also want to trigger some animation here
     }
 
 }

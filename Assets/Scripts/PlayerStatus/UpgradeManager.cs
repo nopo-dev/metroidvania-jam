@@ -35,7 +35,7 @@ public class UpgradeManager
     {
         Debug.Log("UpgradeManager - Hiding & showing UpgradeItems based on Player's current upgrade level");
         int currentUpgradeIndex = (int) currentUpgrade_;
-        for (int i = 1; i <= UpgradeItem.numberOfUpgrades; i++) // Loop starts at 1 because there should be no Upgrade 0.
+        for (int i = 1; i < UpgradeItem.numberOfUpgrades; i++) // Loop starts at 1 because there should be no Upgrade 0.
         {
             if (i <= currentUpgradeIndex)
             {
