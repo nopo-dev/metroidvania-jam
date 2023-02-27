@@ -5621,14 +5621,14 @@ MonoBehaviour:
   _rayLength: 0.05
   _rayBuffer: 0
   _maxXSpeed: 15
-  _acceleration: 150
-  _deceleration: 150
-  _apexBoost: 2
+  _acceleration: 160
+  _deceleration: 160
+  _apexBoost: 1
   _maxFallSpeed: -40
-  _jumpSpeed: 35
+  _jumpSpeed: 47.5
   _fallSpeedRange:
-  - 80
-  - 120
+  - 100
+  - 140
   _apexThreshold: 10
   _coyoteThreshold: 0.05
   _jumpBuffer: 0.1
