@@ -4736,9 +4736,21 @@ PrefabInstance:
       value: Camera Pivot
       objectReference: {fileID: 0}
     - target: {fileID: 4603113929683278802, guid: 94177a09544ffd049bfbf7a196cf3c07, type: 3}
+      propertyPath: offset
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4603113929683278802, guid: 94177a09544ffd049bfbf7a196cf3c07, type: 3}
       propertyPath: player
       value: 
       objectReference: {fileID: 1722586463}
+    - target: {fileID: 4603113929683278802, guid: 94177a09544ffd049bfbf7a196cf3c07, type: 3}
+      propertyPath: offsetSmoothing
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 4603113929683278812, guid: 94177a09544ffd049bfbf7a196cf3c07, type: 3}
+      propertyPath: orthographic size
+      value: 67.5
+      objectReference: {fileID: 0}
     - target: {fileID: 4603113930323695580, guid: 94177a09544ffd049bfbf7a196cf3c07, type: 3}
       propertyPath: m_RootOrder
       value: 0
