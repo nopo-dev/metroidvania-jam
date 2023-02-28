@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class SceneSave : MonoBehaviour
 {
-    //unsure if this should be awake or start
-    void Awake(){
+    void Start(){
         //in case we ever need to save other objects between scenes
 
         for (int i = 0; i < Object.FindObjectsOfType<SceneSave>().Length; i++)

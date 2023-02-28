@@ -6,13 +6,12 @@ using UnityEngine.SceneManagement;
 public class LevelLoader : CollidableArea
 {
     public Animator transition;
-    [SerializeField] private float transitionTime = 1f;
+    [SerializeField] private float _transitionTime = 1f;
     [SerializeField] private string _targetSceneName;
     [SerializeField] private Location _spawnPoint;
 
     protected override void collisionHandler(Collider2D other)
     {
-
         if (other.tag == "Player")
         {
             LoadNextLevel();
@@ -30,7 +29,7 @@ public class LevelLoader : CollidableArea
     {
         transition.SetTrigger("Start");
 
-        yield return new WaitForSeconds(transitionTime);
+        yield return new WaitForSeconds(_transitionTime);
 
         SceneManager.LoadScene(_targetSceneName);
     }
