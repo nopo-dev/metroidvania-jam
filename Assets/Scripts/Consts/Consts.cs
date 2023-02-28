@@ -7,4 +7,7 @@ public class Consts
 {
     public const int STARTING_PLAYER_HP = 100;
     public const int STARTING_PLAYER_ENERGY = 100;
+
+    public const float SCENE_X_OFFSET = 15f;
+    public const float SCENE_Y_OFFSET = 8f;
 }

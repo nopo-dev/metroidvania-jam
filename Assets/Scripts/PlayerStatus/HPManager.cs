@@ -30,7 +30,7 @@ public class HPManager
      */
     public void setCurrentHP(int newCurrentHP)
     {
-        this.currentHP_ = Utils.Clamp(newCurrentHP, 0, this.maximumHP_);
+        this.currentHP_ = Utils.ClampInt(newCurrentHP, 0, this.maximumHP_);
         updateUI();
 
         if (isOutOfHP())
