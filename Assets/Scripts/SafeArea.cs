@@ -2,11 +2,10 @@ using UnityEngine;
 
 public class SafeArea : CollidableArea
 {
-    [SerializeField] private float spawnLocationX_; 
-    [SerializeField] private float spawnLocationY_;
+    [SerializeField] private Location _spawnPoint;
 
     protected override void collisionHandler(Collider2D other)
     {
-        PlayerStatus.Instance.LastSafeLocManager.setLastSafeLoc(new Location(spawnLocationX_,spawnLocationY_));
+        PlayerStatus.Instance.LastSafeLocManager.setLastSafeLoc(_spawnPoint);
     }
 }   
