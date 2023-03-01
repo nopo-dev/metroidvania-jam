@@ -15,6 +15,7 @@ public class Jump : MonoBehaviour
     [SerializeField] private float _jumpBufferThreshold = 0.1f;
 
     private Rigidbody2D _rb;
+    private Animator _animator;
     // for friction purposes, though every surface should be frictionless
     private CollisionSurface _ground;
     private Vector2 _velocity;
@@ -25,6 +26,7 @@ public class Jump : MonoBehaviour
     private void Awake()
     {
         _rb = GetComponent<Rigidbody2D>();
+        _animator = GetComponent<Animator>();
         _ground = GetComponent<CollisionSurface>();
         _defaultGravity = 1f;
     }
@@ -88,7 +90,8 @@ public class Jump : MonoBehaviour
         {
             _rb.gravityScale = _defaultGravity;
         }
-
+        _animator.SetBool("Grounded", _grounded);
+        _animator.SetFloat("Velocity Y", _velocity.y);
         _rb.velocity = _velocity;
     }
 
