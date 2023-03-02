@@ -1,25 +1,27 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Cinemachine;
 
 public class CameraController : MonoBehaviour
 {
+    private CinemachineVirtualCamera vcam;
+    private GameObject tPlayer;
+    public Transform tFollowTarget;
 
-    public GameObject player;
-    public float offsetSmoothing = 40f; // Makes the camera move faster to follow the player
-    private Vector3 playerPosition;
-    
     void Start()
     {
-        player = GameObject.FindGameObjectsWithTag("Player")[0];
+        vcam = GetComponent<CinemachineVirtualCamera>();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        playerPosition = new Vector3(player.transform.position.x, player.transform.position.y, transform.position.z);
-
-        // TODO: need to clamp to scene boundaries
-        transform.position = Vector3.Lerp(transform.position, playerPosition, Time.deltaTime * offsetSmoothing);
+        if (tPlayer == null)
+        {
+            tPlayer = GameObject.FindWithTag("Player");
+        }
+        tFollowTarget = tPlayer.transform;
+        vcam.Follow = tFollowTarget;
     }
+
 }
