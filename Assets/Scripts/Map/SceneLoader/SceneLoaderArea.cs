@@ -3,16 +3,13 @@ using UnityEngine;
 
 public class SceneLoaderArea : CollidableArea
 {
-    [SerializeField] private string _targetSceneName;
-    [SerializeField] private Location _spawnPoint;
+    [SerializeField] private Location _nextSceneSpawnPoint;
 
     protected override void collisionHandler(Collider2D other)
     {
         if (other.tag == "Player")
         {
-            SceneLoader.Instance.loadScene(_targetSceneName);
-            SaveAndLoader.Instance.teleportPlayer(_spawnPoint);
-            PlayerStatus.Instance.LastSafeLocManager.setLastSafeLoc(_spawnPoint);
+            SceneLoader.Instance.loadScene(_nextSceneSpawnPoint);
         }
     }
 }

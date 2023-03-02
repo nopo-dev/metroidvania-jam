@@ -111,8 +111,7 @@ public class SaveAndLoader : MonoBehaviour
         PlayerStatus.Instance.LastSafeLocManager.setLastSafeLoc(saveData.lastSaveLoc); // When loading a save, last safe loc = last save loc, as fallback.
 
         // Step 2: Non-raw-value updates, such as moving the player, hide/showing upgrade items, respawn enemies.
-        SceneLoader.Instance.loadScene(saveData.lastSaveLoc.sceneName);
-        teleportPlayer(saveData.lastSaveLoc);
+        SceneLoader.Instance.loadScene(saveData.lastSaveLoc);
         PlayerStatus.Instance.UpgradeManager.applyUpgradeItemState();
         // TODO: respawn enemies.
     }

@@ -7,7 +7,10 @@ using UnityEngine;
 public class SaveArea : CollidableArea
 {
     [SerializeField] private Boolean isStartingSaveArea; // This should be toggleable in inspector.
-    [SerializeField] private Location spawnPoint_;
+
+    // TODO: expose this to inspector for non-centered spawn points.
+    // TODO: standardize notation for private vars, probably _before
+    private Location spawnPoint_;
 
     internal static SaveArea StartingSaveArea { get; private set; } // There can only be one !
     
@@ -27,8 +30,9 @@ public class SaveArea : CollidableArea
 
     private void Start()
     {
-        // sceneName will be exposed in inspector but we don't need to change it
         spawnPoint_.sceneName = SceneLoader.Instance.getCurrentSceneName();
+        spawnPoint_.x = this.transform.position.x;
+        spawnPoint_.y = this.transform.position.y;
     }
 
     internal Location getSpawnLocation()

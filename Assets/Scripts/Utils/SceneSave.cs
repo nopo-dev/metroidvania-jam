@@ -6,7 +6,6 @@ public class SceneSave : MonoBehaviour
         //in case we ever need to save other objects between scenes
         for (int i = 0; i < Object.FindObjectsOfType<SceneSave>().Length; i++)
         {
-            Debug.Log(Object.FindObjectsOfType<SceneSave>()[i]);
             if (Object.FindObjectsOfType<SceneSave>()[i] != this)
             {
                 if (Object.FindObjectsOfType<SceneSave>()[i].name == gameObject.name)

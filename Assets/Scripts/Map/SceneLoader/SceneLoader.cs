@@ -25,26 +25,17 @@ public class SceneLoader : MonoBehaviour
     }
 
     /*
-     * Used when loading a new scene
+     * Used when loading a new scene including spawnPoint
      */
-    public void loadScene(string sceneName)
+    public void loadScene(Location spawnPoint)
     {
-        Debug.Log($"SceneLoader - Loading {sceneName}...");
-        if (sceneName == getCurrentSceneName())
+        Debug.Log($"SceneLoader - Loading {spawnPoint.sceneName} ({spawnPoint.x}, {spawnPoint.y})...");
+        if (spawnPoint.sceneName == getCurrentSceneName())
         {
-            reloadScene();
+            StartCoroutine(animatedReloadScene(spawnPoint));
             return;
         }
-        StartCoroutine(animatedLoadScene(sceneName));
-    }
-
-    /*
-     * Used for a transition within the same scene, e.g. traps.
-     * For now, just delays for a bit.
-     */
-    public void reloadScene()
-    {
-        StartCoroutine(animatedRefresh());
+        StartCoroutine(animatedLoadScene(spawnPoint));
     }
 
     public string getCurrentSceneName()
@@ -52,25 +43,31 @@ public class SceneLoader : MonoBehaviour
         return SceneManager.GetActiveScene().name;
     }
 
-    private IEnumerator animatedRefresh()
+    private IEnumerator animatedReloadScene(Location spawnPoint)
     {
-        yield return new WaitForSeconds(_transitionTimeReload); // TODO: wanted this to freeze the game for 0.5s but it doesn't work
+        // transition.SetTrigger("Start");
+        yield return new WaitForSeconds(_transitionTimeReload); // TODO: wanted this to freeze the game for 0.5s 
+        SaveAndLoader.Instance.teleportPlayer(spawnPoint);
     }
 
-    private IEnumerator animatedLoadScene(string sceneName)
+    private IEnumerator animatedLoadScene(Location spawnPoint)
     {
         // transition.SetTrigger("Start"); // TODO: figure this out
 
         yield return new WaitForSeconds(_transitionTimeNewScene);
 
-        if (!isScene(sceneName))
+        if (!isScene(spawnPoint.sceneName))
         {
-            Debug.Log($"SceneLoader - {sceneName} is not a valid scene. Falling back to 0-index scene."); // TODO: log that dynamically grabs class name
+            Debug.Log($"SceneLoader - {spawnPoint.sceneName} is not a valid scene. Falling back to 0-index scene."); // TODO: log that dynamically grabs class name
             SceneManager.LoadScene(getSceneNames()[0]);
         } 
         else
         {
-            SceneManager.LoadScene(sceneName);
+            SceneManager.LoadScene(spawnPoint.sceneName);
+            // TODO: player continues to exist before being teleported; potential for issues here, e.g. momentarily being inside a wall.
+            // TOOD: since LoadScene takes a second, player is briefly shown teleported to the spawn point coords in the old scene. Maybe not a problem in release build.
+            SaveAndLoader.Instance.teleportPlayer(spawnPoint);
+            PlayerStatus.Instance.LastSafeLocManager.setLastSafeLoc(spawnPoint); // this is duplicate when saveandloading
         }
     }
 
@@ -85,7 +82,6 @@ public class SceneLoader : MonoBehaviour
         for (int i = 0; i < UnityEngine.SceneManagement.SceneManager.sceneCountInBuildSettings; i++)
         {
             scenesInBuild.Add(System.IO.Path.GetFileNameWithoutExtension(SceneUtility.GetScenePathByBuildIndex(i)));
-            Debug.Log(System.IO.Path.GetFileNameWithoutExtension(SceneUtility.GetScenePathByBuildIndex(i)));
         }
         return scenesInBuild;
     }

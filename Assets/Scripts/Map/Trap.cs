@@ -9,8 +9,7 @@ public class Trap : CollidableArea
         if (other.tag == "Player")
         {
             PlayerStatus.Instance.HPManager.damageHP(this.damage_);
-            SceneLoader.Instance.reloadScene();
-            SaveAndLoader.Instance.teleportPlayer(PlayerStatus.Instance.LastSafeLocManager.getLastSafeLoc());
+            SceneLoader.Instance.loadScene(PlayerStatus.Instance.LastSafeLocManager.getLastSafeLoc());
         }
         // TODO: might also want to trigger some animation here
     }
