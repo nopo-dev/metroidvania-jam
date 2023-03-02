@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6494945951860792293}
   - component: {fileID: 8001166197323604736}
   - component: {fileID: 3866639096310599451}
+  - component: {fileID: 6244042401249574135}
   m_Layer: 0
   m_Name: Cinemachine
   m_TagString: Untagged
@@ -102,6 +103,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a8a05de0ac134f4f9d01bef6b9da077, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &6244042401249574135
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2715232121215326363}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6c5012728fb3486985a82b351b9a6a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tFollowTarget: {fileID: 0}
 --- !u!1 &7553011453951620926
 GameObject:
   m_ObjectHideFlags: 0

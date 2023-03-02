@@ -15,11 +15,11 @@ public class LevelLoader : CollidableArea
         if (other.tag == "Player")
         {
             LoadNextLevel();
+            // TODO: change so that player status knows where to spawn player in new scene.
             SaveAndLoader.Instance.teleportPlayer(_spawnPoint);
         }
     }
 
-    // I followed a tutorial for this "StartCoroutine" stuff, apparently necessary for animations?
     public void LoadNextLevel()
     {
         StartCoroutine(LoadLevel());
