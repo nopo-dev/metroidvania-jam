@@ -9,6 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 90d96149a7630824992d80b160e36366, type: 3}
-  m_Name: CharacterController
+  m_Script: {fileID: 11500000, guid: 73494263232312143b9d5b6fbd9c417a, type: 3}
+  m_Name: Player
   m_EditorClassIdentifier: 
