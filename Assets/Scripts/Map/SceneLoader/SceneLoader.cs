@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+// static ?
 public class SceneLoader : MonoBehaviour
 {
     public static SceneLoader Instance;
@@ -38,7 +39,7 @@ public class SceneLoader : MonoBehaviour
         StartCoroutine(animatedLoadScene(spawnPoint));
     }
 
-    public string getCurrentSceneName()
+    public static string getCurrentSceneName()
     {
         return SceneManager.GetActiveScene().name;
     }

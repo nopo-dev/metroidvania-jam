@@ -26,11 +26,7 @@ public class SaveArea : CollidableArea
             }
             StartingSaveArea = this;
         }
-    }
-
-    private void Start()
-    {
-        spawnPoint_.sceneName = SceneLoader.Instance.getCurrentSceneName();
+        spawnPoint_.sceneName = SceneLoader.getCurrentSceneName();
         spawnPoint_.x = this.transform.position.x;
         spawnPoint_.y = this.transform.position.y;
     }

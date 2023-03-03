@@ -6,9 +6,9 @@ public class SafeArea : CollidableArea
     // spawn points.
     private Location _spawnPoint;
 
-    private void Start()
+    private void Awake()
     {
-        _spawnPoint.sceneName = SceneLoader.Instance.getCurrentSceneName();
+        _spawnPoint.sceneName = SceneLoader.getCurrentSceneName();
         _spawnPoint.x = this.transform.position.x;
         _spawnPoint.y = this.transform.position.y;
     }
