@@ -31,6 +31,8 @@ public class Move : MonoBehaviour
 
     private void Update()
     {
+        if (PauseControl.gameIsPaused) { return; }
+
         _direction.x = _input.MoveInput();
         // determine how fast we're allowed to move
         _targetVelocity = new Vector2(_direction.x, 0f) * Mathf.Max(_maxSpeed - _ground.Friction, 0f);

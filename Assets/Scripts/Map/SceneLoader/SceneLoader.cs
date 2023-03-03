@@ -47,29 +47,35 @@ public class SceneLoader : MonoBehaviour
     private IEnumerator animatedReloadScene(Location spawnPoint)
     {
         // transition.SetTrigger("Start");
-        yield return new WaitForSeconds(_transitionTimeReload); // TODO: wanted this to freeze the game for 0.5s 
-        SaveAndLoader.Instance.teleportPlayer(spawnPoint);
+        PauseControl.PauseGame();
+        yield return new WaitForSecondsRealtime(_transitionTimeReload); // TODO: wanted this to freeze the game for 0.5s 
+        PlayerStatus.Instance.teleportPlayer(spawnPoint);
+        PauseControl.ResumeGame();
     }
 
     private IEnumerator animatedLoadScene(Location spawnPoint)
     {
         // transition.SetTrigger("Start"); // TODO: figure this out
+        PauseControl.PauseGame();
 
-        yield return new WaitForSeconds(_transitionTimeNewScene);
+        yield return new WaitForSecondsRealtime(_transitionTimeNewScene);
 
         if (!isScene(spawnPoint.sceneName))
         {
-            Debug.Log($"SceneLoader - {spawnPoint.sceneName} is not a valid scene. Falling back to 0-index scene."); // TODO: log that dynamically grabs class name
-            SceneManager.LoadScene(getSceneNames()[0]);
+            Debug.Log($"SceneLoader - {spawnPoint.sceneName} is not a valid scene. Will not load a scene."); // TODO: log that dynamically grabs class name
         } 
         else
         {
-            SceneManager.LoadScene(spawnPoint.sceneName);
+            AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(spawnPoint.sceneName);
+            while (!asyncLoad.isDone)
+            {
+                yield return null;
+            }
             // TODO: player continues to exist before being teleported; potential for issues here, e.g. momentarily being inside a wall.
-            // TOOD: since LoadScene takes a second, player is briefly shown teleported to the spawn point coords in the old scene. Maybe not a problem in release build.
-            SaveAndLoader.Instance.teleportPlayer(spawnPoint);
+            PlayerStatus.Instance.teleportPlayer(spawnPoint);
             PlayerStatus.Instance.LastSafeLocManager.setLastSafeLoc(spawnPoint); // this is duplicate when saveandloading
         }
+        PauseControl.ResumeGame();
     }
 
     private Boolean isScene(string sceneName)

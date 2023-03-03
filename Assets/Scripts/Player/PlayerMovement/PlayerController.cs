@@ -29,6 +29,8 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
+        if (PauseControl.gameIsPaused) { return; }
+
         _velocity = (transform.position - _lastPosition) / Time.deltaTime;
         _lastPosition = transform.position;
 

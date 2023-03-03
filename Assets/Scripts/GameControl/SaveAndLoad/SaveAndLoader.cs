@@ -36,17 +36,19 @@ public class SaveAndLoader : MonoBehaviour
     // TODO: is this really the best way to check for save/load clicks?
     private void Update()
     {
+        if (PauseControl.gameIsPaused) { return; }
+
         // Save take prio over load
-        if (UnityEngine.Input.GetKeyDown(saveKey))
+        if (Input.GetKeyDown(saveKey))
         {
             Debug.Log("SaveAndLoader - Manual save is for debug purposes, not guaranteed to be soft-lock-safe.");
             save();
         }
-        else if (UnityEngine.Input.GetKeyDown(loadKey))
+        else if (Input.GetKeyDown(loadKey))
         {
             load();
         }
-        else if (UnityEngine.Input.GetKeyDown(restartKey))
+        else if (Input.GetKeyDown(restartKey))
         {
             restart();
         }
@@ -114,15 +116,6 @@ public class SaveAndLoader : MonoBehaviour
         SceneLoader.Instance.loadScene(saveData.lastSaveLoc);
         PlayerStatus.Instance.UpgradeManager.applyUpgradeItemState();
         // TODO: respawn enemies.
-    }
-
-    /*
-     * TPs player to location - this could live somewhere else ? Maybe in Consts or PlayerMovement ?
-     */
-    public void teleportPlayer(Location loc)
-    {
-        Debug.Log($"SaveAndLoader - Teleporting to ({loc.x}, {loc.y})...");
-        transform.position = new Vector2(loc.x, loc.y);
     }
 
     /*

@@ -33,6 +33,7 @@ public class Jump : MonoBehaviour
 
     private void Update()
     {
+        if (PauseControl.gameIsPaused) { Debug.Log("Paused");  return; }
         _jumpPress |= _input.JumpPress();
     }
 
