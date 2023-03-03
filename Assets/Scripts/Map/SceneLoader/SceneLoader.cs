@@ -71,7 +71,6 @@ public class SceneLoader : MonoBehaviour
             {
                 yield return null;
             }
-            // TODO: player continues to exist before being teleported; potential for issues here, e.g. momentarily being inside a wall.
             PlayerStatus.Instance.teleportPlayer(spawnPoint);
             PlayerStatus.Instance.LastSafeLocManager.setLastSafeLoc(spawnPoint); // this is duplicate when saveandloading
         }

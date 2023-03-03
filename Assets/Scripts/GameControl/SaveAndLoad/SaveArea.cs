@@ -40,7 +40,7 @@ public class SaveArea : CollidableArea
     {
         Debug.Log("SaveArea - Marking last save loc...");
         PlayerStatus.Instance.LastSaveLocManager.setLastSaveLoc(this.spawnPoint_);
-        Debug.Log("SaveAndLoader - Healing to full...");
+        Debug.Log("SaveArea - Healing to full...");
         PlayerStatus.Instance.HPManager.healToFull();
         SaveAndLoader.Instance.save();
     }
