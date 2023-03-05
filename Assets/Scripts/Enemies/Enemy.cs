@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 /*
@@ -8,32 +7,78 @@ using UnityEngine;
  */
 public class Enemy : CollidableArea
 {
-    [SerializeField] private int damagePerSecond_;
-    private float lastDamageTime;
-    protected Boolean triggerIn = false;
+    // TODO: enemy hp manager ?
+    [SerializeField] private int _maximumHP;
+    [SerializeField] private int _damage;
+    [SerializeField] private bool _respawns = true;
 
-    protected override void collisionHandler(Collider2D collision)
-    {
-        triggerIn = true;
-        PlayerStatus.Instance.HPManager.damageHP(damagePerSecond_);
-        lastDamageTime = Time.time;
-    }
+    private int _currentHP;
+    private bool _killed; // this won't persist between scenes
+    private bool _aggroed;
 
-    protected void OnTriggerExit2D(Collider2D collision)
+    private void Awake()
     {
-        triggerIn = false;
+        _currentHP = _maximumHP;
+        _killed = false;
+        _aggroed = false;
     }
 
     private void Update()
     {
-        if (triggerIn)
+        // Check for player & aggro
+    }
+
+    protected override void collisionHandler(Collider2D other)
+    {
+        if (other.tag != "Player") { return; }
+
+        PlayerStatus.Instance.HPManager.damageHP(_damage);
+
+        // TODO: player attacks rather than collide w/ upgrade
+        if (PlayerStatus.Instance.UpgradeManager.hasUpgrade(Upgrade.MeleeAttack))
         {
-            var now = Time.time;
-            if (now - lastDamageTime >= 1.0)
+            damageHP(1);
+        }
+    }
+
+    private void damageHP(int damage)
+    {
+        _currentHP -= damage;
+        if (_currentHP <= 0)
+        {
+            Debug.Log("Enemy died");
+            kill();
+        }
+    }
+
+    private void kill()
+    {
+        GetComponent<Renderer>().enabled = false;
+        this.gameObject.SetActive(false);
+        _killed = true;
+    }
+
+    private void revive()
+    {
+        GetComponent<Renderer>().enabled = true;
+        this.gameObject.SetActive(false);
+        _killed = false;
+    }
+
+    public static void respawnEnemies() // TODO: even if we can extend this for regular enemies, not sure abt bosses
+    {
+        Enemy[] enemies = FindObjectsOfType<Enemy>();
+        foreach (Enemy enemy in enemies)
+        {
+            if (enemy._killed && !enemy._respawns)
             {
-                PlayerStatus.Instance.HPManager.damageHP(damagePerSecond_);
-                lastDamageTime = now;
+                enemy.kill();
+            }
+            else
+            {
+                enemy.revive();
             }
         }
     }
+
 }

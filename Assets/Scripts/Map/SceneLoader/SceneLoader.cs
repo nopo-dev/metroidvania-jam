@@ -77,7 +77,7 @@ public class SceneLoader : MonoBehaviour
         PauseControl.ResumeGame();
     }
 
-    private Boolean isScene(string sceneName)
+    private bool isScene(string sceneName)
     {
         return getSceneNames().Contains(sceneName);
     }

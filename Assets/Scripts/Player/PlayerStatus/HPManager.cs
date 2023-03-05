@@ -72,7 +72,7 @@ public class HPManager
         this.maximumHP_ = newMaximumHP;
     }
 
-    public Boolean isOutOfHP()
+    public bool isOutOfHP()
     {
         return this.currentHP_ <= 0; // really this could just check equality, but ig it's safer this way.
     }

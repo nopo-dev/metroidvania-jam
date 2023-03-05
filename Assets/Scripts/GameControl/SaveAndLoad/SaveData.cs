@@ -13,6 +13,7 @@ internal struct SaveData
     public int playerMaxEnergy; // TODO: tied to upgrades ?
     public Upgrade playerUpgrades;
     public Location lastSaveLoc;
+    // TODO: bosses killed
 
     public SaveData(int playerCurrentHP, int playerMaxHP, int playerCurrentEnergy, int playerMaxEnergy, Upgrade playerUpgrades, Location lastSaveLoc)
     {

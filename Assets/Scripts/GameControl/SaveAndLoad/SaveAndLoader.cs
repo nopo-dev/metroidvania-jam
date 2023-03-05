@@ -115,6 +115,7 @@ public class SaveAndLoader : MonoBehaviour
         // Step 2: Non-raw-value updates, such as moving the player, hide/showing upgrade items, respawn enemies.
         SceneLoader.Instance.loadScene(saveData.lastSaveLoc);
         PlayerStatus.Instance.UpgradeManager.applyUpgradeItemState();
+        Enemy.respawnEnemies();
         // TODO: respawn enemies.
     }
 

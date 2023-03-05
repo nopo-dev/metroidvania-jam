@@ -43,6 +43,7 @@ public class UpgradeManager
             }
             else
             {
+                // Show might not be necessary since scene should get reloaded anyways.
                 UpgradeItem.showUpgradeItem((Upgrade) i);
             }
         }
@@ -51,7 +52,7 @@ public class UpgradeManager
     /*
      * Player has access to all upgrades up to current level.
      */
-    public Boolean hasUpgrade(Upgrade upgrade)
+    public bool hasUpgrade(Upgrade upgrade)
     {
         return upgrade <= this.currentUpgrade_;
     }

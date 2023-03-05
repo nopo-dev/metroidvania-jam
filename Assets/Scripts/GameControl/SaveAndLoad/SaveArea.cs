@@ -6,7 +6,7 @@ using UnityEngine;
  */
 public class SaveArea : CollidableArea
 {
-    [SerializeField] private Boolean isStartingSaveArea; // This should be toggleable in inspector.
+    [SerializeField] private bool isStartingSaveArea; // This should be toggleable in inspector.
 
     // TODO: expose this to inspector for non-centered spawn points.
     // TODO: standardize notation for private vars, probably _before

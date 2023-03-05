@@ -54,7 +54,7 @@ public class EnergyManager
         this.maximumEnergy_ = newMaximumEnergy;
     }
 
-    public Boolean isOutOfEnergy()
+    public bool isOutOfEnergy()
     {
         return this.maximumEnergy_ <= 0; // TODO: If we have variable energy costs or energy cost that doesn't evenly divide total energy, this needs to change.
     }

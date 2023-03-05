@@ -3772,10 +3772,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isStartingSaveArea: 1
-  spawnPoint_:
-    x: -21
-    y: -9
-    sceneName: 
 --- !u!61 &492469767
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4465,10 +4461,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isStartingSaveArea: 0
-  spawnPoint_:
-    x: 20
-    y: -9
-    sceneName: 
 --- !u!50 &1257066263
 Rigidbody2D:
   serializedVersion: 4
@@ -4993,6 +4985,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7532337007575342546, guid: eba08096bed74414b8b5e68ad95ff239, type: 3}
+      propertyPath: _respawns
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7733321268942521554, guid: eba08096bed74414b8b5e68ad95ff239, type: 3}
       propertyPath: m_Name
       value: Temp Enemy (Major)
@@ -5140,6 +5136,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2302074822046231106, guid: 25eabf283f06a05488819b716d0d9cd8, type: 3}
+      propertyPath: _respawns
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2302074822046231109, guid: 25eabf283f06a05488819b716d0d9cd8, type: 3}
       propertyPath: m_Name
       value: Temp Enemy (Minor)
@@ -5197,6 +5197,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3262679596699305533, guid: 38cfa2b2e620fac40b1578fca74ac5a1, type: 3}
+      propertyPath: _respawns
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4225683080139450099, guid: 38cfa2b2e620fac40b1578fca74ac5a1, type: 3}
       propertyPath: m_Name
       value: Temp Enemy (Mid)
