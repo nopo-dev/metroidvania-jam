@@ -11,6 +11,9 @@ public class Move : MonoBehaviour
     [SerializeField] private float _maxAcceleration = 250f;
     [SerializeField] private float _maxAerialAcceleration = 250f;
 
+    [SerializeField] private bool _allowMoveDuringAttack = false;
+    [SerializeField] private float _moveDuringAttackVelocity = 0.5f;
+
     private Vector2 _direction;
     private Vector2 _targetVelocity;
     private Vector2 _velocity;
@@ -41,17 +44,29 @@ public class Move : MonoBehaviour
 
     private void FixedUpdate()
     {
-        // apply movement up to max allowed acceleration
-        _grounded = _ground.Grounded;
-        _velocity = _rb.velocity;
-        _acceleration = _grounded ? _maxAcceleration : _maxAerialAcceleration;
-        _maxSpeedChange = _acceleration * Time.deltaTime;
-        _velocity.x = Mathf.MoveTowards(_velocity.x, _targetVelocity.x, _maxSpeedChange);
-
-        _rb.velocity = _velocity;
-        _animator.SetFloat("Velocity X", _velocity.x);
-        if (_velocity.x > 0)    transform.localScale = new Vector3(1, 1, 1);
-        else if (_velocity.x < 0)   transform.localScale = new Vector3(-1, 1, 1);
+        Debug.Log(_animator.GetBool("Attacking"));
+        if (_allowMoveDuringAttack || !_animator.GetBool("Attacking"))
+        {
+            // apply movement up to max allowed acceleration
+            _grounded = _ground.Grounded;
+            _velocity = _rb.velocity;
+            _acceleration = _grounded ? _maxAcceleration : _maxAerialAcceleration;
+            _maxSpeedChange = _acceleration * Time.deltaTime;
+            _velocity.x = Mathf.MoveTowards(_velocity.x, _targetVelocity.x, _maxSpeedChange);
+            if (_animator.GetBool("Attacking"))
+            {
+                _velocity.x = Mathf.MoveTowards(_velocity.x,
+                    _targetVelocity.x * _moveDuringAttackVelocity, _maxSpeedChange);
+            }
+            _rb.velocity = _velocity;
+            _animator.SetFloat("Velocity X", _velocity.x);
+            if (_velocity.x > 0)    transform.localScale = new Vector3(1, 1, 1);
+            else if (_velocity.x < 0)   transform.localScale = new Vector3(-1, 1, 1);
+        }
+        else
+        {
+            _rb.velocity = new Vector2(0, _rb.velocity.y);
+        }
     }
 
 }

@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 7235365040495722037}
   - component: {fileID: 2377381417911680806}
   - component: {fileID: 1407382289540425134}
+  - component: {fileID: 7971447700424198474}
   - component: {fileID: 1456076181}
   - component: {fileID: 8137443565011401875}
   m_Layer: 0
@@ -225,6 +226,22 @@ MonoBehaviour:
   _wallJumpClose: {x: 5, y: 10}
   _wallJumpAway: {x: 10, y: 10}
   _coyoteThreshold: 0.2
+--- !u!114 &7971447700424198474
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6903462835959967356}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f39a7e842df299a48b6bed04c41e5962, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _input: {fileID: 0}
+  _meleeCooldown: 2
+  _meleeSpeed: 1
+  _meleeBufferThreshold: 0.1
 --- !u!114 &1456076181
 MonoBehaviour:
   m_ObjectHideFlags: 0

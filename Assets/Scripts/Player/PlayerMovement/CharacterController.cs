@@ -17,4 +17,14 @@ public class CharacterController : InputController
     {
         return Input.GetButton("Jump");
     }
+
+    public override bool MeleePress()
+    {
+        return Input.GetButtonDown("Melee");
+    }
+
+    public override bool RangedPress()
+    {
+        return Input.GetButtonDown("Ranged");
+    }
 }
