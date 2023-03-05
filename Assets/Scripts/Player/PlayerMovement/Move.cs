@@ -44,7 +44,6 @@ public class Move : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Debug.Log(_animator.GetBool("Attacking"));
         if (_allowMoveDuringAttack || !_animator.GetBool("Attacking"))
         {
             // apply movement up to max allowed acceleration

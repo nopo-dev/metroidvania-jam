@@ -4,6 +4,7 @@ using System.Collections;
 public class MeleeAttack : MonoBehaviour
 {
     [SerializeField] private InputController _input;
+    [SerializeField] private GameObject _meleeHitbox;
 
     [SerializeField] private float _meleeSpeed = 0.5f;
     [SerializeField] private float _meleeLockout = 0f;
@@ -11,6 +12,7 @@ public class MeleeAttack : MonoBehaviour
 
     private Animator _animator;
     private float _meleeTimer, _meleeBufferTimer, _meleeCooldown;
+    private float _meleeHitBoxTime;
     private bool _meleePress = false, _isAttacking = false;
 
     private void Awake()
@@ -18,12 +20,13 @@ public class MeleeAttack : MonoBehaviour
         _animator = GetComponent<Animator>();
         _animator.SetFloat("Melee Speed", _meleeSpeed);
         _meleeCooldown = 5f / 8f / _meleeSpeed + _meleeLockout;
+        _meleeHitBoxTime = _meleeCooldown * _meleeSpeed * 0.8f;
     }
 
     private void Update()
     {
-        _meleePress |= _input.MeleePress();
-
+        if (PauseControl.gameIsPaused) { return; }
+        _meleePress |= (_input.MeleePress() && _animator.GetBool("Tentacled"));
     }
 
     private void FixedUpdate()
@@ -65,14 +68,30 @@ public class MeleeAttack : MonoBehaviour
             _meleeBufferTimer = 0f;
             _meleeTimer = _meleeCooldown;
             _isAttacking = true;
+            StartCoroutine(SpawnMeleeHitbox());
             StartCoroutine(CoolDown());
         }
+    }
+
+    IEnumerator SpawnMeleeHitbox()
+    {
+        GameObject meleeHitbox = Instantiate(_meleeHitbox, transform.position, transform.rotation);
+        if (transform.localScale.x == -1)
+        {
+            BoxCollider2D hitbox = meleeHitbox.GetComponent<BoxCollider2D>();
+            Vector2 offset = hitbox.offset;
+            offset.x = offset.x * -1;
+            hitbox.offset = offset;
+        }
+        meleeHitbox.SetActive(true);
+        yield return new WaitForSeconds(_meleeHitBoxTime);
+        Destroy(meleeHitbox);
+
     }
 
     IEnumerator CoolDown()
     {
         yield return new WaitForSeconds(_meleeCooldown);
         _isAttacking = false;
-        Debug.Log("attack done");
     }
 }
