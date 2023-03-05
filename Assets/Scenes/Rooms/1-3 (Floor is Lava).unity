@@ -50808,6 +50808,26 @@ PrefabInstance:
       propertyPath: _meleeHitbox
       value: 
       objectReference: {fileID: 1646513225056349587, guid: 039f2db9f94b06442a04c32ecca44563, type: 3}
+    - target: {fileID: 7235365040495722037, guid: 8dd285e9388f26b40bd9a36e5cf5845e, type: 3}
+      propertyPath: _input
+      value: 
+      objectReference: {fileID: 11400000, guid: b5ec8b4803bfccb48bd045843dbdca64, type: 2}
+    - target: {fileID: 7235365040495722037, guid: 8dd285e9388f26b40bd9a36e5cf5845e, type: 3}
+      propertyPath: _allowMoveDuringAttack
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7235365040495722037, guid: 8dd285e9388f26b40bd9a36e5cf5845e, type: 3}
+      propertyPath: _moveDuringAttackVelocity
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7971447700424198474, guid: 8dd285e9388f26b40bd9a36e5cf5845e, type: 3}
+      propertyPath: _input
+      value: 
+      objectReference: {fileID: 11400000, guid: b5ec8b4803bfccb48bd045843dbdca64, type: 2}
+    - target: {fileID: 7971447700424198474, guid: 8dd285e9388f26b40bd9a36e5cf5845e, type: 3}
+      propertyPath: _meleeHitbox
+      value: 
+      objectReference: {fileID: 1646513225056349587, guid: 039f2db9f94b06442a04c32ecca44563, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8dd285e9388f26b40bd9a36e5cf5845e, type: 3}
 --- !u!4 &1107161373 stripped
