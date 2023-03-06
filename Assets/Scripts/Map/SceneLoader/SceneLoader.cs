@@ -28,10 +28,10 @@ public class SceneLoader : MonoBehaviour
      * Used when loading a new scene including spawnPoint
      * TODO: different reload depending on save or safe
      */
-    public void loadScene(Location spawnPoint)
+    public void loadScene(Location spawnPoint, bool force=false)
     {
         Debug.Log($"SceneLoader - Loading {spawnPoint.sceneName} ({spawnPoint.x}, {spawnPoint.y})...");
-        if (spawnPoint.sceneName == getCurrentSceneName())
+        if (spawnPoint.sceneName == getCurrentSceneName() && !force)
         {
             StartCoroutine(animatedReloadScene(spawnPoint));
             return;
@@ -73,6 +73,8 @@ public class SceneLoader : MonoBehaviour
             }
             PlayerStatus.Instance.teleportPlayer(spawnPoint);
             PlayerStatus.Instance.LastSafeLocManager.setLastSafeLoc(spawnPoint); // this is duplicate when saveandloading
+            PlayerStatus.Instance.UpgradeManager.applyUpgradeItemState();
+            Enemy.respawnEnemies();
         }
         PauseControl.ResumeGame();
     }
