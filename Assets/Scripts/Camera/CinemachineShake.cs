@@ -5,6 +5,9 @@ public class CinemachineShake : MonoBehaviour
 {
     public static CinemachineShake Instance { get; private set; }
 
+    public GameObject tPlayer;
+    public Transform tFollowTarget;
+
     private CinemachineVirtualCamera cam;
     private float shakeTimer;
 
@@ -18,13 +21,19 @@ public class CinemachineShake : MonoBehaviour
         }
         Instance = this;
         cam = GetComponent<CinemachineVirtualCamera>();
-        DontDestroyOnLoad(gameObject);
 
+        tPlayer = GameObject.FindWithTag("Player");
+        if (tPlayer != null)
+        {
+            tFollowTarget = tPlayer.transform;
+            cam.LookAt = tFollowTarget;
+            cam.Follow = tFollowTarget;
+        }
     }
 
+    // i.e. can call CinemachineShake.Instance.ShakeCamera(8f, 0.3f); from PlayerController or sth
     public void ShakeCamera(float intensity, float duration)
     {
-        Debug.Log("shaking");
         CinemachineBasicMultiChannelPerlin perlin = cam.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
 
         perlin.m_AmplitudeGain = intensity;
