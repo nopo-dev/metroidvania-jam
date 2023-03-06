@@ -2,6 +2,7 @@ using UnityEngine;
 
 /*
  * This singleton class communicates between player state and SaveDataManager
+ * TODO: Async save & loading
  */
 public class SaveAndLoader : MonoBehaviour
 {

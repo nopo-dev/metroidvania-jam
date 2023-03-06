@@ -8,6 +8,7 @@ using UnityEngine;
 public class Enemy : CollidableArea
 {
     // TODO: enemy hp manager ?
+    // TODO: FSM for is hit, attacking, dying, go back to idle, etc. things
     [SerializeField] private int _maximumHP;
     [SerializeField] private int _damage;
     [SerializeField] private bool _respawns = true;

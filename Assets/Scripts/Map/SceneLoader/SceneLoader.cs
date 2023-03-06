@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -27,6 +26,7 @@ public class SceneLoader : MonoBehaviour
 
     /*
      * Used when loading a new scene including spawnPoint
+     * TODO: different reload depending on save or safe
      */
     public void loadScene(Location spawnPoint)
     {

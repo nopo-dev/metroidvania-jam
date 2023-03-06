@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Move : MonoBehaviour
 {
-    [SerializeField] private InputController _input = null;
+    [SerializeField] public InputController _input = null; // making this public is kind of a hack for enemy movement
     // 8 ppu values
     [SerializeField] private float _maxSpeed = 16f;
     // snappier movement
