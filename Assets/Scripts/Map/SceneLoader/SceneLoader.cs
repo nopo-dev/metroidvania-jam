@@ -2,16 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Events;
 
 // static ?
 public class SceneLoader : MonoBehaviour
 {
     public static SceneLoader Instance;
+    public UnityEvent OnTransitionDone;
 
     // TODO: These may have to live in e.g. SceneLoaderArea if non-standardized.
     public Animator transition;
-    [SerializeField] private float _transitionTimeNewScene = 1.0f;
-    [SerializeField] private float _transitionTimeReload = 0.5f;
+    [SerializeField] private float _transitionTimeNewScene = 3.0f;
+    [SerializeField] private float _transitionTimeReload = 5f;
 
     void Awake()
     {
@@ -46,20 +48,21 @@ public class SceneLoader : MonoBehaviour
 
     private IEnumerator animatedReloadScene(Location spawnPoint)
     {
-        // transition.SetTrigger("Start");
+        transition.SetTrigger("Start");
         PauseControl.PauseGame();
-        yield return new WaitForSecondsRealtime(_transitionTimeReload); // TODO: wanted this to freeze the game for 0.5s 
+        yield return new WaitForSecondsRealtime(_transitionTimeReload); // TODO: wanted this to freeze the game for 0.5s
         PlayerStatus.Instance.teleportPlayer(spawnPoint);
         PauseControl.ResumeGame();
+         
+        transition.SetTrigger("End");
     }
 
+    // to new level
     private IEnumerator animatedLoadScene(Location spawnPoint)
     {
-        // transition.SetTrigger("Start"); // TODO: figure this out
+        transition.SetTrigger("Start");
         PauseControl.PauseGame();
-
         yield return new WaitForSecondsRealtime(_transitionTimeNewScene);
-
         if (!isScene(spawnPoint.sceneName))
         {
             Debug.Log($"SceneLoader - {spawnPoint.sceneName} is not a valid scene. Will not load a scene."); // TODO: log that dynamically grabs class name
@@ -77,6 +80,7 @@ public class SceneLoader : MonoBehaviour
             Enemy.respawnEnemies();
         }
         PauseControl.ResumeGame();
+        transition.SetTrigger("End");
     }
 
     private bool isScene(string sceneName)
