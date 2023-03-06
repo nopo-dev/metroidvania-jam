@@ -8,23 +8,12 @@ public class PatrolPoints : MonoBehaviour
     public float b;
 
     private float _nextPatrol;
-    private float _currentLoc;
     private float _start;
 
     private void Awake()
     {
         _start = transform.position.x;
         _nextPatrol = b;
-    }
-
-    private void Update()
-    {
-        _currentLoc = transform.position.x;
-    }
-
-    public bool hasReached(NavManager nav)
-    {
-        return Mathf.Abs(_currentLoc - nav.destination) >= Mathf.Abs(_start - nav.destination);
     }
 
     public float getNext()

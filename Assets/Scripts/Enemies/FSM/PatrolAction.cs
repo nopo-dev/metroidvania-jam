@@ -8,10 +8,10 @@ namespace FSM
     {
         public override void Execute(BaseStateMachine machine)
         {
-            var patrolPoints = machine.GetComponent<PatrolPoints>();
+            var patrolPoints = machine.GetComponent<PatrolPoints>(); // This seems hella inefficient
             var navManager = machine.GetComponent<NavManager>();
             
-            if (patrolPoints.hasReached(navManager))
+            if (navManager.hasReached())
             {
                 navManager.setDestination(patrolPoints.getNext());
             }

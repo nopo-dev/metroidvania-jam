@@ -3,14 +3,13 @@
 public class SightSensor : MonoBehaviour
 {
     [SerializeField] private float _sightThreshold = 10; // Why do these feel like different units than shown in inspector
+    [SerializeField] private float _lossThreshold = 15; // Loss > Sight for more rubber-bandy chasing
 
     public GameObject Player { get; private set; }
-    private float startTime;
 
     private void Awake()
     {
         Player = GameObject.FindWithTag("Player");
-        startTime = Time.time;
     }
 
     public float getPlayerLoc()
@@ -21,5 +20,10 @@ public class SightSensor : MonoBehaviour
     public bool ping()
     {
         return Vector2.Distance(transform.position, Player.transform.position) < _sightThreshold;
+    }
+
+    public bool unping()
+    {
+        return Vector2.Distance(transform.position, Player.transform.position) > _lossThreshold;
     }
 }

@@ -14,4 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp:FSM:Transition
   Actions:
   - {fileID: 11400000, guid: 16e90dc56f5ae1a4ca578c90d108dcd4, type: 2}
-  Transitions: []
+  Transitions:
+  - {fileID: 11400000, guid: 67a0068b5f105b44cb1410ec0116e002, type: 2}
+  - {fileID: 11400000, guid: 6e492d330db3ea7449f2c28636a277db, type: 2}
