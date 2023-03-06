@@ -6,7 +6,7 @@ public class MeleeAttack : MonoBehaviour
     [SerializeField] private InputController _input;
     [SerializeField] private GameObject _meleeHitbox;
 
-    [SerializeField] private float _meleeSpeed = 0.5f;
+    [SerializeField] private float _meleeSpeed = 1f;
     [SerializeField] private float _meleeLockout = 0f;
     [SerializeField] private float _meleeBufferThreshold = 0.1f;
 
@@ -63,7 +63,8 @@ public class MeleeAttack : MonoBehaviour
     private void Attack()
     {
         // check whether player is allowed to melee
-        if (_meleeTimer > 0f && !_isAttacking)
+        if (_meleeTimer > 0f && !_isAttacking &&
+            !_animator.GetBool("Ranged Attacking"))
         {
             _meleeBufferTimer = 0f;
             _meleeTimer = _meleeCooldown;
