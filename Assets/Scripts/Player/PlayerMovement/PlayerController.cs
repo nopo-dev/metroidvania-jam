@@ -227,6 +227,9 @@ public class PlayerController : MonoBehaviour
     {
         if (_input.JumpPressed && CanCoyote || JumpBuffered)
         {
+            Debug.Log("Hit!");
+            CinemachineShake.Instance.ShakeCamera(8f, 0.3f);
+
             _ySpeed = _jumpSpeed;
             _shortJump = false;
             _coyoteAllowed = false;
