@@ -15,7 +15,7 @@ public class CinemachineShake : MonoBehaviour
     {
         if (Instance != null && Instance != this)
         {
-            Debug.Log("Can only have one SaveAndLoader!");
+            Debug.Log("Can only have one CinemachineShaker!");
             Destroy(this);
             return;
         }
