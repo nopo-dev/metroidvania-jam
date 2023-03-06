@@ -23,6 +23,7 @@ public class PlayerStatusDisplay : MonoBehaviour
 
     public void updateHP(int currentHP, int maximumHP)
     {
+        Debug.Log("Updating hp");
         healthText.text = $"{currentHP}/{maximumHP}";
     }
 
