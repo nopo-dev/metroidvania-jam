@@ -46,7 +46,7 @@ public class Move : MonoBehaviour
     private void FixedUpdate()
     {
         if ((_allowMoveDuringAttack || !_animator.GetBool("Attacking")) &&
-            (_allowMoveDuringRanged || !_animator.GetBool("Ranged Attacking")))
+            (_allowMoveDuringRanged || !_animator.GetBool("In Spit Animation")))
         {
             // apply movement up to max allowed acceleration
             _grounded = _ground.Grounded;

@@ -14,13 +14,16 @@ public class RangedAttack : MonoBehaviour
 
     private Animator _animator;
     private float _rangedTimer, _rangedBufferTimer, _rangedCooldown;
+    private float _spitAnimationLength = 0.25f;
+    private bool _inSpit;
     private bool _rangedPress = false, _isRangedAttacking = false;
 
     private void Awake()
     {
         _animator = GetComponent<Animator>();
         _animator.SetFloat("Ranged Speed", _rangedAnimationSpeed);
-        _rangedCooldown = 5f / 8f / _rangedAnimationSpeed + _rangedLockout;
+        _rangedCooldown = _spitAnimationLength + _rangedLockout;
+        //_rangedCooldown = 5f / 8f / _rangedAnimationSpeed + _rangedLockout;
     }
 
     private void Update()
@@ -57,6 +60,7 @@ public class RangedAttack : MonoBehaviour
             AttackRanged();
         }
 
+        _animator.SetBool("In Spit Animation", _inSpit);
         _animator.SetBool("Ranged Attacking", _isRangedAttacking);
     }
 
@@ -69,6 +73,7 @@ public class RangedAttack : MonoBehaviour
             _rangedBufferTimer = 0f;
             _rangedTimer = _rangedCooldown;
             _isRangedAttacking = true;
+            _inSpit = true;
             SpawnProjectile();
             StartCoroutine(CoolDown());
         }
@@ -89,7 +94,15 @@ public class RangedAttack : MonoBehaviour
 
     IEnumerator CoolDown()
     {
-        yield return new WaitForSeconds(_rangedCooldown);
+        yield return new WaitForSeconds(_spitAnimationLength);
+        _inSpit = false;
+        yield return new WaitForSeconds(_rangedCooldown - _spitAnimationLength);
         _isRangedAttacking = false;
     }
+
+    /*
+        lock player out of ranged attacking for ranged cooldown
+        however, freeze player during only part of the ranged attack (the animation)
+
+    */
 }

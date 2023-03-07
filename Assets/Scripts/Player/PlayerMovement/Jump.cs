@@ -43,8 +43,6 @@ public class Jump : MonoBehaviour
         _grounded = _ground.Grounded;
         _velocity = _rb.velocity;
 
-        // TODO: if range attacking, freeze vertical motion for a bit
-
         // some rigidbody fuckery with floats
         // maybe can delete everything but _grounded here
         if (_grounded && _rb.velocity.y > -0.01f && _rb.velocity.y < 0.01f)
@@ -94,6 +92,14 @@ public class Jump : MonoBehaviour
         {
             _rb.gravityScale = _defaultGravity;
         }
+
+        // freeze vertical velocity when ranged attacking
+        if (_animator.GetBool("In Spit Animation"))
+        {
+            _velocity.y = 0f;
+            _rb.gravityScale = 0f;
+        }
+
         _animator.SetBool("Grounded", _grounded);
         _animator.SetFloat("Velocity Y", _velocity.y);
         _rb.velocity = _velocity;
