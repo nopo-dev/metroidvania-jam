@@ -19,4 +19,14 @@ public class GenericEnemyController : InputController
     {
         return false;
     }
+
+    public override bool MeleePress()
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public override bool RangedPress()
+    {
+        throw new System.NotImplementedException();
+    }
 }

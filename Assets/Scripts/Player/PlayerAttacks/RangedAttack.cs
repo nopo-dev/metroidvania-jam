@@ -81,8 +81,8 @@ public class RangedAttack : MonoBehaviour
         projectile.SetActive(true);
         Vector3 angle = _projectileAngle;
         angle.x *= transform.localScale.x;
-        _projectileAngle = angle;
-        projectile.GetComponent<ProjectileBehavior>().SetAngle(_projectileAngle);
+
+        projectile.GetComponent<ProjectileBehavior>().SetAngle(angle);
         projectile.GetComponent<ProjectileBehavior>().SetSpeed(_projectileSpeed);
         projectile.GetComponent<ProjectileBehavior>().SetIgnoreTag(gameObject.tag);
     }

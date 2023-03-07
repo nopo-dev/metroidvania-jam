@@ -12,6 +12,7 @@ public class Move : MonoBehaviour
     [SerializeField] private float _maxAerialAcceleration = 250f;
 
     [SerializeField] private bool _allowMoveDuringAttack = false;
+    [SerializeField] private bool _allowMoveDuringRanged = false;
     [SerializeField] private float _moveDuringAttackVelocity = 0.5f;
 
     private Vector2 _direction;
@@ -44,7 +45,8 @@ public class Move : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (_allowMoveDuringAttack || !_animator.GetBool("Attacking"))
+        if ((_allowMoveDuringAttack || !_animator.GetBool("Attacking")) &&
+            (_allowMoveDuringRanged || !_animator.GetBool("Ranged Attacking")))
         {
             // apply movement up to max allowed acceleration
             _grounded = _ground.Grounded;
@@ -57,15 +59,15 @@ public class Move : MonoBehaviour
                 _velocity.x = Mathf.MoveTowards(_velocity.x,
                     _targetVelocity.x * _moveDuringAttackVelocity, _maxSpeedChange);
             }
-            _rb.velocity = _velocity;
-            _animator.SetFloat("Velocity X", _velocity.x);
             if (_velocity.x > 0)    transform.localScale = new Vector3(1, 1, 1);
             else if (_velocity.x < 0)   transform.localScale = new Vector3(-1, 1, 1);
         }
         else
         {
-            _rb.velocity = new Vector2(0, _rb.velocity.y);
+            _velocity = new Vector2(0, _rb.velocity.y);
         }
+        _rb.velocity = _velocity;
+        _animator.SetFloat("Velocity X", _velocity.x);
     }
 
 }

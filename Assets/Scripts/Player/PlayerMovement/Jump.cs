@@ -43,6 +43,8 @@ public class Jump : MonoBehaviour
         _grounded = _ground.Grounded;
         _velocity = _rb.velocity;
 
+        // TODO: if range attacking, freeze vertical motion for a bit
+
         // some rigidbody fuckery with floats
         // maybe can delete everything but _grounded here
         if (_grounded && _rb.velocity.y > -0.01f && _rb.velocity.y < 0.01f)
