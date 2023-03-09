@@ -207,7 +207,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: babb673088fbd254a891431befc857dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _input: {fileID: 0}
+  _input: {fileID: 11400000, guid: b5ec8b4803bfccb48bd045843dbdca64, type: 2}
   _maxSpeed: 16
   _maxAcceleration: 250
   _maxAerialAcceleration: 250
@@ -223,7 +223,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25c0bb8687ebb304388a962b0a600e2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _input: {fileID: 0}
+  _input: {fileID: 11400000, guid: b5ec8b4803bfccb48bd045843dbdca64, type: 2}
   _jumpHeight: 160
   _maxAirJumps: 0
   _fallGravity: 20
@@ -243,7 +243,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b1a5f814b62fea43b3ac27d1a38da47, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _input: {fileID: 0}
+  _input: {fileID: 11400000, guid: b5ec8b4803bfccb48bd045843dbdca64, type: 2}
   _wallSlideMaxSpeed: 10
   _wallJumpClose: {x: 5, y: 10}
   _wallJumpAway: {x: 10, y: 10}

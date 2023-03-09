@@ -48,7 +48,7 @@ public class Move : MonoBehaviour
         _velocity.x = Mathf.MoveTowards(_velocity.x, _targetVelocity.x, _maxSpeedChange);
 
         _rb.velocity = _velocity;
-//        _animator.SetFloat("Velocity X", _velocity.x);
+        _animator.SetFloat("Velocity X", _velocity.x);
         if (_velocity.x > 0)    transform.localScale = new Vector3(1, 1, 1);
         else if (_velocity.x < 0)   transform.localScale = new Vector3(-1, 1, 1);
     }
