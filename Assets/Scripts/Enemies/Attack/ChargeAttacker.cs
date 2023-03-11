@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using FSM.Abstracts;
+using System.Collections;
 using UnityEngine;
 
 public class ChargeAttacker : Attacker
@@ -16,14 +17,13 @@ public class ChargeAttacker : Attacker
         _controller = GetComponent<Move>()._input as GenericEnemyController;
     }
 
-    protected override IEnumerator doAttack()
+    protected override IEnumerator doAttack(System.Action callback)
     {
         // animations
-        _attacking = true;
         _controller.direction = (transform.position.x > _player.transform.position.x) ? -chargeSpeed : chargeSpeed;
         yield return new WaitForSeconds(chargeDuration);
         _controller.direction = 0;
         yield return new WaitForSeconds(cooldown);
-        _attacking = false;
+        callback?.Invoke();
     }
 }

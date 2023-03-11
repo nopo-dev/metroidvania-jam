@@ -14,13 +14,12 @@ public class ChaseAttacker : Attacker
         _flyer = GetComponent<Fly>();
     }
 
-    protected override IEnumerator doAttack()
+    protected override IEnumerator doAttack(System.Action callback)
     {
         // animations
-        _attacking = true;
         yield return null;
         _flyer.setDirection(chaseSpeed * (_player.transform.position - transform.position).normalized);
         transform.rotation = Quaternion.LookRotation(_player.transform.position);
-        _attacking = false;
+        callback?.Invoke();
     }
 }

@@ -8,18 +8,32 @@ namespace FSM.Abstracts
     {
         [SerializeField] private BaseState _initialState;
         private Dictionary<Type, Component> _cachedComponents;
+        private bool _locked;
 
         public BaseState CurrentState { get; set; }
 
         private void Awake()
         {
             CurrentState = _initialState;
+            _locked = false;
             _cachedComponents = new Dictionary<Type, Component>();
         }
 
         private void Update()
         {
+            if (_locked) { return; }
+
             CurrentState.Execute(this);
+        }
+
+        public void lockState()
+        {
+            _locked = true;
+        }
+
+        public void unlockState()
+        {
+            _locked = false;
         }
 
         public new T GetComponent<T>() where T : Component

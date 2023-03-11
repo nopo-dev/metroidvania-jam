@@ -7810,7 +7810,7 @@ MonoBehaviour:
   range: 5
   duration: 3
   size: 5
-  cooldown: 0
+  cooldown: 1
 --- !u!114 &501900096
 MonoBehaviour:
   m_ObjectHideFlags: 0

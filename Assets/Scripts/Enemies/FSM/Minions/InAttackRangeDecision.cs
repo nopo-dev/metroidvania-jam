@@ -9,7 +9,7 @@ namespace FSM
         public override bool Decide(BaseStateMachine machine)
         {
             var attacker = machine.GetComponent<Attacker>();
-            return attacker.isAttacking() | attacker.inRange(); // put the cheaper operation first
+            return attacker.inRange();
         }
     }
 }

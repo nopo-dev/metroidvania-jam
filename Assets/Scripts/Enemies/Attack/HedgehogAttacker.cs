@@ -15,16 +15,15 @@ public class HedgehogAttacker : Attacker
         _controller = GetComponent<Move>()._input as GenericEnemyController;
     }
 
-    protected override IEnumerator doAttack()
+    protected override IEnumerator doAttack(System.Action callback)
     {
         // animations
-        _attacking = true;
         standStill();
         grow();
         yield return new WaitForSeconds(duration);
         shrink();
         yield return new WaitForSeconds(cooldown);
-        _attacking = false;
+        callback?.Invoke();
     }
 
     private void standStill()

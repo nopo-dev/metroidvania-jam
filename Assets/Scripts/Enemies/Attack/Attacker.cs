@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using FSM.Abstracts;
+using System.Collections;
 using UnityEngine;
 
 public abstract class Attacker : MonoBehaviour
@@ -8,7 +9,6 @@ public abstract class Attacker : MonoBehaviour
 
     public float range;
 
-    protected bool _attacking;
     protected GameObject _player;
 
     protected void Start()
@@ -16,14 +16,9 @@ public abstract class Attacker : MonoBehaviour
         _player = GameObject.FindWithTag("Player");
     }
 
-    public bool isAttacking()
+    public void attack(System.Action callback)
     {
-        return _attacking;
-    }
-
-    public void attack()
-    {
-        StartCoroutine(doAttack());
+        StartCoroutine(doAttack(callback));
     }
 
     public bool inRange()
@@ -31,5 +26,5 @@ public abstract class Attacker : MonoBehaviour
         return Vector2.Distance(_player.transform.position, transform.position) <= range;
     }
 
-    protected abstract IEnumerator doAttack();
+    protected abstract IEnumerator doAttack(System.Action callback);
 }

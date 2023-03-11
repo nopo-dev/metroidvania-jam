@@ -8,13 +8,9 @@ namespace FSM
     {
         public override void Execute(BaseStateMachine machine)
         {
+            machine.lockState();
             var attacker = machine.GetComponent<Attacker>();
-            if (attacker.isAttacking()) { return; }
-
-            if (attacker.inRange()) // awk that we double-check it here
-            {
-                attacker.attack();
-            }
+            attacker.attack(machine.unlockState);
         }
     }
 }
