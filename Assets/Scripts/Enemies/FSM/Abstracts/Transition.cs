@@ -11,9 +11,12 @@ namespace FSM.Abstracts
 
         public void Execute(BaseStateMachine machine)
         {
-            if (decision.Decide(machine) && !(TrueState is RemainInState))
+            if (decision.Decide(machine))
             {
-                machine.CurrentState = TrueState;
+                if (!(TrueState is RemainInState))
+                {
+                    machine.CurrentState = TrueState;
+                }
             }
             else if (!(FalseState is RemainInState))
             {

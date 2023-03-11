@@ -4907,6 +4907,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Temp Scene Loader Area
       objectReference: {fileID: 0}
+    - target: {fileID: 5741908176658065635, guid: 966de71f46c32674ab2054290cd42263, type: 3}
+      propertyPath: _nextSceneSpawnPoint.sceneName
+      value: test 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 966de71f46c32674ab2054290cd42263, type: 3}
 --- !u!1001 &7883279764633836842
