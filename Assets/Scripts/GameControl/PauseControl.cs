@@ -8,7 +8,7 @@ public class PauseControl : MonoBehaviour
 
     void Update()
     {
-        //TODO: check if not on main menu?
+        //TODO: check if not on main menu / other checks to make sure you are allowed to pause
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             if (PauseControl.gameIsPaused)
