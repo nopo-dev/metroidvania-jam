@@ -24,11 +24,11 @@ public class PlayerStatusDisplay : MonoBehaviour
     public void updateHP(int currentHP, int maximumHP)
     {
         Debug.Log("Updating hp");
-        healthText.text = $"{currentHP}/{maximumHP}";
+        // healthText.text = $"{currentHP}/{maximumHP}";
     }
 
     public void updateEnergy(int currentEnergy, int maximumEnergy)
     {
-        energyText.text = $"{currentEnergy}/{maximumEnergy}";
+        // energyText.text = $"{currentEnergy}/{maximumEnergy}";
     }
 }

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.Events;
+using System;
 
 // static ?
 public class SceneLoader : MonoBehaviour
@@ -30,15 +30,15 @@ public class SceneLoader : MonoBehaviour
      * Used when loading a new scene including spawnPoint
      * TODO: different reload depending on save or safe
      */
-    public void loadScene(Location spawnPoint, bool force=false)
+    public void loadScene(Location spawnPoint, bool force=false, Action callback=null)
     {
         Debug.Log($"SceneLoader - Loading {spawnPoint.sceneName} ({spawnPoint.x}, {spawnPoint.y})...");
         if (spawnPoint.sceneName == getCurrentSceneName() && !force)
         {
-            StartCoroutine(animatedReloadScene(spawnPoint));
+            StartCoroutine(animatedReloadScene(spawnPoint, callback));
             return;
         }
-        StartCoroutine(animatedLoadScene(spawnPoint));
+        StartCoroutine(animatedLoadScene(spawnPoint, callback));
     }
 
     public static string getCurrentSceneName()
@@ -46,19 +46,19 @@ public class SceneLoader : MonoBehaviour
         return SceneManager.GetActiveScene().name;
     }
 
-    private IEnumerator animatedReloadScene(Location spawnPoint)
+    private IEnumerator animatedReloadScene(Location spawnPoint, Action callback)
     {
         transition.SetTrigger("Start");
         PauseControl.PauseGame();
         yield return new WaitForSecondsRealtime(_transitionTimeReload); // TODO: wanted this to freeze the game for 0.5s
         PlayerStatus.Instance.teleportPlayer(spawnPoint);
+        callback?.Invoke();
         PauseControl.ResumeGame();
-         
         transition.SetTrigger("End");
     }
 
     // to new level
-    private IEnumerator animatedLoadScene(Location spawnPoint)
+    private IEnumerator animatedLoadScene(Location spawnPoint, Action callback)
     {
         transition.SetTrigger("Start");
         PauseControl.PauseGame();
@@ -74,7 +74,11 @@ public class SceneLoader : MonoBehaviour
             {
                 yield return null;
             }
-            SaveAndLoader.Instance.doSceneSetup(spawnPoint);
+            callback?.Invoke();
+            PlayerStatus.Instance.teleportPlayer(spawnPoint);
+            SaveAndLoader.Instance.LastSafeLocManager.setLastSafeLoc(spawnPoint); // this is duplicate when saveandloading
+            PlayerStatus.Instance.UpgradeManager.applyUpgradeItemState();
+            Enemy.hideEnemies(SaveAndLoader.Instance.EnemySaveManager.getKillList());
         }
         PauseControl.ResumeGame();
         transition.SetTrigger("End");

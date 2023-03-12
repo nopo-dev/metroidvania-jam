@@ -1,7 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
@@ -24,8 +21,7 @@ public class MainMenu : MonoBehaviour
     //TODO: change so that location is pulled from save data 
     public void PlayButton()
     {
-        SceneLoader.Instance.loadScene(_nextSceneSpawnPoint);
-        PauseControl.ResumeGame();
+        SaveAndLoader.Instance.load();
     }
 
     public void QuitButton()

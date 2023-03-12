@@ -1,4 +1,7 @@
 using UnityEngine;
+using static Unity.Burst.Intrinsics.Arm;
+using static UnityEngine.Rendering.DebugUI.Table;
+using static UnityEngine.Rendering.DebugUI;
 
 /*
  * This singleton class communicates between player state and SaveDataManager
@@ -38,7 +41,6 @@ public class SaveAndLoader : MonoBehaviour
     private void Start()
     {
         SaveDataManager.initSaveDataManager(); // SaveDataManager is static, we don't need to own it.
-        load();
     }
 
     // TODO: is this really the best way to check for save/load clicks?
@@ -111,34 +113,21 @@ public class SaveAndLoader : MonoBehaviour
         // But those can be done by Managers.
         // Max needs to be set before current.
 
-        // Step 1: Load raw values. Some UI updates happen as a consequence of these, e.g. setMaximumHP calls updateUI hook.
-        Debug.Log("SaveAndLoader - Loading raw values...");
-        PlayerStatus.Instance.HPManager.setMaximumHP(saveData.playerMaxHP);
-        PlayerStatus.Instance.HPManager.setCurrentHP(saveData.playerCurrentHP);
-        PlayerStatus.Instance.EnergyManager.setMaximumEnergy(saveData.playerMaxEnergy);
-        PlayerStatus.Instance.EnergyManager.setCurrentEnergy(saveData.playerCurrentEnergy);
-        PlayerStatus.Instance.UpgradeManager.setUpgrade(saveData.playerUpgrades); // TODO: Hide earned upgrades when loading.
-        this.LastSaveLocManager.setLastSaveLoc(saveData.lastSaveLoc);
-        this.LastSafeLocManager.setLastSafeLoc(saveData.lastSaveLoc); // When loading a save, last safe loc = last save loc, as fallback.
-        this.EnemySaveManager.setKillList(saveData.bossesKilled);
+        // Step 1: Load scene
+        SceneLoader.Instance.loadScene(saveData.lastSaveLoc, true, () =>
+        {
+            // Step 2: Load raw values. Some UI updates happen as a consequence of these, e.g. setMaximumHP calls updateUI hook.
 
-        // Step 2: Play animations and load new scene
-        SceneLoader.Instance.loadScene(saveData.lastSaveLoc, true);
-        // TODO: respawn enemies.
-    }
-
-    /*
-     * Step 3:  Non-raw-value updates in the loaded scene, such as 
-     * moving the player, hide/showing upgrade items, respawn enemies.
-     * 
-     * Called by SceneLoader.loadScene when the animation completes.
-     */
-    public void doSceneSetup(Location playerLoc)
-    {
-        PlayerStatus.Instance.teleportPlayer(playerLoc);
-        SaveAndLoader.Instance.LastSafeLocManager.setLastSafeLoc(playerLoc); // this is duplicate when saveandloading
-        PlayerStatus.Instance.UpgradeManager.applyUpgradeItemState();
-        //Enemy.hideEnemies(this.EnemySaveManager.getKillList());
+            Debug.Log("SaveAndLoader - Loading raw values...");
+            PlayerStatus.Instance.HPManager.setMaximumHP(saveData.playerMaxHP);
+            PlayerStatus.Instance.HPManager.setCurrentHP(saveData.playerCurrentHP);
+            PlayerStatus.Instance.EnergyManager.setMaximumEnergy(saveData.playerMaxEnergy);
+            PlayerStatus.Instance.EnergyManager.setCurrentEnergy(saveData.playerCurrentEnergy);
+            PlayerStatus.Instance.UpgradeManager.setUpgrade(saveData.playerUpgrades); // TODO: Hide earned upgrades when loading.
+            this.LastSaveLocManager.setLastSaveLoc(saveData.lastSaveLoc);
+            this.LastSafeLocManager.setLastSafeLoc(saveData.lastSaveLoc); // When loading a save, last safe loc = last save loc, as fallback.
+            this.EnemySaveManager.setKillList(saveData.bossesKilled);
+        });
     }
 
     /*

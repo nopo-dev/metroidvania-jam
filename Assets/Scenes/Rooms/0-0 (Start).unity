@@ -8514,6 +8514,14 @@ PrefabInstance:
       value: Temp Scene Loader Area
       objectReference: {fileID: 0}
     - target: {fileID: 5741908176658065635, guid: 966de71f46c32674ab2054290cd42263, type: 3}
+      propertyPath: _nextSceneSpawnPoint.x
+      value: -25.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 5741908176658065635, guid: 966de71f46c32674ab2054290cd42263, type: 3}
+      propertyPath: _nextSceneSpawnPoint.y
+      value: -8.99
+      objectReference: {fileID: 0}
+    - target: {fileID: 5741908176658065635, guid: 966de71f46c32674ab2054290cd42263, type: 3}
       propertyPath: _nextSceneSpawnPoint.sceneName
       value: 0-1 (Tutorial 1)
       objectReference: {fileID: 0}
