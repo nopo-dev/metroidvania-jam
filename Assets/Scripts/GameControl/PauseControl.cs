@@ -1,8 +1,26 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 
-public static class PauseControl
+public class PauseControl : MonoBehaviour
 {
     public static bool gameIsPaused = false;
+
+    void Update()
+    {
+        //TODO: check if not on main menu?
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (PauseControl.gameIsPaused)
+            {
+                PauseMenu.Instance.Resume();
+            }
+            else
+            {
+                PauseMenu.Instance.Pause();
+            }
+        }
+    }
 
     public static void PauseGame()
     {
