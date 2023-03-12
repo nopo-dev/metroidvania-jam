@@ -32,4 +32,11 @@ public class MainMenu : MonoBehaviour
         Debug.Log("Quit Game");
         Application.Quit();
     }
+
+    public bool getActive()
+    {
+        return gameObject.activeSelf;
+    }
+    //TODO: add another button that says resume rather than play if savedata exists
+
 }

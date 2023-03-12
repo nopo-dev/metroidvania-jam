@@ -8,7 +8,7 @@ using UnityEngine.Events;
 public class SceneLoader : MonoBehaviour
 {
     public static SceneLoader Instance;
-    public UnityEvent OnTransitionDone;
+    //public UnityEvent OnTransitionDone;
 
     // TODO: These may have to live in e.g. SceneLoaderArea if non-standardized.
     public Animator transition;
