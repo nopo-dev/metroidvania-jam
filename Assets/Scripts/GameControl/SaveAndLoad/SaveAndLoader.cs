@@ -138,7 +138,7 @@ public class SaveAndLoader : MonoBehaviour
         PlayerStatus.Instance.teleportPlayer(playerLoc);
         SaveAndLoader.Instance.LastSafeLocManager.setLastSafeLoc(playerLoc); // this is duplicate when saveandloading
         PlayerStatus.Instance.UpgradeManager.applyUpgradeItemState();
-        Enemy.hideEnemies(this.EnemySaveManager.getKillList());
+        //Enemy.hideEnemies(this.EnemySaveManager.getKillList());
     }
 
     /*

@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class PauseControl : MonoBehaviour
 {
-    public static bool gameIsPaused = false;
+    public static bool gameIsPaused = true;
 
     void Update()
     {
-        //TODO: check if not on main menu / other checks to make sure you are allowed to pause
+        //TODO: other checks to make sure you are allowed to pause?
         if (Input.GetKeyDown(KeyCode.Escape) && !MainMenu.Instance.getActive())
         {
             if (PauseControl.gameIsPaused)

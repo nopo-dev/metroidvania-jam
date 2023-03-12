@@ -25,6 +25,7 @@ public class MainMenu : MonoBehaviour
     public void PlayButton()
     {
         SceneLoader.Instance.loadScene(_nextSceneSpawnPoint);
+        PauseControl.ResumeGame();
     }
 
     public void QuitButton()

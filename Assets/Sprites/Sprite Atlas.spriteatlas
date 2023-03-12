@@ -92,7 +92,8 @@ SpriteAtlas:
   - {fileID: 1822662065, guid: 1e61dd572076d6e4eaa1ab7ce6a1c3c3, type: 3}
   - {fileID: 672450807, guid: 1e61dd572076d6e4eaa1ab7ce6a1c3c3, type: 3}
   - {fileID: -688228095, guid: 1e61dd572076d6e4eaa1ab7ce6a1c3c3, type: 3}
-  - {fileID: 21300000, guid: a0fd9b992aa9e5f4f9d83ce4015aac91, type: 3}
+  - {fileID: 21300000, guid: 245b69e936fb10546b3d20dd54ba829f, type: 3}
+  - {fileID: 21300000, guid: e8973c1a46f69c04b92dd5c0163de563, type: 3}
   - {fileID: -1151024970, guid: 2829165caf5e2e54c99609a1da2273dd, type: 3}
   - {fileID: 284874314, guid: 2829165caf5e2e54c99609a1da2273dd, type: 3}
   - {fileID: -774531094, guid: 2829165caf5e2e54c99609a1da2273dd, type: 3}
@@ -226,7 +227,8 @@ SpriteAtlas:
   - Cave Tileset_6
   - Cave Tileset_9
   - Cave Tileset_8
-  - background
+  - cave_background
+  - UI
   - Player Base_8
   - Player Base_9
   - Player Base_6
