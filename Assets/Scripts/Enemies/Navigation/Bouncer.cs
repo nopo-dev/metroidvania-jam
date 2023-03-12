@@ -1,26 +1,25 @@
 ﻿using UnityEngine;
 
+[CreateAssetMenu(menuName = "NavManager/Bouncer")]
 public class Bouncer : NavManager
 {
     [Range(0.0f, 1.0f)]
-    public float bounceSpeed = 1;
-    public Vector2 startingDirection = new Vector2(1, 1);
+    public float floatSpeed = 1;
     
-    private Fly _flyer;
 
     void Awake()
     {
-        startingDirection.Normalize();
+        base.Awake();
+        Debug.Assert(flying, "Only flyers can Bounce");
     }
 
-    private void Start()
+    public override void doPeacefulNav(Enemy navigator)
     {
-        _flyer = GetComponent<Fly>();
-        _flyer.setDirection(bounceSpeed * startingDirection);
+        navigator.flyer.setDirection(floatSpeed * navigator.flyer.direction.normalized);
     }
 
-    public override void doPeacefulNav()
+    public override void startNav(Enemy navigator, Vector2 direction)
     {
-        _flyer.setDirection(bounceSpeed * _flyer.direction.normalized);
+        navigator.flyer.setDirection(floatSpeed * direction.normalized);
     }
 }

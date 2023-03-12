@@ -8,8 +8,8 @@ namespace FSM
     {
         public override bool Decide(BaseStateMachine machine)
         {
-            var attacker = machine.GetComponent<Attacker>();
-            return attacker.inRange();
+            var entity = machine.GetComponent<Enemy>();
+            return entity.inAttackRange();
         }
     }
 }

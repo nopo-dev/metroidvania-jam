@@ -1,43 +1,32 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using UnityEngine;
 
+[CreateAssetMenu(menuName = "Attacker/Hedgehog Attacker")]
 public class HedgehogAttacker : Attacker
 {
     public float duration;
     public float size;
     public float cooldown;
 
-    private GenericEnemyController _controller;
-
-    new private void Start()
-    {
-        base.Start();
-        _controller = GetComponent<Move>()._input as GenericEnemyController;
-    }
-
-    protected override IEnumerator doAttack(System.Action callback)
+    protected override IEnumerator doAttack(Enemy attacker, Action callback)
     {
         // animations
-        standStill();
-        grow();
+        attacker.standStill();
+        grow(attacker);
         yield return new WaitForSeconds(duration);
-        shrink();
+        shrink(attacker);
         yield return new WaitForSeconds(cooldown);
         callback?.Invoke();
     }
 
-    private void standStill()
+    private void grow(Enemy attacker)
     {
-        _controller.direction = 0;
+        attacker.transform.localScale = new Vector2(size, size);
     }
 
-    private void grow()
+    private void shrink(Enemy attacker)
     {
-        transform.localScale = new Vector2(size, size);
-    }
-
-    private void shrink()
-    {
-        transform.localScale = new Vector2(1, 1);
+        attacker.transform.localScale = new Vector2(1, 1);
     }
 }

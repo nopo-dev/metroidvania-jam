@@ -8,8 +8,8 @@ namespace FSM
     {
         public override void Execute(BaseStateMachine machine)
         {
-            var navManager = machine.GetComponent<NavManager>();
-            navManager.doPeacefulNav();
+            var entity = machine.GetComponent<Enemy>();
+            entity.doPeacefulNav();
         }
     }
 }

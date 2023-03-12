@@ -7596,9 +7596,7 @@ GameObject:
   - component: {fileID: 501900084}
   - component: {fileID: 501900085}
   - component: {fileID: 501900094}
-  - component: {fileID: 501900098}
   - component: {fileID: 501900099}
-  - component: {fileID: 501900101}
   - component: {fileID: 501900100}
   m_Layer: 0
   m_Name: Temp Enemy 2.0
@@ -7615,7 +7613,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 501900074}
-  m_BodyType: 1
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -7653,7 +7651,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _input: {fileID: 11400000, guid: 142667892a247bc4e975444ca7da9a44, type: 2}
-  _maxSpeed: 10
+  _maxSpeed: 5
   _maxAcceleration: 250
   _maxAerialAcceleration: 250
 --- !u!212 &501900080
@@ -7795,21 +7793,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 0.5}
   m_EdgeRadius: 0
---- !u!114 &501900098
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 501900074}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a4491df0d8f3100498258b8b75d035ca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _maximumHP: 10
-  _damageOnTouch: 10
-  _respawns: 1
 --- !u!114 &501900099
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7832,25 +7815,20 @@ MonoBehaviour:
   m_GameObject: {fileID: 501900074}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3b7679367dc2fb344a9183b47d1e0104, type: 3}
+  m_Script: {fileID: 11500000, guid: e9c0f63de2d868a4f85c9b2c56d40e4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  range: 10
-  chargeDuration: 2
-  cooldown: 0.5
-  chargeSpeed: 1
---- !u!114 &501900101
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 501900074}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bdad788243530af4891c91a322ff5280, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  type: {fileID: 11400000, guid: 96f6c784527150247a8190c15724cd27, type: 2}
+  patrolA: {x: 10, y: 0}
+  patrolB: {x: 20, y: 0}
+  startDirection: {x: 0, y: 0}
+  _id: 
+  _respawns: 1
+  startLoc: {x: 0, y: 0}
+  destinationLoc: {x: 0, y: 0}
+  player: {fileID: 0}
+  controller: {fileID: 0}
+  flyer: {fileID: 0}
 --- !u!1 &583678008
 GameObject:
   m_ObjectHideFlags: 0

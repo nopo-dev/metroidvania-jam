@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c735492f8ce79b34db4450424842aa7a, type: 3}
+  m_Name: Charger
+  m_EditorClassIdentifier: 
+  attacker: {fileID: 11400000, guid: 9c6c634b1a34ec6428a0b4451b0395ae, type: 2}
+  navManager: {fileID: 11400000, guid: 910a3883e184387448d4ccc71d2ce595, type: 2}
+  maximumHP: 20
+  damageOnTouch: 20

@@ -13,6 +13,10 @@ public class SaveAndLoader : MonoBehaviour
     private static KeyCode loadKey = KeyCode.L;
     private static KeyCode restartKey = KeyCode.R;
 
+    public LastSaveLocManager LastSaveLocManager { get; private set; }
+    public LastSafeLocManager LastSafeLocManager { get; private set; }
+    public EnemySaveManager EnemySaveManager { get; private set; }
+
     /*
     * Initialize the singleton instance if it does not already exist.
     * If it exists & is different from current instance, destroy this instance.
@@ -26,6 +30,9 @@ public class SaveAndLoader : MonoBehaviour
             return;
         }
         Instance = this;
+        this.LastSaveLocManager = new LastSaveLocManager();
+        this.LastSafeLocManager = new LastSafeLocManager();
+        this.EnemySaveManager = new EnemySaveManager();
     }
 
     private void Start()
@@ -67,7 +74,8 @@ public class SaveAndLoader : MonoBehaviour
             PlayerStatus.Instance.EnergyManager.getCurrentEnergy(),
             PlayerStatus.Instance.EnergyManager.getMaximumEnergy(),
             PlayerStatus.Instance.UpgradeManager.getUpgrade(),
-            PlayerStatus.Instance.LastSaveLocManager.getLastSaveLoc()
+            this.LastSaveLocManager.getLastSaveLoc(),
+            this.EnemySaveManager.getKillList()
         );
     }
 
@@ -110,12 +118,27 @@ public class SaveAndLoader : MonoBehaviour
         PlayerStatus.Instance.EnergyManager.setMaximumEnergy(saveData.playerMaxEnergy);
         PlayerStatus.Instance.EnergyManager.setCurrentEnergy(saveData.playerCurrentEnergy);
         PlayerStatus.Instance.UpgradeManager.setUpgrade(saveData.playerUpgrades); // TODO: Hide earned upgrades when loading.
-        PlayerStatus.Instance.LastSaveLocManager.setLastSaveLoc(saveData.lastSaveLoc);
-        PlayerStatus.Instance.LastSafeLocManager.setLastSafeLoc(saveData.lastSaveLoc); // When loading a save, last safe loc = last save loc, as fallback.
+        this.LastSaveLocManager.setLastSaveLoc(saveData.lastSaveLoc);
+        this.LastSafeLocManager.setLastSafeLoc(saveData.lastSaveLoc); // When loading a save, last safe loc = last save loc, as fallback.
+        this.EnemySaveManager.setKillList(saveData.bossesKilled);
 
-        // Step 2: Non-raw-value updates, such as moving the player, hide/showing upgrade items, respawn enemies.
+        // Step 2: Play animations and load new scene
         SceneLoader.Instance.loadScene(saveData.lastSaveLoc, true);
         // TODO: respawn enemies.
+    }
+
+    /*
+     * Step 3:  Non-raw-value updates in the loaded scene, such as 
+     * moving the player, hide/showing upgrade items, respawn enemies.
+     * 
+     * Called by SceneLoader.loadScene when the animation completes.
+     */
+    public void doSceneSetup(Location playerLoc)
+    {
+        PlayerStatus.Instance.teleportPlayer(playerLoc);
+        SaveAndLoader.Instance.LastSafeLocManager.setLastSafeLoc(playerLoc); // this is duplicate when saveandloading
+        PlayerStatus.Instance.UpgradeManager.applyUpgradeItemState();
+        Enemy.hideEnemies(this.EnemySaveManager.getKillList());
     }
 
     /*

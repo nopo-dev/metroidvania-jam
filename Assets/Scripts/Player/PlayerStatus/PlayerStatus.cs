@@ -14,8 +14,6 @@ public class PlayerStatus : MonoBehaviour
     public HPManager HPManager { get; private set; }
     public EnergyManager EnergyManager { get; private set; }
     public UpgradeManager UpgradeManager { get; private set; }
-    public LastSaveLocManager LastSaveLocManager { get; private set; }
-    public LastSafeLocManager LastSafeLocManager { get; private set; }
 
     /*
      * Initialize the singleton instance if it does not already exist.
@@ -33,8 +31,6 @@ public class PlayerStatus : MonoBehaviour
         this.HPManager = new HPManager();
         this.EnergyManager = new EnergyManager();
         this.UpgradeManager = new UpgradeManager();
-        this.LastSaveLocManager = new LastSaveLocManager();
-        this.LastSafeLocManager = new LastSafeLocManager();
         DontDestroyOnLoad(gameObject);
     }
 
@@ -43,7 +39,7 @@ public class PlayerStatus : MonoBehaviour
      */
     public void teleportPlayer(Location loc)
     {
-        Debug.Log($"SaveAndLoader - Teleporting to ({loc.x}, {loc.y})...");
+        Debug.Log($"PlayerStatus - Teleporting to ({loc.x}, {loc.y})...");
         transform.position = new Vector2(loc.x, loc.y);
     }
 }

@@ -74,10 +74,7 @@ public class SceneLoader : MonoBehaviour
             {
                 yield return null;
             }
-            PlayerStatus.Instance.teleportPlayer(spawnPoint);
-            PlayerStatus.Instance.LastSafeLocManager.setLastSafeLoc(spawnPoint); // this is duplicate when saveandloading
-            PlayerStatus.Instance.UpgradeManager.applyUpgradeItemState();
-            Enemy.respawnEnemies();
+            SaveAndLoader.Instance.doSceneSetup(spawnPoint);
         }
         PauseControl.ResumeGame();
         transition.SetTrigger("End");

@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 /*
  * Patrols horizontally between two x-positions.
@@ -6,6 +7,7 @@
  * outside of the patrol path. It will try to return to the old path
  * instead of establishing a new one.
  */
+[CreateAssetMenu(menuName = "NavManager/Patroller")]
 public class Patroller : NavManager
 {
     // TOOD: only x-axis and 2-point positions for now.
@@ -13,36 +15,29 @@ public class Patroller : NavManager
     [Range(0.0f, 1.0f)]
     public float speed = 1;
 
-    public float a;
-    public float b;
     public float threshold = 0;
 
-    private float _dest;
-    private float _start;
-    protected GenericEnemyController _controller;
-
-    private void Awake()
+    private bool hasReachedDest(Vector2 start, Vector2 loc, Vector2 dest)
     {
-        Debug.Assert(a != b, "Patroller - Must have distinct patrol points");
-        _controller = GetComponent<Move>()._input as GenericEnemyController;
-        _start = transform.position.x;
-        _dest = a;
-    }
-
-    private bool hasReachedDest()
-    {
-        bool goingRight = _dest > _start;
-        return goingRight ? (transform.position.x >= _dest - threshold)
-            : (transform.position.x <= _dest + threshold);
-    }
-
-    public override void doPeacefulNav()
-    {
-        if (hasReachedDest())
+        if (!flying)
         {
-            _start = _dest;
-            _dest = (_dest == a) ? b : a;
+            bool goingRight = dest.x > start.x;
+            return goingRight ? (loc.x >= dest.x - threshold)
+                : (loc.x <= dest.x + threshold);
         }
-        _controller.direction = (_dest > transform.position.x) ? speed : -speed;
+        else
+        {
+            throw new NotImplementedException("Didn't implement flying patroller yet");
+        }
+    }
+
+    public override void doPeacefulNav(Enemy navigator)
+    {
+        if (hasReachedDest(navigator.startLoc, navigator.transform.position, navigator.destinationLoc))
+        {
+            navigator.startLoc = navigator.destinationLoc;
+            navigator.destinationLoc = (navigator.destinationLoc == navigator.patrolA) ? navigator.patrolB : navigator.patrolA;
+        }
+        base.moveTowards(navigator, navigator.destinationLoc, speed);
     }
 }

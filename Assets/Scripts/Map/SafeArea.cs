@@ -15,6 +15,6 @@ public class SafeArea : CollidableArea
 
     protected override void collisionHandler(Collider2D other)
     {
-        PlayerStatus.Instance.LastSafeLocManager.setLastSafeLoc(_spawnPoint);
+        SaveAndLoader.Instance.LastSafeLocManager.setLastSafeLoc(_spawnPoint);
     }
 }   

@@ -1,30 +1,30 @@
-﻿using FSM.Abstracts;
-using System.Collections;
+﻿using System.Collections;
 using UnityEngine;
+using System;
 
-public abstract class Attacker : MonoBehaviour
+public abstract class Attacker : ScriptableObject
 {
     // TODO: some animation stuff here, real attacking
     // TODO: make navManager, PatrolPoints, SightSensor, Attacker abstract. Have different implementations for different enemies.
 
     public float range;
 
-    protected GameObject _player;
+    protected GameObject player;
 
-    protected void Start()
+    protected void Awake()
     {
-        _player = GameObject.FindWithTag("Player");
+        player = GameObject.FindGameObjectWithTag("Player");
     }
 
-    public void attack(System.Action callback)
+    public void attack(Enemy attacker, Action callback)
     {
-        StartCoroutine(doAttack(callback));
+        attacker.StartCoroutine(doAttack(attacker, callback));
     }
 
-    public bool inRange()
+    public bool inRange(Enemy attacker)
     {
-        return Vector2.Distance(_player.transform.position, transform.position) <= range;
+        return Vector2.Distance(attacker.transform.position, player.transform.position) <= range;
     }
 
-    protected abstract IEnumerator doAttack(System.Action callback);
+    protected abstract IEnumerator doAttack(Enemy attacker, Action callback);
 }

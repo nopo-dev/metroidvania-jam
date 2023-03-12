@@ -7596,10 +7596,8 @@ GameObject:
   - component: {fileID: 501900084}
   - component: {fileID: 501900085}
   - component: {fileID: 501900094}
-  - component: {fileID: 501900098}
-  - component: {fileID: 501900096}
-  - component: {fileID: 501900095}
   - component: {fileID: 501900099}
+  - component: {fileID: 501900100}
   m_Layer: 0
   m_Name: Temp Enemy 2.0
   m_TagString: Untagged
@@ -7795,53 +7793,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 0.5}
   m_EdgeRadius: 0
---- !u!114 &501900095
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 501900074}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0a064c5024fae0e4eb3812efaa7dca0f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  range: 5
-  duration: 3
-  size: 5
-  cooldown: 1
---- !u!114 &501900096
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 501900074}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8c985206ed5debf40877bfdf3979b5b9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 1
-  a: 0
-  b: 20
-  threshold: 0.01
---- !u!114 &501900098
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 501900074}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a4491df0d8f3100498258b8b75d035ca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _maximumHP: 10
-  _damageOnTouch: 10
-  _respawns: 1
 --- !u!114 &501900099
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7855,6 +7806,29 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _initialState: {fileID: 11400000, guid: 3b8191542243adc4da9d66d377ea76e6, type: 2}
+--- !u!114 &501900100
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 501900074}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9c0f63de2d868a4f85c9b2c56d40e4e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: {fileID: 11400000, guid: 48b4f9746c019e04ca0081a908b9b4e0, type: 2}
+  patrolA: {x: 0, y: 0}
+  patrolB: {x: 0, y: 0}
+  startDirection: {x: 0, y: 0}
+  _id: 
+  _respawns: 1
+  startLoc: {x: 0, y: 0}
+  destinationLoc: {x: 0, y: 0}
+  player: {fileID: 0}
+  controller: {fileID: 0}
+  flyer: {fileID: 0}
 --- !u!1 &583678008
 GameObject:
   m_ObjectHideFlags: 0

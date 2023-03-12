@@ -1,7 +1,8 @@
-﻿using FSM.Abstracts;
+﻿using System;
 using System.Collections;
 using UnityEngine;
 
+[CreateAssetMenu(menuName = "Attacker/Charge Attacker")]
 public class ChargeAttacker : Attacker
 {
     public float chargeDuration;
@@ -9,20 +10,12 @@ public class ChargeAttacker : Attacker
     [Range(0.0f, 1.0f)]
     public float chargeSpeed = 1;
 
-    private GenericEnemyController _controller;
-
-    new private void Start()
-    {
-        base.Start();
-        _controller = GetComponent<Move>()._input as GenericEnemyController;
-    }
-
-    protected override IEnumerator doAttack(System.Action callback)
+    protected override IEnumerator doAttack(Enemy attacker, Action callback)
     {
         // animations
-        _controller.direction = (transform.position.x > _player.transform.position.x) ? -chargeSpeed : chargeSpeed;
+        attacker.chargePlayer(chargeSpeed);
         yield return new WaitForSeconds(chargeDuration);
-        _controller.direction = 0;
+        attacker.standStill();
         yield return new WaitForSeconds(cooldown);
         callback?.Invoke();
     }

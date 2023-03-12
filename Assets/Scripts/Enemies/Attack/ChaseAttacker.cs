@@ -1,25 +1,20 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using UnityEngine;
 
+[CreateAssetMenu(menuName = "Attacker/Chase Attacker")]
 public class ChaseAttacker : Attacker
 {
     [Range(0.0f, 1.0f)]
-    public float chaseSpeed = 1;
+    public float chaseSpeed = 1; // speed works kinda awkwardly atm
 
-    private Fly _flyer;
-
-    new private void Start()
+    protected override IEnumerator doAttack(Enemy attacker, Action callback)
     {
-        base.Start();
-        _flyer = GetComponent<Fly>();
-    }
-
-    protected override IEnumerator doAttack(System.Action callback)
-    {
+        // TODO: fly is awk, since it's exclusive with move but not related.
         // animations
         yield return null;
-        _flyer.setDirection(chaseSpeed * (_player.transform.position - transform.position).normalized);
-        transform.rotation = Quaternion.LookRotation(_player.transform.position);
+        attacker.facePlayer();
+        attacker.chasePlayer(chaseSpeed);
         callback?.Invoke();
     }
 }

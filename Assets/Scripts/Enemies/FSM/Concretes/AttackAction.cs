@@ -9,8 +9,8 @@ namespace FSM
         public override void Execute(BaseStateMachine machine)
         {
             machine.lockState();
-            var attacker = machine.GetComponent<Attacker>();
-            attacker.attack(machine.unlockState);
+            var entity = machine.GetComponent<Enemy>();
+            entity.attack(machine.unlockState);
         }
     }
 }

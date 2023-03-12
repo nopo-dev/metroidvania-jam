@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 /**
@@ -39,7 +38,7 @@ public class SaveArea : CollidableArea
     private void doSave()
     {
         Debug.Log("SaveArea - Marking last save loc...");
-        PlayerStatus.Instance.LastSaveLocManager.setLastSaveLoc(this.spawnPoint_);
+        SaveAndLoader.Instance.LastSaveLocManager.setLastSaveLoc(this.spawnPoint_);
         Debug.Log("SaveArea - Healing to full...");
         PlayerStatus.Instance.HPManager.healToFull();
         SaveAndLoader.Instance.save();
