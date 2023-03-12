@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13999a0be00c9d441be3973b73da2579, type: 3}
+  m_Name: Snail Man
+  m_EditorClassIdentifier: 
+  attacker: {fileID: 11400000, guid: 4ff0aa5562d353146b850165e2e564ec, type: 2}
+  navManager: {fileID: 11400000, guid: 0771513dc65c64145826063301bc0ed6, type: 2}
+  maximumHP: 100
+  damageOnTouch: 20

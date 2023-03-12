@@ -13,12 +13,18 @@ namespace FSM.Abstracts
         {
             foreach (var action in Actions)
             {
-                action.Execute(machine);
+                if (!machine.locked || action.blockable)
+                {
+                    action.Execute(machine);
+                }
             }
 
             foreach (var transition in Transitions)
             {
-                transition.Execute(machine);
+                if (!machine.locked || transition.decision.blockable)
+                {
+                    transition.Execute(machine);
+                }
             }
         }
     }

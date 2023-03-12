@@ -10,8 +10,8 @@ public class Enemy : CollidableArea
     [SerializeField] public Vector2 patrolA;
     [SerializeField] public Vector2 patrolB;
     [SerializeField] protected Vector2 startDirection;
-    [SerializeField] private string _id;
-    [SerializeField] private bool _respawns = true;
+    [SerializeField] protected string _id;
+    [SerializeField] protected bool _respawns = true;
 
     // kinda gross that these live here, they're only used by patroller navigator
     [HideInInspector] public Vector2 startLoc;
@@ -123,7 +123,7 @@ public class Enemy : CollidableArea
         }
     }
 
-    private void hide()
+    protected void hide()
     {
         GetComponent<Renderer>().enabled = false;
         this.gameObject.SetActive(false);

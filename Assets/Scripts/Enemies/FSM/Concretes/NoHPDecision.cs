@@ -6,7 +6,11 @@ namespace FSM
     [CreateAssetMenu(menuName = "FSM/Decisions/No HP")]
     public class NoHPDecision : Decision
     {
-        // TODO: noHP cannot be state-locked.
+        protected void Awake()
+        {
+            blockable = false;    
+        }
+
         public override bool Decide(BaseStateMachine machine)
         {
             var entity = machine.GetComponent<Enemy>();

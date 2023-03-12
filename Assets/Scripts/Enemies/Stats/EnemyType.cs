@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-[CreateAssetMenu(menuName = "Enemy Type")]
+[CreateAssetMenu(menuName = "Enemy Types/Enemy Type")]
 public class EnemyType : ScriptableObject
 {
     [SerializeField] public Attacker attacker = null;

@@ -4909,7 +4909,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5741908176658065635, guid: 966de71f46c32674ab2054290cd42263, type: 3}
       propertyPath: _nextSceneSpawnPoint.sceneName
-      value: test 1
+      value: snail test
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 966de71f46c32674ab2054290cd42263, type: 3}
