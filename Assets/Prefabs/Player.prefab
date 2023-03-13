@@ -51,6 +51,7 @@ GameObject:
   - component: {fileID: 7971447700424198474}
   - component: {fileID: 1456076181}
   - component: {fileID: 8137443565011401875}
+  - component: {fileID: 6776012479363169123}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -222,6 +223,7 @@ MonoBehaviour:
   _maxAcceleration: 250
   _maxAerialAcceleration: 250
   _allowMoveDuringAttack: 0
+  _allowMoveDuringRanged: 0
   _moveDuringAttackVelocity: 0.5
 --- !u!114 &2377381417911680806
 MonoBehaviour:
@@ -301,3 +303,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0f446ef48946ed48a70858af5a527de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &6776012479363169123
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6903462835959967356}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c8834a68f8ab414ca04696fe51f35de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _input: {fileID: 0}
+  _rangedHitbox: {fileID: 4108582060728428017, guid: 310f4761dce506847a11363420503e7b, type: 3}
+  _rangedAnimationSpeed: 1
+  _projectileSpeed: 5000
+  _projectileAngle: {x: 1, y: 0.04, z: 0}
+  _rangedLockout: 0.2
+  _rangedBufferThreshold: 0.1
