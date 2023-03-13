@@ -14,6 +14,7 @@ public class SceneLoader : MonoBehaviour
     public Animator transition;
     [SerializeField] private float _transitionTimeNewScene = 3.0f;
     [SerializeField] private float _transitionTimeReload = 5f;
+    public CanvasGroup uiGroup;
 
     void Awake()
     {
