@@ -274,8 +274,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f39a7e842df299a48b6bed04c41e5962, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _input: {fileID: 0}
-  _meleeHitbox: {fileID: 0}
+  _input: {fileID: 11400000, guid: b5ec8b4803bfccb48bd045843dbdca64, type: 2}
+  _meleeHitbox: {fileID: 1646513225056349587, guid: 039f2db9f94b06442a04c32ecca44563, type: 3}
   _meleeSpeed: 1
   _meleeLockout: 0
   _meleeBufferThreshold: 0.1
@@ -315,10 +315,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c8834a68f8ab414ca04696fe51f35de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _input: {fileID: 0}
+  _input: {fileID: 11400000, guid: b5ec8b4803bfccb48bd045843dbdca64, type: 2}
   _rangedHitbox: {fileID: 4108582060728428017, guid: 310f4761dce506847a11363420503e7b, type: 3}
   _rangedAnimationSpeed: 1
-  _projectileSpeed: 5000
-  _projectileAngle: {x: 1, y: 0.04, z: 0}
-  _rangedLockout: 0.2
+  _projectileSpeed: 2000
+  _projectileAngle: {x: 1, y: 0, z: 0}
+  _rangedLockout: 0.15
   _rangedBufferThreshold: 0.1
