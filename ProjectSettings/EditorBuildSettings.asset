@@ -21,6 +21,9 @@ EditorBuildSettings:
     path: Assets/Scenes/snail test.unity
     guid: caceba6d6abef2c4aab0c819be888b42
   - enabled: 1
+    path: Assets/Scenes/Menu Scene Test.unity
+    guid: e82efae0a6e4c784fb4182e6cf589fe1
+  - enabled: 1
     path: Assets/Scenes/Rooms/0-0 (Start).unity
     guid: 0f93034778f713c4a835e192b9f7d253
   - enabled: 1

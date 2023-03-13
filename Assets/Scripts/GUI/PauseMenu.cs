@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
@@ -17,7 +18,7 @@ public class PauseMenu : MonoBehaviour
         Instance = this;
         DontDestroyOnLoad(gameObject);
     }
-
+    
     void Start()
     {
         gameObject.SetActive(false);
@@ -39,5 +40,15 @@ public class PauseMenu : MonoBehaviour
     {
         Debug.Log("Quit Game");
         Application.Quit();
+    }
+
+    // TODO: Change default location to finalized version scene
+    public void QuitToTitleButton()
+    {
+        Location defaultLocation = new Location(0, 0, "Menu Scene Test");
+        Debug.Log(defaultLocation.sceneName);
+        Debug.Log(UnityEngine.SceneManagement.SceneManager.sceneCountInBuildSettings);
+        SceneManager.LoadScene("Menu Scene Test");
+        PauseControl.PauseGame();
     }
 }
