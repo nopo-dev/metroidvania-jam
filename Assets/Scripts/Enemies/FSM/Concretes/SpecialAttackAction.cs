@@ -9,10 +9,10 @@ namespace FSM
         [SerializeField] SnailMan.SnailAttack attack;
         public override void Execute(BaseStateMachine machine)
         {
-            if (machine.locked) { return; }
-            machine.lockState();
+            if (machine.actionLocked) { return; }
             var entity = machine.GetComponent<SnailMan>();
-            entity.specialAttack(attack, machine.unlockState);
+            machine.lockState();
+            entity.specialAttack(attack, machine.unlockTransitions);
         }
     }
 }

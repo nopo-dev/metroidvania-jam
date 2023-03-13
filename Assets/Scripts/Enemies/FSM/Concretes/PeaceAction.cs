@@ -8,7 +8,7 @@ namespace FSM
     {
         public override void Execute(BaseStateMachine machine)
         {
-            if (machine.locked) { return; }
+            if (machine.actionLocked) { return; }
             var entity = machine.GetComponent<Enemy>();
             entity.doPeacefulNav();
         }

@@ -14,14 +14,19 @@ public class SlamAttacker : Attacker
 
     protected override IEnumerator doAttack(Enemy attacker, Action callback)
     {
+        Debug.Log("SnailMan - slam attacking");
+        Debug.Log("SnailMan - Pausing decision timer");
         float startTime = Time.time;
         // animations
+        attacker.facePlayer();
         yield return new WaitForSeconds(cooldown);
         grow(attacker);
         yield return new WaitForSeconds(duration);
         shrink(attacker);
         yield return new WaitForSeconds(cooldown);
-        (attacker as SnailMan).addThinkingTime(Time.time - startTime);
+        float ignoredTime = Time.time - startTime;
+        Debug.Log($"SnailMan - Resuming decision timer with {ignoredTime} ignored time.");
+        (attacker as SnailMan).addThinkingTime(ignoredTime);
         callback?.Invoke();
     }
 

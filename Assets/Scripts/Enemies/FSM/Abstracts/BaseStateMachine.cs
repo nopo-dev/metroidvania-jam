@@ -8,14 +8,16 @@ namespace FSM.Abstracts
     {
         [SerializeField] private BaseState _initialState;
         private Dictionary<Type, Component> _cachedComponents;
-        [HideInInspector] public bool locked { get; private set; }
+        [HideInInspector] public bool actionLocked { get; private set; }
+        [HideInInspector] public bool transitionLocked { get; private set; }
 
         [SerializeField] public BaseState CurrentState;
 
         private void Awake()
         {
             CurrentState = _initialState;
-            locked = false;
+            actionLocked = false;
+            transitionLocked = false;
             _cachedComponents = new Dictionary<Type, Component>();
         }
 
@@ -24,14 +26,36 @@ namespace FSM.Abstracts
             CurrentState.Execute(this);
         }
 
+        public void lockActions()
+        {
+            actionLocked = true;
+        }
+
+        public void unlockActions()
+        {
+            actionLocked = false;
+        }
+
+        public void lockTransitions()
+        {
+            transitionLocked = true;
+        }
+
+        public void unlockTransitions()
+        {
+            transitionLocked = false;
+        }
+
         public void lockState()
         {
-            locked = true;
+            lockTransitions();
+            lockActions();
         }
 
         public void unlockState()
         {
-            locked = false;
+            unlockTransitions();
+            unlockActions();
         }
 
         public new T GetComponent<T>() where T : Component

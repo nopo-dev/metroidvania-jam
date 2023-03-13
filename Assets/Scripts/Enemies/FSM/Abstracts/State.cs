@@ -13,7 +13,7 @@ namespace FSM.Abstracts
         {
             foreach (var action in Actions)
             {
-                if (!machine.locked || action.blockable)
+                if (!machine.actionLocked || !action.blockable)
                 {
                     action.Execute(machine);
                 }
@@ -21,7 +21,7 @@ namespace FSM.Abstracts
 
             foreach (var transition in Transitions)
             {
-                if (!machine.locked || transition.decision.blockable)
+                if (!machine.transitionLocked || !transition.decision.blockable)
                 {
                     transition.Execute(machine);
                 }

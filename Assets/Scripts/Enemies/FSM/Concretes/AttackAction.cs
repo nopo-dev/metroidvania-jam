@@ -8,10 +8,10 @@ namespace FSM
     {
         public override void Execute(BaseStateMachine machine)
         {
-            if (machine.locked) { return; }
+            if (machine.actionLocked) { return; }
             machine.lockState();
             var entity = machine.GetComponent<Enemy>();
-            entity.attack(machine.unlockState);
+            entity.attack(machine.unlockTransitions);
         }
     }
 }

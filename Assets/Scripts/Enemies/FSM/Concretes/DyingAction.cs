@@ -13,9 +13,9 @@ namespace FSM
 
         public override void Execute(BaseStateMachine machine)
         {
-            machine.lockState();
             var entity = machine.GetComponent<Enemy>();
-            entity.playDyingAnimation(machine.unlockState);
+            machine.lockState();
+            entity.playDyingAnimation(machine.unlockTransitions);
         }
     }
 }

@@ -9,7 +9,6 @@ public class Bouncer : NavManager
 
     void Awake()
     {
-        base.Awake();
         Debug.Assert(flying, "Only flyers can Bounce");
     }
 

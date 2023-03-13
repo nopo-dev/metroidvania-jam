@@ -13,7 +13,7 @@ public class Decider : NavManager
     public override void doPeacefulNav(Enemy navigator) {
         SnailMan snailMan = navigator as SnailMan;
         if (snailMan.deciding) { return; }
-        Debug.Log("Decider - Starting decision timer.");
+        Debug.Log("SnailMan - Starting decision timer.");
         uncountedTime = 0;
         startTime = Time.time;
         snailMan.deciding = true;
@@ -21,6 +21,7 @@ public class Decider : NavManager
 
     public bool hasDecided()
     {
+        //Debug.Log($"{startTime}, {uncountedTime}");
         return Time.time - startTime - uncountedTime > thinkingTime;
     }
 }

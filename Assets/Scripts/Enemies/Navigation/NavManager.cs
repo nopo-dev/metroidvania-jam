@@ -1,16 +1,10 @@
 ﻿using UnityEngine;
+using static UnityEngine.RuleTile.TilingRuleOutput;
 
 // TODO: a little awkward that peaceul nav lives in NavManager and attack nav lives in Attacker
 public abstract class NavManager : ScriptableObject
 {
     public bool flying = false;
-
-    protected GameObject player;
-
-    protected void Awake()
-    {
-        player = GameObject.FindGameObjectWithTag("Player");
-    }
 
     public abstract void doPeacefulNav(Enemy navigator);
 
@@ -42,24 +36,23 @@ public abstract class NavManager : ScriptableObject
     }
     public void chargePlayer(Enemy navigator, float chargeSpeed)
     {
-        moveTowards(navigator, player.transform.position, chargeSpeed);
+        moveTowards(navigator, navigator.player.transform.position, chargeSpeed);
     }
 
     public void chasePlayer(Enemy navigator, float chaseSpeed)
     {
-        moveTowards(navigator, player.transform.position, chaseSpeed);
+        moveTowards(navigator, navigator.player.transform.position, chaseSpeed);
     }
 
     public void facePlayer(Enemy navigator)
     {
         if (flying)
         {
-            navigator.transform.rotation = Quaternion.LookRotation(player.transform.position);
+            navigator.transform.rotation = Quaternion.LookRotation(navigator.player.transform.position);
         }
         else
         {
-            // Move already has face, so do nothing.
-            return;
+            navigator.transform.localScale = (navigator.player.transform.position.x > navigator.transform.position.x) ? new Vector3(1, 1) : new Vector3(-1, 1);
         }
     }
 }

@@ -14,6 +14,7 @@ namespace FSM
             var snailman = machine.GetComponent<SnailMan>();
             if (snailman.readyToAttack())
             {
+                Debug.Log("SnailMan - ready to attack");
                 snailman.deciding = false;
                 return true;
             }

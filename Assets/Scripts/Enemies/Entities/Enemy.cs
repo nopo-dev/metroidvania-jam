@@ -20,13 +20,16 @@ public class Enemy : CollidableArea
     [HideInInspector] protected Attacker _attacker = null;
     [HideInInspector] protected NavManager _navManager = null;
     [HideInInspector] protected int _currentHP;
-    
+    [HideInInspector] protected bool _collidable;
+
     [HideInInspector] public GameObject player;
     [HideInInspector] public GenericEnemyController controller;
     [HideInInspector] public Fly flyer;
 
+
     protected void Awake()
     {
+        _collidable = true;
         controller = GetComponent<Move>()?._input as GenericEnemyController; // can be null if no Move
         flyer = GetComponent<Fly>();
     }
@@ -89,6 +92,9 @@ public class Enemy : CollidableArea
 
     public void playDyingAnimation(Action callback)
     {
+        StopAllCoroutines();
+        _collidable = false;
+
         StartCoroutine(dyingAnimation(callback));
     }
 
@@ -99,7 +105,7 @@ public class Enemy : CollidableArea
 
     protected override void collisionHandler(Collider2D other)
     {
-        if (other.tag != "Player") { return; }
+        if (other.tag != "Player" || !_collidable) { return; }
 
         PlayerStatus.Instance.HPManager.damageHP(type.damageOnTouch);
 

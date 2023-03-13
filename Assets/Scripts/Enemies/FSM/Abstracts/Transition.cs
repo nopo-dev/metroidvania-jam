@@ -22,6 +22,7 @@ namespace FSM.Abstracts
             {
                 machine.CurrentState = FalseState;
             }
+            machine.unlockState();
         }
     }
 }

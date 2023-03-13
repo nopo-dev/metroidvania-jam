@@ -13,12 +13,18 @@ namespace FSM
 
         public override bool Decide(BaseStateMachine machine)
         {
+            bool forceAttack = false;
             if (!_firedOnce)
             {
                 _firedOnce = true;
+                forceAttack = true;
+            }
+            if (_rand.NextDouble() < conditionalChance || forceAttack)
+            {
+                machine.lockTransitions();
                 return true;
             }
-            return _rand.NextDouble() < conditionalChance;
+            return false;
         }
     }
 }

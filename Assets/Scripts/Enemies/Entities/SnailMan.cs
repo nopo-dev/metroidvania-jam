@@ -5,16 +5,16 @@ using UnityEngine;
 public class SnailMan : Enemy
 {
     [SerializeField] public Animator animator;
-    [HideInInspector] new protected bool _respawns = false;
     [HideInInspector] public bool deciding = false;
 
     private TraversalAttacker _traversalAttacker;
     private SpitAttacker _spitAttacker;
     private RockAttacker _rockAttacker;
 
-    protected void Awake()
+    new protected void Awake()
     {
         base.Awake();
+        _respawns = false;
         _traversalAttacker = GetComponent<TraversalAttacker>();
         _spitAttacker = GetComponent<SpitAttacker>();
         _rockAttacker = GetComponent<RockAttacker>();
@@ -22,8 +22,13 @@ public class SnailMan : Enemy
 
     protected override IEnumerator dyingAnimation(Action callback)
     {
-        // play animation
+        var rb2d = GetComponent<Rigidbody2D>();
+        rb2d.bodyType = RigidbodyType2D.Static;
+        rb2d.velocity = new Vector2(0, 0); // not sure if needed after static
+
         yield return new WaitForSeconds(4);
+        // todo: run animation, make it noncollidable (physics) but body falls w/ gravity.
+
         callback?.Invoke();
     }
 
@@ -34,7 +39,6 @@ public class SnailMan : Enemy
 
     public void addThinkingTime(float time)
     {
-        Debug.Log("Adding thinking time");
         (_navManager as Decider).uncountedTime += time;
     }
 

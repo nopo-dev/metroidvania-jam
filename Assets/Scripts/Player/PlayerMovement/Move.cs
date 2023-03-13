@@ -27,6 +27,7 @@ public class Move : MonoBehaviour
         _rb = GetComponent<Rigidbody2D>();
         _ground = GetComponent<CollisionSurface>();
         _animator = GetComponent<Animator>();
+        _input = Instantiate(_input); // hack because enemies are using duplicate GenericEnemyControllers
     }
 
     private void Update()
