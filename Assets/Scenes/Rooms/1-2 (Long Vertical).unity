@@ -14651,19 +14651,19 @@ PrefabInstance:
     - target: {fileID: 1576145088367061834, guid: d0e4947608860ea4bb29de25914b91a3, type: 3}
       propertyPath: m_TileAssetArray.Array.data[0].m_Data
       value: 
-      objectReference: {fileID: 11400000, guid: 113694778d9298345836b22cf2dc4103, type: 2}
+      objectReference: {fileID: 0}
     - target: {fileID: 1576145088367061834, guid: d0e4947608860ea4bb29de25914b91a3, type: 3}
       propertyPath: m_TileAssetArray.Array.data[1].m_Data
       value: 
-      objectReference: {fileID: 11400000, guid: bd5dd32fd08c62148aef2b1a13689170, type: 2}
+      objectReference: {fileID: 0}
     - target: {fileID: 1576145088367061834, guid: d0e4947608860ea4bb29de25914b91a3, type: 3}
       propertyPath: m_TileAssetArray.Array.data[2].m_Data
       value: 
-      objectReference: {fileID: 11400000, guid: f157cb5c7e54e1b48b4f0204670ef2bc, type: 2}
+      objectReference: {fileID: 0}
     - target: {fileID: 1576145088367061834, guid: d0e4947608860ea4bb29de25914b91a3, type: 3}
       propertyPath: m_TileAssetArray.Array.data[3].m_Data
       value: 
-      objectReference: {fileID: 11400000, guid: eff775a6264262946be2456b5b717995, type: 2}
+      objectReference: {fileID: 0}
     - target: {fileID: 1576145088367061834, guid: d0e4947608860ea4bb29de25914b91a3, type: 3}
       propertyPath: m_TileSpriteArray.Array.data[0].m_Data
       value: 
