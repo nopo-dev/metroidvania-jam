@@ -5,6 +5,6 @@
  */
 public class Consts
 {
-    public const int STARTING_PLAYER_HP = 100;
-    public const int STARTING_PLAYER_ENERGY = 100;
+    public const int STARTING_PLAYER_HP = 5;
+    public const int STARTING_PLAYER_ENERGY = 50;
 }

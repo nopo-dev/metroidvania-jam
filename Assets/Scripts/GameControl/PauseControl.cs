@@ -14,12 +14,10 @@ public class PauseControl : MonoBehaviour
             if (PauseControl.gameIsPaused)
             {
                 PauseMenu.Instance.Resume();
-                UIDisplay.Instance.showUI();
             }
             else
             {
                 PauseMenu.Instance.Pause();
-                UIDisplay.Instance.hideUI();
             }
         }
     }
