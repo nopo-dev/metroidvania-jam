@@ -31,6 +31,7 @@ public class SceneLoader : MonoBehaviour
 
     private void Start()
     {
+        // Potentially this could be a dict, not sure which is better.
         AnimationClip[] clips = transition.runtimeAnimatorController.animationClips;
         foreach (AnimationClip clip in clips)
         {
