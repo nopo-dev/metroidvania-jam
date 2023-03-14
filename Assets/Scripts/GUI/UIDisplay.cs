@@ -11,36 +11,41 @@ public class UIDisplay : MonoBehaviour
     
     public Slider energySlider;
     public SpriteRenderer spriteRenderer;
+    public GameObject UI;
+    public CanvasGroup UIcanvas;
 
     private void Awake()
     {
-        //TODO: set Slider value to last energy value from save file
+        UI = GameObject.FindWithTag("UI");
+        UIcanvas = UI.GetComponent<CanvasGroup>();
+        UIcanvas.alpha = 0;
         if (Instance != null && Instance != this)
         {
             Debug.Log("Can only have one PlayerStatusDisplay");
             Destroy(this);
         }
         Instance = this;
+        DontDestroyOnLoad(gameObject);
     }
 
     void Update()
     {
         if (Input.GetKeyDown("space"))
         {
-            updateEnergy();
+            updateEnergy(PlayerStatus.Instance.EnergyManager.getCurrentEnergy());
             Debug.Log(PlayerStatus.Instance.EnergyManager.getCurrentEnergy());
+            Debug.Log(energySlider.value); 
         }
     }
 
-    public void updateHP()
+    public void updateHP(int currentHP)
     {
 
     }
 
-    public void updateEnergy()
+    public void updateEnergy(int currentEnergy)
     {
-        PlayerStatus.Instance.EnergyManager.setCurrentEnergy(PlayerStatus.Instance.EnergyManager.getCurrentEnergy()-4);
-        energySlider.value = rescaleEnergy(PlayerStatus.Instance.EnergyManager.getCurrentEnergy()-20);
+        //energySlider.value = rescaleEnergy(currentEnergy-20);
     }
 
     private int rescaleEnergy(int currentEnergy)
@@ -49,4 +54,15 @@ public class UIDisplay : MonoBehaviour
         return (int) Math.Round(temp*52/50);
     }
 
+    public void showUI()
+    {
+        UIcanvas.alpha = 1;
+    }
+
+    public void hideUI()
+    {
+        UIcanvas.alpha = 0;
+    }
+    
+    
 }

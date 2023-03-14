@@ -30,7 +30,7 @@ public class HPManager
     public void setCurrentHP(int newCurrentHP)
     {
         this.currentHP_ = Utils.Clamp(newCurrentHP, 0, this.maximumHP_);
-        PlayerStatusDisplay.Instance.updateHP(this.currentHP_, this.maximumHP_);
+        UIDisplay.Instance.updateHP(this.currentHP_);
 
         if (isOutOfHP())
         {

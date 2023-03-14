@@ -14,7 +14,6 @@ public class SceneLoader : MonoBehaviour
     public Animator transition;
     [SerializeField] private float _transitionTimeNewScene = 3.0f;
     [SerializeField] private float _transitionTimeReload = 5f;
-    public CanvasGroup uiGroup;
 
     void Awake()
     {
@@ -65,7 +64,7 @@ public class SceneLoader : MonoBehaviour
         if (player != null)
         {
             player.GetComponent<SpriteRenderer>().enabled = false;
-        } 
+        }
         transition.SetTrigger("Start");
         PauseControl.PauseGame();
         yield return new WaitForSecondsRealtime(_transitionTimeNewScene);

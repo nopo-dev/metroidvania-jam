@@ -25,7 +25,6 @@ public class MainMenu : MonoBehaviour
     public void PlayButton()
     {
         SaveAndLoader.Instance.load();
-        PauseControl.ResumeGame();
     }
 
     public void QuitButton()
