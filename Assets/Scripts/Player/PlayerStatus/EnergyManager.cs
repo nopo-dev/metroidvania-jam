@@ -23,8 +23,8 @@ public class EnergyManager
 
     public void setCurrentEnergy(int newCurrentEnergy)
     {
+        UIDisplay.Instance.updateEnergy(this.currentEnergy_, newCurrentEnergy);
         this.currentEnergy_ = Utils.Clamp(newCurrentEnergy, 0, this.maximumEnergy_);
-        UIDisplay.Instance.updateEnergy(this.currentEnergy_);
     }
 
     public void healEnergy(int healAmount)
