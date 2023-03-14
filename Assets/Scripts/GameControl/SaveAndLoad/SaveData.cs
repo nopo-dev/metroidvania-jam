@@ -38,7 +38,7 @@ internal struct SaveData
         if (startingSaveArea == null)
         {
             Debug.Log("SaveData - No starting save area set. New game will be saved to (0, 0).");
-            return new SaveData(STARTING_PLAYER_HP, STARTING_PLAYER_HP, STARTING_PLAYER_ENERGY, STARTING_PLAYER_ENERGY, Upgrade.Base, new Location(0, 0, ""), new string[] { });
+            return new SaveData(STARTING_PLAYER_HP, STARTING_PLAYER_HP, STARTING_PLAYER_ENERGY, STARTING_PLAYER_ENERGY, Upgrade.Base, new Location(0, 0, "1-5 (Post-Boss1)"), new string[] { });
         }
         return new SaveData(STARTING_PLAYER_HP, STARTING_PLAYER_HP, STARTING_PLAYER_ENERGY, STARTING_PLAYER_ENERGY, Upgrade.Base, startingSaveArea.getSpawnLocation(), new string[] { });
     }

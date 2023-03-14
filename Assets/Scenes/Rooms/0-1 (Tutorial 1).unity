@@ -296,6 +296,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1692690969237054115, guid: 349ddbfda8bb90a4f86eb455ee9fd798, type: 3}
+      propertyPath: m_Lens.OrthographicSize
+      value: 18
+      objectReference: {fileID: 0}
     - target: {fileID: 2474395779850230342, guid: 349ddbfda8bb90a4f86eb455ee9fd798, type: 3}
       propertyPath: m_BoundingShape2D
       value: 
@@ -347,6 +351,10 @@ PrefabInstance:
     - target: {fileID: 4007004382320389321, guid: 349ddbfda8bb90a4f86eb455ee9fd798, type: 3}
       propertyPath: m_Name
       value: Camera Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 4007004382329291371, guid: 349ddbfda8bb90a4f86eb455ee9fd798, type: 3}
+      propertyPath: orthographic size
+      value: 18
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 349ddbfda8bb90a4f86eb455ee9fd798, type: 3}
