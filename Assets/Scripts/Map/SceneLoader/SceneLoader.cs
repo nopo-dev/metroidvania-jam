@@ -12,8 +12,11 @@ public class SceneLoader : MonoBehaviour
 
     // TODO: These may have to live in e.g. SceneLoaderArea if non-standardized.
     public Animator transition;
-    [SerializeField] private float _transitionTimeNewScene = 3.0f;
-    [SerializeField] private float _transitionTimeReload = 5f;
+    [SerializeField] private float _blackScreenTimeNewScene = 1.0f;
+    [SerializeField] private float _blackScrenTimeReloadScene = 0.1f;
+
+    private float _animationStartTime;
+    private float _animationEndTime;
 
     void Awake()
     {
@@ -24,6 +27,26 @@ public class SceneLoader : MonoBehaviour
             return;
         }
         Instance = this;
+    }
+
+    private void Start()
+    {
+        AnimationClip[] clips = transition.runtimeAnimatorController.animationClips;
+        foreach (AnimationClip clip in clips)
+        {
+            switch(clip.name)
+            {
+                case "Fade_to_Black":
+                    _animationStartTime = clip.length;
+                    break;
+                case "Fade_to_White":
+                    _animationEndTime = clip.length;
+                    break;
+                default:
+                    Debug.Log($"SceneLoader - unrecognized animation type '{clip.name}' for scene transition.");
+                    break;
+            }
+        }
     }
 
     /*
@@ -50,11 +73,12 @@ public class SceneLoader : MonoBehaviour
     {
         transition.SetTrigger("Start");
         PauseControl.PauseGame();
-        yield return new WaitForSecondsRealtime(_transitionTimeReload); // TODO: wanted this to freeze the game for 0.5s
+        yield return new WaitForSecondsRealtime(_animationStartTime + _blackScrenTimeReloadScene); // TODO: wanted this to freeze the game for 0.5s
         PlayerStatus.Instance.teleportPlayer(spawnPoint);
         callback?.Invoke();
-        PauseControl.ResumeGame();
         transition.SetTrigger("End");
+        yield return new WaitForSecondsRealtime(_animationEndTime);
+        PauseControl.ResumeGame();
     }
 
     // to new level
@@ -62,7 +86,7 @@ public class SceneLoader : MonoBehaviour
     {
         transition.SetTrigger("Start");
         PauseControl.PauseGame();
-        yield return new WaitForSecondsRealtime(_transitionTimeNewScene);
+        yield return new WaitForSecondsRealtime(_animationStartTime + _blackScreenTimeNewScene);
         if (!isScene(spawnPoint.sceneName))
         {
             Debug.Log($"SceneLoader - {spawnPoint.sceneName} is not a valid scene. Will not load a scene."); // TODO: log that dynamically grabs class name
@@ -80,8 +104,9 @@ public class SceneLoader : MonoBehaviour
             PlayerStatus.Instance.UpgradeManager.applyUpgradeItemState();
             Enemy.hideEnemies(SaveAndLoader.Instance.EnemySaveManager.getKillList());
         }
-        PauseControl.ResumeGame();
         transition.SetTrigger("End");
+        yield return new WaitForSecondsRealtime(_animationEndTime);
+        PauseControl.ResumeGame();
     }
 
     private bool isScene(string sceneName)
