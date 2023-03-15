@@ -7,7 +7,7 @@ public class SceneLoaderArea : CollidableArea
 
     protected override void collisionHandler(Collider2D other)
     {
-        if (other.tag == "Player")
+        if (other.tag == "PlayerTrigger")
         {
             SceneLoader.Instance.loadScene(_nextSceneSpawnPoint);
         }
