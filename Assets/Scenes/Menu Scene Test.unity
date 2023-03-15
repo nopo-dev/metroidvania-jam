@@ -337,6 +337,36 @@ MonoBehaviour:
     pitch: 1
     loop: 0
     source: {fileID: 0}
+  - name: PlayerDamage
+    clip: {fileID: 8300000, guid: 063bebc5085ecda4b99519c6c850814d, type: 3}
+    volume: 0.1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: BatDeath
+    clip: {fileID: 8300000, guid: 6491ed26cb472374eb3ecefc8a178953, type: 3}
+    volume: 0.1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: BatFlap
+    clip: {fileID: 8300000, guid: 4ae119129c120904e8387041d786a88a, type: 3}
+    volume: 0.1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: SlimeMove
+    clip: {fileID: 8300000, guid: 88653dd4fb6dc8c47aead6936322e3ba, type: 3}
+    volume: 0.1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: SpitImpact
+    clip: {fileID: 8300000, guid: 895f2a6fd3576754c8f6b4202ffd876b, type: 3}
+    volume: 0.1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
 --- !u!1001 &603003330
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1920,13 +1950,13 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 524137481}
         m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
-        m_MethodName: playClip
-        m_Mode: 2
+        m_MethodName: PlaySound
+        m_Mode: 5
         m_Arguments:
-          m_ObjectArgument: {fileID: 8300000, guid: ed4de566885432d4d90c7ab74b0ac892, type: 3}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
