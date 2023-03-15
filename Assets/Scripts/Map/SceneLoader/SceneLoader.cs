@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using System;
+using UnityEngine.Events;
 
 // static ?
 public class SceneLoader : MonoBehaviour
 {
     public static SceneLoader Instance;
-    //public UnityEvent OnTransitionDone;
 
     // TODO: These may have to live in e.g. SceneLoaderArea if non-standardized.
     public Animator transition;
@@ -85,6 +85,11 @@ public class SceneLoader : MonoBehaviour
     // to new level
     private IEnumerator animatedLoadScene(Location spawnPoint, Action callback)
     {
+        GameObject player = GameObject.FindWithTag("Player");
+        if (player != null)
+        {
+            player.GetComponent<SpriteRenderer>().enabled = false;
+        }
         transition.SetTrigger("Start");
         PauseControl.PauseGame();
         yield return new WaitForSecondsRealtime(_animationStartTime + _blackScreenTimeNewScene);
@@ -104,6 +109,10 @@ public class SceneLoader : MonoBehaviour
             SaveAndLoader.Instance.LastSafeLocManager.setLastSafeLoc(spawnPoint); // this is duplicate when saveandloading
             PlayerStatus.Instance.UpgradeManager.applyUpgradeItemState();
             Enemy.hideEnemies(SaveAndLoader.Instance.EnemySaveManager.getKillList());
+        }        
+        if (player != null)
+        {
+            player.GetComponent<SpriteRenderer>().enabled = true;
         }
         transition.SetTrigger("End");
         yield return new WaitForSecondsRealtime(_animationEndTime);

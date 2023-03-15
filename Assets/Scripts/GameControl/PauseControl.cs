@@ -25,6 +25,7 @@ public class PauseControl : MonoBehaviour
     public static void PauseGame()
     {
         Debug.Log("PauseControl - Pausing game.");
+        UIDisplay.Instance.hideUI();
         Time.timeScale = 0;
         gameIsPaused = true;
     }
@@ -32,6 +33,7 @@ public class PauseControl : MonoBehaviour
     public static void ResumeGame()
     {
         Debug.Log("PauseControl - Resuming game.");
+        UIDisplay.Instance.showUI();
         Time.timeScale = 1;
         gameIsPaused = false;
     }
