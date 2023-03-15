@@ -27,4 +27,9 @@ public class CharacterController : InputController
     {
         return Input.GetButtonDown("Ranged");
     }
+
+    public override bool HealPress()
+    {
+        return Input.GetButton("Heal");
+    }
 }

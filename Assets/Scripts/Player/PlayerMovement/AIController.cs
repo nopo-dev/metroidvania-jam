@@ -28,4 +28,9 @@ public class AIController : InputController
     {
         throw new System.NotImplementedException();
     }
+
+    public override bool HealPress()
+    {
+        throw new System.NotImplementedException();
+    }
 }

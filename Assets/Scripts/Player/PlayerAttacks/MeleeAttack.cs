@@ -64,7 +64,7 @@ public class MeleeAttack : MonoBehaviour
     {
         // check whether player is allowed to melee
         if (_meleeTimer > 0f && !_isAttacking &&
-            !_animator.GetBool("Ranged Attacking"))
+            !_animator.GetBool("Ranged Attacking") && !_animator.GetBool("In Heal"))
         {
             _meleeBufferTimer = 0f;
             _meleeTimer = _meleeCooldown;

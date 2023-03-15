@@ -69,7 +69,7 @@ public class RangedAttack : MonoBehaviour
     {
         // check whether player is allowed to spit
         if (_rangedTimer > 0f && !_isRangedAttacking &&
-            !_animator.GetBool("Attacking"))
+            !_animator.GetBool("Attacking") && !_animator.GetBool("In Heal"))
         {
             _rangedBufferTimer = 0f;
             _rangedTimer = _rangedCooldown;

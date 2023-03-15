@@ -7,4 +7,5 @@ public abstract class InputController : ScriptableObject
     public abstract bool JumpHold();
     public abstract bool MeleePress();
     public abstract bool RangedPress();
+    public abstract bool HealPress();
 }
