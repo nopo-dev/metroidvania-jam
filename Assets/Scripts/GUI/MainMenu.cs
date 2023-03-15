@@ -19,12 +19,15 @@ public class MainMenu : MonoBehaviour
         }
         Instance = this;
         DontDestroyOnLoad(gameObject);
+        AudioManager.Instance.PlaySound("MainMenuTheme");
     }
 
     //TODO: change so that location is pulled from save data 
     public void PlayButton()
     {
         SaveAndLoader.Instance.load();
+        AudioManager.Instance.FadeOut("MainMenuTheme");
+        AudioManager.Instance.PlayDelayedSound("BackgroundTheme", 2f);
     }
 
     public void QuitButton()

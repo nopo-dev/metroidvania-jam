@@ -90,6 +90,8 @@ public class RangedAttack : MonoBehaviour
         projectile.GetComponent<ProjectileBehavior>().SetAngle(angle);
         projectile.GetComponent<ProjectileBehavior>().SetSpeed(_projectileSpeed);
         projectile.GetComponent<ProjectileBehavior>().SetIgnoreTag(gameObject.tag);
+        
+        AudioManager.Instance.PlaySound("PlayerSpit");
     }
 
     IEnumerator CoolDown()

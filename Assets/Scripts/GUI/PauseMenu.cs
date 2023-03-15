@@ -54,9 +54,9 @@ public class PauseMenu : MonoBehaviour
     public void QuitToTitleButton()
     {
         Location defaultLocation = new Location(0, 0, "Menu Scene Test");
-        Debug.Log(defaultLocation.sceneName);
-        Debug.Log(UnityEngine.SceneManagement.SceneManager.sceneCountInBuildSettings);
         SceneManager.LoadScene("Menu Scene Test");
+        AudioManager.Instance.FadeOut("BackgroundTheme");
+        AudioManager.Instance.PlayDelayedSound("MainMenuTheme", 2f);
         PauseControl.PauseGame();
     }
 

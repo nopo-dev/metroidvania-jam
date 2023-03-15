@@ -83,16 +83,6 @@ public class UIDisplay : MonoBehaviour
         energySlider.value = endEnergy;
     }
     
-    //TODO: remove
-    void Update()
-    {
-        if (Input.GetKeyDown("space"))
-        {
-            //PlayerStatus.Instance.HPManager.setCurrentHP(PlayerStatus.Instance.HPManager.getCurrentHP()-1);
-            PlayerStatus.Instance.EnergyManager.setCurrentEnergy(PlayerStatus.Instance.EnergyManager.getCurrentEnergy()-10);
-            //Debug.Log(PlayerStatus.Instance.EnergyManager.getCurrentEnergy());
-        }
-    }
-    
+  
 
 }
