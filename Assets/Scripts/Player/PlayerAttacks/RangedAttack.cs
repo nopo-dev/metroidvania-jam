@@ -74,7 +74,6 @@ public class RangedAttack : MonoBehaviour
             _rangedTimer = _rangedCooldown;
             _isRangedAttacking = true;
             _inSpit = true;
-            SpawnProjectile();
             StartCoroutine(CoolDown());
         }
     }
@@ -95,6 +94,7 @@ public class RangedAttack : MonoBehaviour
     IEnumerator CoolDown()
     {
         yield return new WaitForSeconds(_spitAnimationLength);
+        SpawnProjectile();
         _inSpit = false;
         yield return new WaitForSeconds(_rangedCooldown - _spitAnimationLength);
         _isRangedAttacking = false;
