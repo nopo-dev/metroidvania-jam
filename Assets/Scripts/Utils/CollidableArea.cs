@@ -25,7 +25,7 @@ public abstract class CollidableArea : MonoBehaviour
      */
     private void OnTriggerEnter2D(Collider2D other)
     { 
-        if (other.tag != "Player") { return; }
+        if (other.tag != "Player" || !other.isTrigger) { return; }
         collisionHandler(other);
     }
 
