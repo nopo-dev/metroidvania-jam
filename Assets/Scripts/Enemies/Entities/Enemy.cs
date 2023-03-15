@@ -42,7 +42,6 @@ public class Enemy : CollidableArea
         _attacker = type.attacker;
         _navManager = type.navManager;
         player = GameObject.FindWithTag("Player");
-        ignorePlayerCollision();
         _navManager.startNav(this, startDirection);
     }
 
@@ -106,7 +105,7 @@ public class Enemy : CollidableArea
 
     protected override void collisionHandler(Collider2D other)
     {
-        if (other.tag != "Player" || !_collidable) { return; }
+        if (other.tag != "PlayerTrigger" || !_collidable) { return; }
 
         PlayerStatus.Instance.HPManager.damageHP(type.damageOnTouch);
 
@@ -134,19 +133,6 @@ public class Enemy : CollidableArea
     {
         GetComponent<Renderer>().enabled = false;
         this.gameObject.SetActive(false);
-    }
-
-    private void ignorePlayerCollision()
-    {
-        var playerColliders = player.GetComponents<Collider2D>();
-        var ownColliders = GetComponents<Collider2D>();
-        foreach(Collider2D playerCollider in playerColliders)
-        {
-            foreach(Collider2D ownCollider in  ownColliders)
-            {
-                Physics2D.IgnoreCollision(playerCollider, ownCollider);
-            }
-        }
     }
 
     /*

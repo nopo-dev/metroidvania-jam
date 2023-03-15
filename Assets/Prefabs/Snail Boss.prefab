@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2824403240833088861}
   - component: {fileID: 8312098186470903373}
   - component: {fileID: 7718380682953429501}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Snail Boss
   m_TagString: Untagged
   m_Icon: {fileID: 0}
