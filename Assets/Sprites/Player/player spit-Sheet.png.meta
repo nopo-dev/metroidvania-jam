@@ -131,8 +131,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5c1602721e6f6194597c950abf09817b
-      internalID: 307037322
+      spriteID: fbddaef5b7fdb6146a264c4da6f31262
+      internalID: -783015972
       vertices: []
       indices: 
       edges: []
@@ -152,8 +152,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b39deda0a08f9f043a075f94320df9e5
-      internalID: -560828791
+      spriteID: 7a87a6a3c0dc3f748b59f9d3cab84fcd
+      internalID: -437157061
       vertices: []
       indices: 
       edges: []
@@ -173,8 +173,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d65201303baf0e6448f37f290869b9e7
-      internalID: -27904258
+      spriteID: 0ab01d2aad2b91a46a8d25c7b83a895b
+      internalID: 1055438991
       vertices: []
       indices: 
       edges: []
@@ -194,8 +194,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7fbca985eca031448957e6b26fa96e37
-      internalID: 479013939
+      spriteID: d3cdad2c98a61e9498a0b7da50eeee44
+      internalID: 1664465408
       vertices: []
       indices: 
       edges: []
@@ -215,8 +215,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 94e2420e5f89fa64ca079ed6b9d09de6
-      internalID: -2090250521
+      spriteID: d767983943ded144d8e4b28ac004a789
+      internalID: -355389128
       vertices: []
       indices: 
       edges: []
@@ -236,8 +236,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e3ddab2b19ef2b443a874d1a22f5e030
-      internalID: -761288598
+      spriteID: 61111e02f3578db47a1e7e626d133b69
+      internalID: 334965716
       vertices: []
       indices: 
       edges: []
@@ -253,12 +253,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      player spit-Sheet_0: 307037322
-      player spit-Sheet_2: -27904258
-      player spit-Sheet_3: 479013939
-      player spit-Sheet_4: -2090250521
-      player spit-Sheet_1: -560828791
-      player spit-Sheet_5: -761288598
+      player spit-Sheet_0: -783015972
+      player spit-Sheet_2: 1055438991
+      player spit-Sheet_3: 1664465408
+      player spit-Sheet_4: -355389128
+      player spit-Sheet_1: -437157061
+      player spit-Sheet_5: 334965716
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

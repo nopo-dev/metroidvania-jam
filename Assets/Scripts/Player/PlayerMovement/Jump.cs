@@ -92,6 +92,14 @@ public class Jump : MonoBehaviour
         {
             _rb.gravityScale = _defaultGravity;
         }
+
+        // freeze vertical velocity when ranged attacking
+        if (_animator.GetBool("In Spit Animation"))
+        {
+            _velocity.y = 0f;
+            _rb.gravityScale = 0f;
+        }
+
         _animator.SetBool("Grounded", _grounded);
         _animator.SetFloat("Velocity Y", _velocity.y);
         _rb.velocity = _velocity;

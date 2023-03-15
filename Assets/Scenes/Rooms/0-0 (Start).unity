@@ -9680,6 +9680,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1456076181, guid: 8dd285e9388f26b40bd9a36e5cf5845e, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1456076182, guid: 8dd285e9388f26b40bd9a36e5cf5845e, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1456076183, guid: 8dd285e9388f26b40bd9a36e5cf5845e, type: 3}
       propertyPath: energyText
       value: 
@@ -9752,6 +9760,30 @@ PrefabInstance:
       propertyPath: _input
       value: 
       objectReference: {fileID: 11400000, guid: b5ec8b4803bfccb48bd045843dbdca64, type: 2}
+    - target: {fileID: 7235365040495722037, guid: 8dd285e9388f26b40bd9a36e5cf5845e, type: 3}
+      propertyPath: _allowMoveDuringAttack
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7235365040495722037, guid: 8dd285e9388f26b40bd9a36e5cf5845e, type: 3}
+      propertyPath: _moveDuringAttackVelocity
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7971447700424198474, guid: 8dd285e9388f26b40bd9a36e5cf5845e, type: 3}
+      propertyPath: _input
+      value: 
+      objectReference: {fileID: 11400000, guid: b5ec8b4803bfccb48bd045843dbdca64, type: 2}
+    - target: {fileID: 7971447700424198474, guid: 8dd285e9388f26b40bd9a36e5cf5845e, type: 3}
+      propertyPath: _meleeSpeed
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7971447700424198474, guid: 8dd285e9388f26b40bd9a36e5cf5845e, type: 3}
+      propertyPath: _meleeCooldown
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7971447700424198474, guid: 8dd285e9388f26b40bd9a36e5cf5845e, type: 3}
+      propertyPath: _meleeBufferThreshold
+      value: 0.2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8dd285e9388f26b40bd9a36e5cf5845e, type: 3}
 --- !u!213 &1781241774
@@ -10007,6 +10039,10 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5741908176658065633, guid: 966de71f46c32674ab2054290cd42263, type: 3}
       propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5326215583726202294, guid: f289d0ac9a596aa4584d610259942def, type: 3}
+      propertyPath: m_AnchorMax.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5741908176658065633, guid: 966de71f46c32674ab2054290cd42263, type: 3}
