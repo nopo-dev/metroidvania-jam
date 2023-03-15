@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5652297559663547547}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Projectile Pivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -52,7 +52,7 @@ GameObject:
   - component: {fileID: 1456076181}
   - component: {fileID: 8137443565011401875}
   - component: {fileID: 6776012479363169123}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -318,7 +318,7 @@ MonoBehaviour:
   _input: {fileID: 11400000, guid: b5ec8b4803bfccb48bd045843dbdca64, type: 2}
   _rangedHitbox: {fileID: 4108582060728428017, guid: 310f4761dce506847a11363420503e7b, type: 3}
   _rangedAnimationSpeed: 1
-  _projectileSpeed: 2000
+  _projectileSpeed: 2500
   _projectileAngle: {x: 1, y: 0, z: 0}
   _rangedLockout: 0.15
   _rangedBufferThreshold: 0.1
