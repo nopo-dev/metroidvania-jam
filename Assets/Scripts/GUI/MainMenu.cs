@@ -39,4 +39,9 @@ public class MainMenu : MonoBehaviour
     }
     //TODO: add another button that says resume rather than play if savedata exists
 
+    public void ControlsButton()
+    {
+        ControlsMenu.Instance.sourceMenu = 0;
+    }
+
 }

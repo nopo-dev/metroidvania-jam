@@ -9,25 +9,33 @@ public class PauseMenu : MonoBehaviour
 
     private void Awake()
     {
-        if (Instance != null && Instance != this)
+        if (Instance == null)
         {
-            Debug.Log("Can only have one PauseMenu!");
+            Instance = this;
+            DontDestroyOnLoad(this);
+        } 
+        else if (this != Instance)
+        {
+            Debug.Log("Destroying extra PauseMenu");
             Destroy(this);
-            return;
         }
-        Instance = this;
         DontDestroyOnLoad(gameObject);
     }
     
     void Start()
     {
+        Debug.Log("start");
         gameObject.SetActive(false);
+        Debug.Log(gameObject.activeSelf);
     }
 
     public void Pause()
     {
         PauseControl.PauseGame();
+        Debug.Log("pause set active");
+        Debug.Log(gameObject.activeSelf);
         gameObject.SetActive(true);
+        Debug.Log(gameObject.activeSelf);
     }
 
     public void Resume()
@@ -51,4 +59,10 @@ public class PauseMenu : MonoBehaviour
         SceneManager.LoadScene("Menu Scene Test");
         PauseControl.PauseGame();
     }
+
+    public void ControlsButton()
+    {
+        ControlsMenu.Instance.sourceMenu = 1;
+    }
+
 }
