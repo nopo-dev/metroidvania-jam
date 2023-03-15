@@ -20,7 +20,7 @@ public class MeleeAttack : MonoBehaviour
         _animator = GetComponent<Animator>();
         _animator.SetFloat("Melee Speed", _meleeSpeed);
         _meleeCooldown = 5f / 8f / _meleeSpeed + _meleeLockout;
-        _meleeHitBoxTime = _meleeCooldown * _meleeSpeed * 0.8f;
+        _meleeHitBoxTime = _meleeCooldown * _meleeSpeed * 0.5f;
     }
 
     private void Update()
@@ -69,7 +69,6 @@ public class MeleeAttack : MonoBehaviour
             _meleeBufferTimer = 0f;
             _meleeTimer = _meleeCooldown;
             _isAttacking = true;
-            StartCoroutine(SpawnMeleeHitbox());
             StartCoroutine(CoolDown());
         }
     }
@@ -92,7 +91,9 @@ public class MeleeAttack : MonoBehaviour
 
     IEnumerator CoolDown()
     {
-        yield return new WaitForSeconds(_meleeCooldown);
+        yield return new WaitForSeconds(0.3f);
+        StartCoroutine(SpawnMeleeHitbox());
+        yield return new WaitForSeconds(_meleeCooldown - 0.3f);
         _isAttacking = false;
     }
 }

@@ -335,7 +335,7 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 6f985eca0abc8f9408cc8126cf6e403d, type: 3}
     volume: 0.1
     pitch: 1
-    loop: 1
+    loop: 0
     source: {fileID: 0}
 --- !u!1001 &603003330
 PrefabInstance:
