@@ -29,7 +29,8 @@ public class RangedAttack : MonoBehaviour
     private void Update()
     {
         if (PauseControl.gameIsPaused) { return; }
-        _rangedPress |= (_input.RangedPress() && _animator.GetBool("Spittable"));
+        _rangedPress |= (_input.RangedPress() && _animator.GetBool("Spittable") &&
+            PlayerStatus.Instance.EnergyManager.getCurrentEnergy() >= 25);
     }
 
     private void FixedUpdate()
@@ -94,15 +95,10 @@ public class RangedAttack : MonoBehaviour
     IEnumerator CoolDown()
     {
         yield return new WaitForSeconds(_spitAnimationLength);
+        PlayerStatus.Instance.EnergyManager.damageEnergy(25);
         SpawnProjectile();
         _inSpit = false;
         yield return new WaitForSeconds(_rangedCooldown - _spitAnimationLength);
         _isRangedAttacking = false;
     }
-
-    /*
-        lock player out of ranged attacking for ranged cooldown
-        however, freeze player during only part of the ranged attack (the animation)
-
-    */
 }
