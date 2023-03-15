@@ -135,6 +135,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1301272939}
     - target: {fileID: 2474395779850230342, guid: 349ddbfda8bb90a4f86eb455ee9fd798, type: 3}
+      propertyPath: m_Damping
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2474395779850230342, guid: 349ddbfda8bb90a4f86eb455ee9fd798, type: 3}
       propertyPath: m_BoundingShape2D
       value: 
       objectReference: {fileID: 740019480}
