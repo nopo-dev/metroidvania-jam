@@ -12,6 +12,7 @@ public class ChargeAttacker : Attacker
 
     protected override IEnumerator doAttack(Enemy attacker, Action callback)
     {
+        Debug.Log("Charging");
         // animations
         attacker.chargePlayer(chargeSpeed);
         yield return new WaitForSeconds(chargeDuration);

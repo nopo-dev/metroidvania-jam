@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 307b34c89084e9f4bbab2d3e0c192fdc, type: 3}
   m_Name: ChaseAttacker
   m_EditorClassIdentifier: 
-  range: 5
+  range: 15
   chaseSpeed: 1

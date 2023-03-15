@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using static UnityEngine.RuleTile.TilingRuleOutput;
 
 // TODO: a little awkward that peaceul nav lives in NavManager and attack nav lives in Attacker
 public abstract class NavManager : ScriptableObject
@@ -16,7 +15,8 @@ public abstract class NavManager : ScriptableObject
         }
         else
         {
-            navigator.controller.direction = (navigator.transform.position.x > target.x) ? -speed : speed;
+            navigator.mover.setDirection((navigator.transform.position.x > target.x) ? -speed : speed);
+            //Debug.Log($"Moving {navigator.controller.direction}");
         }
     }
 
@@ -31,7 +31,7 @@ public abstract class NavManager : ScriptableObject
         }
         else
         {
-            navigator.controller.direction = 0;
+            navigator.mover.setDirection(0);
         }
     }
     public void chargePlayer(Enemy navigator, float chargeSpeed)

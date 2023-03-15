@@ -120,12 +120,12 @@ TextureImporter:
       name: tentacle_shitter-Sheet_0
       rect:
         serializedVersion: 2
-        x: 0
+        x: 7
         y: 96
-        width: 64
-        height: 32
+        width: 54
+        height: 20
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -141,12 +141,12 @@ TextureImporter:
       name: tentacle_shitter-Sheet_1
       rect:
         serializedVersion: 2
-        x: 64
+        x: 71
         y: 96
-        width: 64
-        height: 32
+        width: 54
+        height: 21
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -162,12 +162,12 @@ TextureImporter:
       name: tentacle_shitter-Sheet_2
       rect:
         serializedVersion: 2
-        x: 128
+        x: 136
         y: 96
-        width: 64
-        height: 32
+        width: 52
+        height: 21
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -183,12 +183,12 @@ TextureImporter:
       name: tentacle_shitter-Sheet_3
       rect:
         serializedVersion: 2
-        x: 192
+        x: 200
         y: 96
-        width: 64
-        height: 32
+        width: 52
+        height: 20
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -204,12 +204,12 @@ TextureImporter:
       name: tentacle_shitter-Sheet_4
       rect:
         serializedVersion: 2
-        x: 0
+        x: 7
         y: 64
-        width: 64
-        height: 32
+        width: 54
+        height: 23
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -225,12 +225,12 @@ TextureImporter:
       name: tentacle_shitter-Sheet_5
       rect:
         serializedVersion: 2
-        x: 64
+        x: 66
         y: 64
-        width: 64
-        height: 32
+        width: 59
+        height: 23
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -248,10 +248,10 @@ TextureImporter:
         serializedVersion: 2
         x: 128
         y: 64
-        width: 64
-        height: 32
+        width: 61
+        height: 23
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -269,10 +269,10 @@ TextureImporter:
         serializedVersion: 2
         x: 192
         y: 64
-        width: 64
-        height: 32
+        width: 61
+        height: 23
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -290,10 +290,10 @@ TextureImporter:
         serializedVersion: 2
         x: 256
         y: 64
-        width: 64
-        height: 32
+        width: 61
+        height: 23
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -311,10 +311,10 @@ TextureImporter:
         serializedVersion: 2
         x: 320
         y: 64
-        width: 64
-        height: 32
+        width: 59
+        height: 23
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -331,11 +331,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 384
-        y: 64
-        width: 64
-        height: 32
+        y: 34
+        width: 59
+        height: 53
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -351,12 +351,12 @@ TextureImporter:
       name: tentacle_shitter-Sheet_11
       rect:
         serializedVersion: 2
-        x: 448
+        x: 451
         y: 64
-        width: 64
-        height: 32
+        width: 56
+        height: 23
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -372,12 +372,12 @@ TextureImporter:
       name: tentacle_shitter-Sheet_12
       rect:
         serializedVersion: 2
-        x: 512
+        x: 519
         y: 64
-        width: 64
-        height: 32
+        width: 54
+        height: 23
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -393,12 +393,12 @@ TextureImporter:
       name: tentacle_shitter-Sheet_13
       rect:
         serializedVersion: 2
-        x: 0
-        y: 32
-        width: 64
-        height: 32
+        x: 7
+        y: 0
+        width: 54
+        height: 23
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -414,12 +414,12 @@ TextureImporter:
       name: tentacle_shitter-Sheet_14
       rect:
         serializedVersion: 2
-        x: 64
+        x: 7
         y: 32
-        width: 64
-        height: 32
+        width: 54
+        height: 23
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -435,12 +435,12 @@ TextureImporter:
       name: tentacle_shitter-Sheet_15
       rect:
         serializedVersion: 2
-        x: 128
+        x: 75
         y: 32
-        width: 64
-        height: 32
+        width: 49
+        height: 23
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -456,12 +456,12 @@ TextureImporter:
       name: tentacle_shitter-Sheet_16
       rect:
         serializedVersion: 2
-        x: 192
-        y: 32
-        width: 64
-        height: 32
+        x: 77
+        y: 1
+        width: 39
+        height: 22
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -477,12 +477,12 @@ TextureImporter:
       name: tentacle_shitter-Sheet_17
       rect:
         serializedVersion: 2
-        x: 256
+        x: 138
         y: 32
-        width: 64
-        height: 32
+        width: 50
+        height: 24
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -498,12 +498,12 @@ TextureImporter:
       name: tentacle_shitter-Sheet_18
       rect:
         serializedVersion: 2
-        x: 320
-        y: 32
-        width: 64
-        height: 32
+        x: 149
+        y: 0
+        width: 28
+        height: 21
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -519,12 +519,12 @@ TextureImporter:
       name: tentacle_shitter-Sheet_19
       rect:
         serializedVersion: 2
-        x: 384
+        x: 202
         y: 32
-        width: 64
-        height: 32
+        width: 48
+        height: 21
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -540,12 +540,12 @@ TextureImporter:
       name: tentacle_shitter-Sheet_20
       rect:
         serializedVersion: 2
-        x: 448
-        y: 32
-        width: 64
-        height: 32
+        x: 212
+        y: 5
+        width: 26
+        height: 17
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -561,12 +561,12 @@ TextureImporter:
       name: tentacle_shitter-Sheet_21
       rect:
         serializedVersion: 2
-        x: 512
+        x: 269
         y: 32
-        width: 64
-        height: 32
+        width: 39
+        height: 28
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -582,12 +582,12 @@ TextureImporter:
       name: tentacle_shitter-Sheet_22
       rect:
         serializedVersion: 2
-        x: 576
-        y: 32
-        width: 64
-        height: 32
+        x: 285
+        y: 10
+        width: 12
+        height: 8
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -603,12 +603,12 @@ TextureImporter:
       name: tentacle_shitter-Sheet_23
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 64
-        height: 32
+        x: 327
+        y: 13
+        width: 40
+        height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -624,12 +624,12 @@ TextureImporter:
       name: tentacle_shitter-Sheet_24
       rect:
         serializedVersion: 2
-        x: 64
-        y: 0
-        width: 64
-        height: 32
+        x: 453
+        y: 32
+        width: 38
+        height: 26
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -645,12 +645,12 @@ TextureImporter:
       name: tentacle_shitter-Sheet_25
       rect:
         serializedVersion: 2
-        x: 128
-        y: 0
-        width: 64
-        height: 32
+        x: 521
+        y: 32
+        width: 44
+        height: 22
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -666,12 +666,12 @@ TextureImporter:
       name: tentacle_shitter-Sheet_26
       rect:
         serializedVersion: 2
-        x: 192
-        y: 0
-        width: 64
-        height: 32
+        x: 585
+        y: 32
+        width: 43
+        height: 22
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -679,48 +679,6 @@ TextureImporter:
       bones: []
       spriteID: 1761177ad137e2247a8de1e4a69290b6
       internalID: 351888561
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: tentacle_shitter-Sheet_27
-      rect:
-        serializedVersion: 2
-        x: 256
-        y: 0
-        width: 64
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: eeb3f3e14862825459859748624adab8
-      internalID: -901847211
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: tentacle_shitter-Sheet_28
-      rect:
-        serializedVersion: 2
-        x: 320
-        y: 0
-        width: 64
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 82cc22b5f1f9a2f4693b3aff1c101c0a
-      internalID: 236341336
       vertices: []
       indices: 
       edges: []
@@ -736,7 +694,6 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      tentacle_shitter-Sheet_27: -901847211
       tentacle_shitter-Sheet_11: -428777750
       tentacle_shitter-Sheet_12: 979595886
       tentacle_shitter-Sheet_17: 719264353
@@ -762,7 +719,6 @@ TextureImporter:
       tentacle_shitter-Sheet_22: -1419552688
       tentacle_shitter-Sheet_26: 351888561
       tentacle_shitter-Sheet_8: -493438552
-      tentacle_shitter-Sheet_28: 236341336
       tentacle_shitter-Sheet_4: -1431811205
       tentacle_shitter-Sheet_21: -2012048684
   spritePackingTag: 

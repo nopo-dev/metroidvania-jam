@@ -23,15 +23,15 @@ public class Enemy : CollidableArea
     [HideInInspector] protected bool _collidable;
 
     [HideInInspector] public GameObject player;
-    [HideInInspector] public GenericEnemyController controller;
+    [HideInInspector] public EnemyMove mover;
     [HideInInspector] public Fly flyer;
 
 
     protected void Awake()
     {
         _collidable = true;
-        controller = GetComponent<Move>()?._input as GenericEnemyController; // can be null if no Move
         flyer = GetComponent<Fly>();
+        mover = GetComponent<EnemyMove>();
     }
 
     protected void Start()
