@@ -13,8 +13,14 @@ public class ChaseAttacker : Attacker
         // TODO: fly is awk, since it's exclusive with move but not related.
         // animations
         yield return null;
+
+        // Pre-attack
         attacker.facePlayer();
+
+        // Attack
         attacker.chasePlayer(chaseSpeed);
+
+        // Finish
         callback?.Invoke();
     }
 }

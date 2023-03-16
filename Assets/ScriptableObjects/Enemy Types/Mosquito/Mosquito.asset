@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attacker: {fileID: 11400000, guid: dc14e01882ad6644b98f2e28056f6dad, type: 2}
   navManager: {fileID: 11400000, guid: 18df44244cf8dd6428fff55b731e5d23, type: 2}
-  maximumHP: 10
-  damageOnTouch: 20
+  maximumHP: 3
+  damageOnTouch: 1

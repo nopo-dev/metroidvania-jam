@@ -12,7 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a064c5024fae0e4eb3812efaa7dca0f, type: 3}
   m_Name: HedgehogAttacker
   m_EditorClassIdentifier: 
-  range: 5
-  duration: 3
-  size: 2
+  range: 6
+  attackMoveSpeed: 0.1
   cooldown: 1

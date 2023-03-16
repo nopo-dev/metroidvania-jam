@@ -9,6 +9,7 @@ public abstract class NavManager : ScriptableObject
 
     public void moveTowards(Enemy navigator, Vector3 target, float speed=1) // Vector2->3 implicit conversion is awkward
     {
+        // Mover and flyer will handle animation
         if (flying)
         {
             navigator.flyer.setDirection(speed * (target - navigator.transform.position).normalized);
@@ -16,7 +17,6 @@ public abstract class NavManager : ScriptableObject
         else
         {
             navigator.mover.setDirection((navigator.transform.position.x > target.x) ? -speed : speed);
-            //Debug.Log($"Moving {navigator.controller.direction}");
         }
     }
 
@@ -24,6 +24,7 @@ public abstract class NavManager : ScriptableObject
 
     public void standStill(Enemy navigator)
     {
+        // Mover and flyer will handle animation
         if (flying)
         {
             // TODO : gradual slowdown ?
@@ -48,11 +49,13 @@ public abstract class NavManager : ScriptableObject
     {
         if (flying)
         {
-            navigator.transform.rotation = Quaternion.LookRotation(navigator.player.transform.position);
+            // This line doesn't seem to work, but we actually don't want the flying enemy to rotate anyways so it's ok
+            // navigator.transform.rotation = Quaternion.LookRotation(navigator.player.transform.position);
+            navigator.transform.localScale = (navigator.player.transform.position.x > navigator.transform.position.x) ? new Vector2(1, 1) : new Vector2(-1, 1);
         }
         else
         {
-            navigator.transform.localScale = (navigator.player.transform.position.x > navigator.transform.position.x) ? new Vector3(1, 1) : new Vector3(-1, 1);
+            navigator.transform.localScale = (navigator.player.transform.position.x > navigator.transform.position.x) ? new Vector2(1, 1) : new Vector2(-1, 1);
         }
     }
 }

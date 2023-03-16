@@ -394,8 +394,10 @@ SpriteAtlas:
   - {fileID: -843264694, guid: 7c99dc7ff8dcd414285ccb533179cbc4, type: 3}
   - {fileID: -2012048684, guid: 7c99dc7ff8dcd414285ccb533179cbc4, type: 3}
   - {fileID: 351888561, guid: 7c99dc7ff8dcd414285ccb533179cbc4, type: 3}
+  - {fileID: 580395866, guid: 7c99dc7ff8dcd414285ccb533179cbc4, type: 3}
   - {fileID: 2047245333, guid: 7c99dc7ff8dcd414285ccb533179cbc4, type: 3}
   - {fileID: 113719826, guid: 7c99dc7ff8dcd414285ccb533179cbc4, type: 3}
+  - {fileID: -1227213961, guid: 7c99dc7ff8dcd414285ccb533179cbc4, type: 3}
   - {fileID: 9289015, guid: 7c99dc7ff8dcd414285ccb533179cbc4, type: 3}
   - {fileID: 171581233, guid: 7c99dc7ff8dcd414285ccb533179cbc4, type: 3}
   - {fileID: 719264353, guid: 7c99dc7ff8dcd414285ccb533179cbc4, type: 3}
@@ -751,8 +753,10 @@ SpriteAtlas:
   - tentacle_shitter-Sheet_20
   - tentacle_shitter-Sheet_21
   - tentacle_shitter-Sheet_26
+  - tentacle_shitter-Sheet_27
   - tentacle_shitter-Sheet_24
   - tentacle_shitter-Sheet_25
+  - tentacle_shitter-Sheet_28
   - tentacle_shitter-Sheet_19
   - tentacle_shitter-Sheet_18
   - tentacle_shitter-Sheet_17

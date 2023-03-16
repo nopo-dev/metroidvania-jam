@@ -82,7 +82,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 1840674580, guid: 7c99dc7ff8dcd414285ccb533179cbc4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 8, y: 4}
@@ -131,7 +131,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!61 &3373108765747391778
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -145,18 +145,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.3, y: -0.7}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 6.75, y: 2.5}
+    oldSize: {x: 8, y: 4}
     newSize: {x: 8, y: 4}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 6.8, y: 2.4}
+  m_Size: {x: 6.3, y: 2.3}
   m_EdgeRadius: 0
 --- !u!114 &5471000749788940979
 MonoBehaviour:
@@ -204,6 +204,7 @@ MonoBehaviour:
   _respawns: 1
   startLoc: {x: 0, y: 0}
   destinationLoc: {x: 0, y: 0}
+  animator: {fileID: 0}
   player: {fileID: 0}
   mover: {fileID: 0}
   flyer: {fileID: 0}

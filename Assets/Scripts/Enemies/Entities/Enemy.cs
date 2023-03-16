@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -16,6 +17,8 @@ public class Enemy : CollidableArea
     // kinda gross that these live here, they're only used by patroller navigator
     [HideInInspector] public Vector2 startLoc;
     [HideInInspector] public Vector2 destinationLoc;
+    [HideInInspector] public Animator animator;
+    [HideInInspector] public Dictionary<string, float> animationDurations;
 
     [HideInInspector] protected Attacker _attacker = null;
     [HideInInspector] protected NavManager _navManager = null;
@@ -32,6 +35,8 @@ public class Enemy : CollidableArea
         _collidable = true;
         flyer = GetComponent<Fly>();
         mover = GetComponent<EnemyMove>();
+        animator = GetComponent<Animator>();
+        animationDurations = new Dictionary<string, float>();
     }
 
     protected void Start()
@@ -43,6 +48,7 @@ public class Enemy : CollidableArea
         _navManager = type.navManager;
         player = GameObject.FindWithTag("Player");
         _navManager.startNav(this, startDirection);
+        getAnimationTimes();
     }
 
     public bool inAttackRange()
@@ -133,6 +139,15 @@ public class Enemy : CollidableArea
     {
         GetComponent<Renderer>().enabled = false;
         this.gameObject.SetActive(false);
+    }
+
+    private void getAnimationTimes()
+    {
+        AnimationClip[] clips = animator.runtimeAnimatorController.animationClips;
+        foreach (AnimationClip clip in clips)
+        {
+            animationDurations.Add(clip.name, clip.length);
+        }
     }
 
     /*

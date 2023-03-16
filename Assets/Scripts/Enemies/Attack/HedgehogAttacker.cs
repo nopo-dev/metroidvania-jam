@@ -5,28 +5,30 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Attacker/Hedgehog Attacker")]
 public class HedgehogAttacker : Attacker
 {
-    public float duration;
-    public float size;
+    [Range(0f, 1f)]
+    public float attackMoveSpeed;
     public float cooldown;
 
     protected override IEnumerator doAttack(Enemy attacker, Action callback)
     {
-        // animations
+        // Pre-attack
         attacker.standStill();
-        grow(attacker);
-        yield return new WaitForSeconds(duration);
-        shrink(attacker);
-        yield return new WaitForSeconds(cooldown);
+        attacker.facePlayer();
+
+        // Attack
+        attacker.animator.SetBool("Attacking", true);
+        // Kind of a hack to extend hitbox
+        attacker.chargePlayer(attackMoveSpeed);
+        // This is specific to the enemy type, but oh well...
+        yield return new WaitForSeconds(attacker.animationDurations["Tentacle Shitter Attack"]);
+        // Probably we want to extend a new hitbox or even own collider here.
+        attacker.standStill();
+
+        // Post-attack
+        attacker.animator.SetBool("Attacking", false);
+        yield return new WaitForSeconds(cooldown); // This is not necessary if already part of animation.
+
+        // Finish
         callback?.Invoke();
-    }
-
-    private void grow(Enemy attacker)
-    {
-        attacker.transform.localScale = new Vector2(size, size);
-    }
-
-    private void shrink(Enemy attacker)
-    {
-        attacker.transform.localScale = new Vector2(1, 1);
     }
 }

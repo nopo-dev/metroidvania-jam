@@ -12,12 +12,18 @@ public class ChargeAttacker : Attacker
 
     protected override IEnumerator doAttack(Enemy attacker, Action callback)
     {
-        Debug.Log("Charging");
-        // animations
+        // Attack
+        attacker.animator.SetBool("Attacking", true);
         attacker.chargePlayer(chargeSpeed);
-        yield return new WaitForSeconds(chargeDuration);
+        // not sure if this should be tied to animation length actually
+        yield return new WaitForSeconds(attacker.animationDurations["Tentacle Shitter Attack"]);
+
+        // Post-attack
+        attacker.animator.SetBool("Attacking", false);
         attacker.standStill();
         yield return new WaitForSeconds(cooldown);
+        
+        // Finish
         callback?.Invoke();
     }
 }
