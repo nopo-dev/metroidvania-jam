@@ -639,6 +639,9 @@ AnimatorStateTransition:
   - m_ConditionMode: 2
     m_ConditionEvent: In Spit Animation
     m_EventTreshold: 0
+  - m_ConditionMode: 1
+    m_ConditionEvent: Tentacled
+    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -500996447870006361}
   m_Solo: 0
@@ -1460,6 +1463,9 @@ AnimatorStateTransition:
   - m_ConditionMode: 2
     m_ConditionEvent: In Spit Animation
     m_EventTreshold: 0
+  - m_ConditionMode: 1
+    m_ConditionEvent: Tentacled
+    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 3970241143164601232}
   m_Solo: 0
@@ -1746,6 +1752,9 @@ AnimatorStateTransition:
     m_EventTreshold: 0
   - m_ConditionMode: 2
     m_ConditionEvent: In Spit Animation
+    m_EventTreshold: 0
+  - m_ConditionMode: 1
+    m_ConditionEvent: Tentacled
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 2948664339499018524}
