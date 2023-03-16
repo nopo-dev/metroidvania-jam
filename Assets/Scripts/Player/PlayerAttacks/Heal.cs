@@ -1,8 +1,7 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class Heal : MonoBehaviour
+public class Heal : PlayerAttack
 {
     [SerializeField] private InputController _input;
     [SerializeField] private Transform _healParticles;
@@ -30,6 +29,7 @@ public class Heal : MonoBehaviour
         if (PauseControl.gameIsPaused) { return; }
         _healPress |= (_input.HealPress() && PlayerStatus.Instance.EnergyManager.getCurrentEnergy() >= 25
             && PlayerStatus.Instance.HPManager.getCurrentHP() <= PlayerStatus.Instance.HPManager.getMaximumHP());
+        // We could check for enable but we assume Heal is always available as Upgrade.Base
     }
 
     private void FixedUpdate()

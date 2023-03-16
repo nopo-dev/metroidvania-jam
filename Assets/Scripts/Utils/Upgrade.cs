@@ -6,6 +6,7 @@
 public enum Upgrade
 {
     // TODO: finalize upgrades
+    // TODO: maybe tie each to a MonoBehaviour type? not sure.
     Base,
     MeleeAttack,
     RangedAttack

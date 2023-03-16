@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class MeleeAttack : MonoBehaviour
+public class MeleeAttack : PlayerAttack
 {
     [SerializeField] private InputController _input;
     [SerializeField] private GameObject _meleeHitbox;
@@ -21,14 +21,13 @@ public class MeleeAttack : MonoBehaviour
         _animator.SetFloat("Melee Speed", _meleeSpeed);
         _meleeCooldown = 5f / 8f / _meleeSpeed + _meleeLockout;
         _meleeHitBoxTime = _meleeCooldown * _meleeSpeed * 0.5f;
+        upgrade = Upgrade.MeleeAttack;
     }
 
     private void Update()
     {
         if (PauseControl.gameIsPaused) { return; }
-        if (PlayerStatus.Instance.UpgradeManager.hasUpgrade(Upgrade.MeleeAttack))
-            _animator.SetBool("Tentacled", true);
-        _meleePress |= (_input.MeleePress() && _animator.GetBool("Tentacled"));
+        _meleePress |= (_input.MeleePress() && _enabled);
     }
 
     private void FixedUpdate()
@@ -60,6 +59,12 @@ public class MeleeAttack : MonoBehaviour
         }
 
         _animator.SetBool("Attacking", _isAttacking);
+    }
+
+    public override void enable(bool enabled)
+    {
+        _enabled = enabled;
+        _animator.SetBool("Tentacled", enabled);
     }
 
     private void Attack()

@@ -24,6 +24,20 @@ public class UpgradeManager
             Debug.Log("UpgradeManager - nonconsecutive upgrading. This is common when loading a save.");
         }
         this.currentUpgrade_ = newUpgrade;
+
+        // this is a little gross but functional
+        PlayerAttack[] abilities =
+        {
+            PlayerStatus.Instance.GetComponent<Heal>(), // Heal doesn't actually check for enabled,
+                                                        // assumes it's the base upgrade.
+            PlayerStatus.Instance.GetComponent<MeleeAttack>(),
+            PlayerStatus.Instance.GetComponent<RangedAttack>()
+        };
+
+        foreach (PlayerAttack ability in abilities)
+        {
+            ability.enable(this.hasUpgrade(ability.upgrade));
+        }
     }
 
     /*

@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class RangedAttack : MonoBehaviour
+public class RangedAttack : PlayerAttack
 {
     [SerializeField] private InputController _input;
     [SerializeField] private GameObject _rangedHitbox;
@@ -24,12 +24,13 @@ public class RangedAttack : MonoBehaviour
         _animator.SetFloat("Ranged Speed", _rangedAnimationSpeed);
         _rangedCooldown = _spitAnimationLength + _rangedLockout;
         //_rangedCooldown = 5f / 8f / _rangedAnimationSpeed + _rangedLockout;
+        upgrade = Upgrade.RangedAttack;
     }
 
     private void Update()
     {
         if (PauseControl.gameIsPaused) { return; }
-        _rangedPress |= (_input.RangedPress() && _animator.GetBool("Spittable") &&
+        _rangedPress |= (_input.RangedPress() && _enabled &&
             PlayerStatus.Instance.EnergyManager.getCurrentEnergy() >= 25);
     }
 
@@ -63,6 +64,12 @@ public class RangedAttack : MonoBehaviour
 
         _animator.SetBool("In Spit Animation", _inSpit);
         _animator.SetBool("Ranged Attacking", _isRangedAttacking);
+    }
+
+    public override void enable(bool enabled)
+    {
+        base.enable(enabled);
+        _animator.SetBool("Spittable", enabled);
     }
 
     private void AttackRanged()
