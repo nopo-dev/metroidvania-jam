@@ -4,7 +4,8 @@ using UnityEngine;
 public class Heal : PlayerAttack
 {
     [SerializeField] private InputController _input;
-    [SerializeField] private Transform _healParticles;
+    [SerializeField] private GameObject _healParticles;
+    private Transform _healParticlesTf;
     [SerializeField] private float _healLockout = 0;
     [SerializeField] private float _healBufferThreshold = 0.1f;
 
@@ -18,8 +19,8 @@ public class Heal : PlayerAttack
     {
         _animator = GetComponent<Animator>();
         //_animator.SetFloat("Ranged Speed", _rangedAnimationSpeed);
-        _healParticles = transform.GetChild(1);
-        _healTime = _healParticles.GetComponent<ParticleSystem>().main.duration;
+        _healParticlesTf = gameObject.transform.GetChild(1);
+        _healTime = _healParticlesTf.GetComponent<ParticleSystem>().main.duration;
         _healCooldown = _healTime + _healLockout;
         //_rangedCooldown = 5f / 8f / _rangedAnimationSpeed + _rangedLockout;
     }
@@ -80,7 +81,7 @@ public class Heal : PlayerAttack
     {
         yield return new WaitForSeconds(_healCooldown - _healLockout);
         PlayerStatus.Instance.EnergyManager.damageEnergy(25);
-        _healParticles.GetComponent<ParticleSystem>().Play();
+        _healParticlesTf.GetComponent<ParticleSystem>().Play();
         PlayerStatus.Instance.HPManager.healHP(1);
         _inHeal = false;
     }

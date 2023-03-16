@@ -13,6 +13,7 @@ public class Jump : MonoBehaviour
     [SerializeField] private float _shortJumpGravity = 40f;
     [SerializeField] private float _coyoteThreshold = 0.1f;
     [SerializeField] private float _jumpBufferThreshold = 0.1f;
+    [SerializeField] private bool _freezeFallWhileAttack = true;
 
     private Rigidbody2D _rb;
     private Animator _animator;
@@ -94,7 +95,8 @@ public class Jump : MonoBehaviour
         }
 
         // freeze vertical velocity when ranged attacking
-        if (_animator.GetBool("In Spit Animation"))
+        if (_animator.GetBool("In Spit Animation") ||
+            _animator.GetBool("In Attack Animation") && _freezeFallWhileAttack)
         {
             _velocity.y = 0f;
             _rb.gravityScale = 0f;

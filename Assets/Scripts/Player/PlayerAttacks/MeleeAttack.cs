@@ -12,15 +12,15 @@ public class MeleeAttack : PlayerAttack
 
     private Animator _animator;
     private float _meleeTimer, _meleeBufferTimer, _meleeCooldown;
-    private float _meleeHitBoxTime;
+    [SerializeField] private float _meleeHitBoxTime = 0.25f;
     private bool _meleePress = false, _isAttacking = false;
+    private bool _inMeleeAnim;
 
     private void Awake()
     {
         _animator = GetComponent<Animator>();
         _animator.SetFloat("Melee Speed", _meleeSpeed);
         _meleeCooldown = 5f / 8f / _meleeSpeed + _meleeLockout;
-        _meleeHitBoxTime = _meleeCooldown * _meleeSpeed * 0.5f;
         upgrade = Upgrade.MeleeAttack;
     }
 
@@ -59,6 +59,7 @@ public class MeleeAttack : PlayerAttack
         }
 
         _animator.SetBool("Attacking", _isAttacking);
+        _animator.SetBool("In Attack Animation", _inMeleeAnim);
     }
 
     public override void enable(bool enabled)
@@ -75,6 +76,7 @@ public class MeleeAttack : PlayerAttack
         {
             _meleeBufferTimer = 0f;
             _meleeTimer = _meleeCooldown;
+            _inMeleeAnim = true;
             _isAttacking = true;
             StartCoroutine(CoolDown());
         }
@@ -89,6 +91,10 @@ public class MeleeAttack : PlayerAttack
             Vector2 offset = hitbox.offset;
             offset.x = offset.x * -1;
             hitbox.offset = offset;
+            Transform swooshTf = meleeHitbox.transform.GetChild(0);
+            swooshTf.localPosition = new Vector3(swooshTf.localPosition.x * -1, swooshTf.localPosition.y, 1);
+            swooshTf.localScale = new Vector3(swooshTf.localScale.x * -1, swooshTf.localScale.y, 1);
+
         }
         meleeHitbox.SetActive(true);
         yield return new WaitForSeconds(_meleeHitBoxTime);
@@ -98,9 +104,12 @@ public class MeleeAttack : PlayerAttack
 
     IEnumerator CoolDown()
     {
-        yield return new WaitForSeconds(0.3f);
+        yield return new WaitForSeconds((_meleeCooldown - _meleeLockout) * 0.4f);
         StartCoroutine(SpawnMeleeHitbox());
-        yield return new WaitForSeconds(_meleeCooldown - 0.3f);
+        yield return new WaitForSeconds((_meleeCooldown - _meleeLockout) * 0.6f);
+        _inMeleeAnim = false;
+        yield return new WaitForSeconds(_meleeLockout);
         _isAttacking = false;
+
     }
 }

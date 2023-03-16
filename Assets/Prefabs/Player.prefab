@@ -283,9 +283,9 @@ MonoBehaviour:
   _maxSpeed: 16
   _maxAcceleration: 250
   _maxAerialAcceleration: 250
-  _allowMoveDuringAttack: 1
+  _allowMoveDuringAttack: 0
   _allowMoveDuringRanged: 0
-  _moveDuringAttackVelocity: 1
+  _moveDuringAttackVelocity: 0
 --- !u!114 &2377381417911680806
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -337,9 +337,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _input: {fileID: 11400000, guid: b5ec8b4803bfccb48bd045843dbdca64, type: 2}
   _meleeHitbox: {fileID: 1646513225056349587, guid: 039f2db9f94b06442a04c32ecca44563, type: 3}
-  _meleeSpeed: 1
-  _meleeLockout: 0
+  _meleeSpeed: 2
+  _meleeLockout: 0.2
   _meleeBufferThreshold: 0.1
+  _meleeHitBoxTime: 0.1
 --- !u!114 &1456076181
 MonoBehaviour:
   m_ObjectHideFlags: 0

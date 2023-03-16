@@ -114,6 +114,8 @@ SpriteAtlas:
   - {fileID: -1483650924, guid: 33d66815c7aed53489dbb64541d53256, type: 3}
   - {fileID: -2007939952, guid: 33d66815c7aed53489dbb64541d53256, type: 3}
   - {fileID: -1068890070, guid: 33d66815c7aed53489dbb64541d53256, type: 3}
+  - {fileID: -1527414812, guid: 46d65836a8ecb8c4eaf5571cb5dc4c7b, type: 3}
+  - {fileID: -110130346, guid: 46d65836a8ecb8c4eaf5571cb5dc4c7b, type: 3}
   - {fileID: -300751819, guid: 0e9d034623afbf94aa788316764a44f4, type: 3}
   - {fileID: 2544177, guid: 0e9d034623afbf94aa788316764a44f4, type: 3}
   - {fileID: -899116868, guid: 0e9d034623afbf94aa788316764a44f4, type: 3}
@@ -473,6 +475,8 @@ SpriteAtlas:
   - boss-Sheet_2
   - boss-Sheet_1
   - boss-Sheet_0
+  - swoosh_1
+  - swoosh_0
   - rock-Sheet_3
   - rock-Sheet_2
   - rock-Sheet_1
