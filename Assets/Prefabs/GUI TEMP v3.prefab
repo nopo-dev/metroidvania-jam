@@ -1449,8 +1449,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sourceMenu: 0
-  controlsCanvas: {fileID: 1507150181}
-  backButton: {fileID: 485001512}
+  MainMenu: {fileID: 0}
+  PauseMenu: {fileID: 0}
 --- !u!1 &1542521912
 GameObject:
   m_ObjectHideFlags: 0
@@ -2023,7 +2023,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3911547886133235050, guid: ba4ff6de91b9e08479bcc5a7aea46d7b, type: 3}
       propertyPath: m_Name
-      value: GUI TEMP v2
+      value: GUI TEMP v3
       objectReference: {fileID: 0}
     - target: {fileID: 3911547886133235051, guid: ba4ff6de91b9e08479bcc5a7aea46d7b, type: 3}
       propertyPath: uiGroup
@@ -2543,7 +2543,7 @@ PrefabInstance:
       objectReference: {fileID: 2915143117043418988, guid: 5e024f6976fcbf844a69a62d921c29ca, type: 2}
     - target: {fileID: 3911547888205290058, guid: ba4ff6de91b9e08479bcc5a7aea46d7b, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3911547888227683882, guid: ba4ff6de91b9e08479bcc5a7aea46d7b, type: 3}
       propertyPath: m_IsActive

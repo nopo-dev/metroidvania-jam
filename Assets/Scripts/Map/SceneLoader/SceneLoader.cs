@@ -12,7 +12,7 @@ public class SceneLoader : MonoBehaviour
 
     // TODO: These may have to live in e.g. SceneLoaderArea if non-standardized.
     public Animator transition;
-    [SerializeField] private float _blackScreenTimeNewScene = 1.0f;
+    [SerializeField] private float _blackScreenTimeNewScene = 0.5f;
     [SerializeField] private float _blackScrenTimeReloadScene = 0.1f;
 
     private float _animationStartTime;
@@ -78,8 +78,9 @@ public class SceneLoader : MonoBehaviour
         PlayerStatus.Instance.teleportPlayer(spawnPoint);
         callback?.Invoke();
         transition.SetTrigger("End");
+        PauseControl.ResumeGame(); // resume faster so its not evident game is paused while fading
         yield return new WaitForSecondsRealtime(_animationEndTime);
-        PauseControl.ResumeGame();
+        // PauseControl.ResumeGame();
     }
 
     // to new level
@@ -115,8 +116,9 @@ public class SceneLoader : MonoBehaviour
             player.GetComponent<SpriteRenderer>().enabled = true;
         }
         transition.SetTrigger("End");
+        PauseControl.ResumeGame(); // resume faster so its not evident game is paused while fading
         yield return new WaitForSecondsRealtime(_animationEndTime);
-        PauseControl.ResumeGame();
+        // PauseControl.ResumeGame();
     }
 
     private bool isScene(string sceneName)

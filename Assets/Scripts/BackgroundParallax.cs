@@ -17,6 +17,7 @@ public class BackgroundParallax : MonoBehaviour
         {
             _backgroundLayers.Add(transform.GetChild(i));
         }
+        _camera = GameObject.FindWithTag("MainCamera").transform.GetChild(0);
     }
 
     private void Update()

@@ -206,7 +206,6 @@ SpriteAtlas:
   - {fileID: -115707949, guid: 1e61dd572076d6e4eaa1ab7ce6a1c3c3, type: 3}
   - {fileID: 672450807, guid: 1e61dd572076d6e4eaa1ab7ce6a1c3c3, type: 3}
   - {fileID: -688228095, guid: 1e61dd572076d6e4eaa1ab7ce6a1c3c3, type: 3}
-  - {fileID: 21300000, guid: ec74b177bd965254da1a1bab3cd820e2, type: 3}
   - {fileID: -1145007330, guid: d6ec44b7ecc695d458b4a9d2e21b75cd, type: 3}
   - {fileID: 1705470889, guid: d6ec44b7ecc695d458b4a9d2e21b75cd, type: 3}
   - {fileID: -673183859, guid: d6ec44b7ecc695d458b4a9d2e21b75cd, type: 3}
@@ -320,6 +319,7 @@ SpriteAtlas:
   - {fileID: 825517443, guid: 2829165caf5e2e54c99609a1da2273dd, type: 3}
   - {fileID: 1452700382, guid: 2829165caf5e2e54c99609a1da2273dd, type: 3}
   - {fileID: 1096887465, guid: 2829165caf5e2e54c99609a1da2273dd, type: 3}
+  - {fileID: 21300000, guid: b5c096cc3f85fb04393c8c7b1c7943a6, type: 3}
   - {fileID: 1460784712, guid: 6b8383ad7b91d834fba41c568dc37282, type: 3}
   - {fileID: -1855368765, guid: 6b8383ad7b91d834fba41c568dc37282, type: 3}
   - {fileID: 234235179, guid: 6b8383ad7b91d834fba41c568dc37282, type: 3}
@@ -563,7 +563,6 @@ SpriteAtlas:
   - Cave Tileset_40
   - Cave Tileset_9
   - Cave Tileset_8
-  - Title
   - flying_enemy-Sheet_0
   - flying_enemy-Sheet_1
   - flying_enemy-Sheet_2
@@ -677,6 +676,7 @@ SpriteAtlas:
   - Player Base_10
   - Player Base_13
   - Player Base_12
+  - Title 1
   - upgrade-Sheet_2
   - upgrade-Sheet_3
   - upgrade-Sheet_0

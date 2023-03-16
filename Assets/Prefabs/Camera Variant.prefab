@@ -23,6 +23,22 @@ PrefabInstance:
       propertyPath: m_Lens.OrthographicSize
       value: 18
       objectReference: {fileID: 0}
+    - target: {fileID: 7485642140804517946, guid: 16cc981d1561a8b47a86af43788c3834, type: 3}
+      propertyPath: m_XDamping
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7485642140804517946, guid: 16cc981d1561a8b47a86af43788c3834, type: 3}
+      propertyPath: m_YDamping
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7485642140804517946, guid: 16cc981d1561a8b47a86af43788c3834, type: 3}
+      propertyPath: m_ZDamping
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8001166197323604736, guid: 16cc981d1561a8b47a86af43788c3834, type: 3}
+      propertyPath: m_Damping
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8846396610411707176, guid: 16cc981d1561a8b47a86af43788c3834, type: 3}
       propertyPath: m_LocalPosition.x
       value: -13.28
