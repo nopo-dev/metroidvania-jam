@@ -20,4 +20,10 @@ public class LastSaveLocManager
     {
         return this.lastSaveLoc_;
     }
+
+    public bool Compare(Location saveLoc)
+    {
+        return this.lastSaveLoc_.x == saveLoc.x && this.lastSaveLoc_.y == saveLoc.y
+            && this.lastSaveLoc_.sceneName == saveLoc.sceneName;
+    }
 }

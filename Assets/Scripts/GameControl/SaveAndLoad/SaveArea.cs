@@ -10,6 +10,7 @@ public class SaveArea : CollidableArea
     // TODO: expose this to inspector for non-centered spawn points.
     // TODO: standardize notation for private vars, probably _before
     private Location spawnPoint_;
+    private Animator _animator;
 
     internal static SaveArea StartingSaveArea { get; private set; } // There can only be one !
     
@@ -28,6 +29,9 @@ public class SaveArea : CollidableArea
         spawnPoint_.sceneName = SceneLoader.getCurrentSceneName();
         spawnPoint_.x = this.transform.position.x;
         spawnPoint_.y = this.transform.position.y;
+        _animator = GetComponent<Animator>();
+        if (SaveAndLoader.Instance.LastSaveLocManager.Compare(this.spawnPoint_))
+            _animator.SetBool("Last Save", true);
     }
 
     internal Location getSpawnLocation()
@@ -38,10 +42,12 @@ public class SaveArea : CollidableArea
     private void doSave()
     {
         Debug.Log("SaveArea - Marking last save loc...");
-        SaveAndLoader.Instance.LastSaveLocManager.setLastSaveLoc(this.spawnPoint_);
+        SaveAndLoader.Instance.LastSaveLocManager.setLastSaveLoc(this.spawnPoint_); 
+        _animator.SetBool("LastSave", true);
         Debug.Log("SaveArea - Healing to full...");
         PlayerStatus.Instance.HPManager.healToFull();
         SaveAndLoader.Instance.save();
+        _animator.SetTrigger("Activate");
     }
     protected override void collisionHandler(Collider2D other)
     {
