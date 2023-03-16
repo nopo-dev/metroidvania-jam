@@ -105,6 +105,17 @@ public class Jump : MonoBehaviour
         _rb.velocity = _velocity;
     }
 
+    /*
+        tentacled:
+        grounded to pos vel -> 0
+        positive velocity -> 1
+        0 velocity -> 2
+        negative velocity -> 3
+        negative velocity to ground -> 4-6
+
+    */
+
+
     private void ApplyJump()
     {
         // check whether player is allowed to jump

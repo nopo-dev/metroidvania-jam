@@ -26,6 +26,8 @@ public class MeleeAttack : MonoBehaviour
     private void Update()
     {
         if (PauseControl.gameIsPaused) { return; }
+        if (PlayerStatus.Instance.UpgradeManager.hasUpgrade(Upgrade.MeleeAttack))
+            _animator.SetBool("Tentacled", true);
         _meleePress |= (_input.MeleePress() && _animator.GetBool("Tentacled"));
     }
 

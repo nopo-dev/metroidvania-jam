@@ -7,7 +7,8 @@ public class Trap : CollidableArea
     protected override void collisionHandler(Collider2D other)
     {
         PlayerStatus.Instance.HPManager.damageHP(this.damage_);
-        SceneLoader.Instance.loadScene(SaveAndLoader.Instance.LastSafeLocManager.getLastSafeLoc());
+        if (!PlayerStatus.Instance.HPManager.isOutOfHP())
+            SceneLoader.Instance.loadScene(SaveAndLoader.Instance.LastSafeLocManager.getLastSafeLoc());
         // TODO: might also want to trigger some animation here
     }
 

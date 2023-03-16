@@ -13,7 +13,7 @@ public class SceneLoader : MonoBehaviour
     // TODO: These may have to live in e.g. SceneLoaderArea if non-standardized.
     public Animator transition;
     [SerializeField] private float _blackScreenTimeNewScene = 0.5f;
-    [SerializeField] private float _blackScrenTimeReloadScene = 0.1f;
+    [SerializeField] private float _blackScrenTimeReloadScene = 0.5f;
 
     private float _animationStartTime;
     private float _animationEndTime;
@@ -72,6 +72,8 @@ public class SceneLoader : MonoBehaviour
 
     private IEnumerator animatedReloadScene(Location spawnPoint, Action callback)
     {
+        transition.ResetTrigger("Start");
+        transition.ResetTrigger("End");
         transition.SetTrigger("Start");
         PauseControl.PauseGame();
         yield return new WaitForSecondsRealtime(_animationStartTime + _blackScrenTimeReloadScene); // TODO: wanted this to freeze the game for 0.5s
@@ -86,6 +88,8 @@ public class SceneLoader : MonoBehaviour
     // to new level
     private IEnumerator animatedLoadScene(Location spawnPoint, Action callback)
     {
+        transition.ResetTrigger("Start");
+        transition.ResetTrigger("End");
         GameObject player = GameObject.FindWithTag("Player");
         if (player != null)
         {
