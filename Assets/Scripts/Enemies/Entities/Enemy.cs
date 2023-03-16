@@ -124,6 +124,7 @@ public class Enemy : CollidableArea
             case "PlayerMeleeAttack":
                 Debug.Log($"{type.name} - Hit by melee attack");
                 this.damageHP(Consts.PLAYER_MELEE_ATTACK_DAMAGE);
+                PlayerStatus.Instance.EnergyManager.healEnergy(Consts.ENERGY_HEAL_ONHIT);
                 break;
             case "PlayerRangedAttack":
                 Debug.Log($"{type.name} - Hit by Ranged attack");
