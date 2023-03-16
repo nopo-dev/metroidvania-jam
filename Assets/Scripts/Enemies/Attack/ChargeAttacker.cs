@@ -16,7 +16,7 @@ public class ChargeAttacker : Attacker
         attacker.animator.SetBool("Attacking", true);
         attacker.chargePlayer(chargeSpeed);
         // not sure if this should be tied to animation length actually
-        yield return new WaitForSeconds(attacker.animationDurations["Tentacle Shitter Attack"]);
+        yield return new WaitForSeconds(attacker.animationDurations["Attack"]);
 
         // Post-attack
         attacker.animator.SetBool("Attacking", false);

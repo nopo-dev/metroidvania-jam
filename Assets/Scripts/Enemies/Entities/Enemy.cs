@@ -99,37 +99,50 @@ public class Enemy : CollidableArea
     public void playDyingAnimation(Action callback)
     {
         StopAllCoroutines();
-        _collidable = false;
+        kill();
 
         StartCoroutine(dyingAnimation(callback));
     }
 
     protected virtual IEnumerator dyingAnimation(Action callback)
     {
-        throw new NotImplementedException("This enemy has no dying animation.");
+        animator.SetBool("Dead", true);
+        yield return new WaitForSeconds(animationDurations["Death"]);
+        hide();
     }
 
     protected override void collisionHandler(Collider2D other)
     {
-        if (other.tag != "PlayerTrigger" || !_collidable) { return; }
-
-        PlayerStatus.Instance.HPManager.damageHP(type.damageOnTouch);
-
-        // TODO: handle player attacks
+        if (!_collidable) { return; }
+        
+        switch(other.tag)
+        {
+            case "PlayerTrigger":
+                // TODO: animate player taking damage / knock-back
+                PlayerStatus.Instance.HPManager.damageHP(type.damageOnTouch);
+                break;
+            case "PlayerMeleeAttack":
+                Debug.Log($"{type.name} - Hit by melee attack");
+                this.damageHP(Consts.PLAYER_MELEE_ATTACK_DAMAGE);
+                break;
+            case "PlayerRangedAttack":
+                Debug.Log($"{type.name} - Hit by Ranged attack");
+                this.damageHP(Consts.PLAYER_RANGED_ATTACK_DAMAGE);
+                break;
+            default:
+                break;
+        }
     }
 
     protected void damageHP(int damage)
     {
         _currentHP -= damage;
-        if (_currentHP <= 0)
-        {
-            kill();
-        }
     }
 
     protected virtual void kill()
     {
-         if (!_respawns)
+        _collidable = false;
+        if (!_respawns)
         {
             SaveAndLoader.Instance.EnemySaveManager.markEnemyKilled(_id);
         }

@@ -6,8 +6,10 @@ TagManager:
   tags:
   - UI
   - HPbar
-  - Player Attack
   - PlayerTrigger
+  - PlayerMeleeAttack
+  - PlayerRangedAttack
+  - Player Attack
   layers:
   - Default
   - TransparentFX

@@ -19,8 +19,7 @@ public class HedgehogAttacker : Attacker
         attacker.animator.SetBool("Attacking", true);
         // Kind of a hack to extend hitbox
         attacker.chargePlayer(attackMoveSpeed);
-        // This is specific to the enemy type, but oh well...
-        yield return new WaitForSeconds(attacker.animationDurations["Tentacle Shitter Attack"]);
+        yield return new WaitForSeconds(attacker.animationDurations["Attack"]);
         // Probably we want to extend a new hitbox or even own collider here.
         attacker.standStill();
 

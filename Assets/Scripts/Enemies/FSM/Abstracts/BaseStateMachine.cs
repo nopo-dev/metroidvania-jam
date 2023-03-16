@@ -23,6 +23,7 @@ namespace FSM.Abstracts
 
         private void Update()
         {
+            if (PauseControl.gameIsPaused) { return; }
             CurrentState.Execute(this);
         }
 

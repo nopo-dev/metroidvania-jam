@@ -1,3 +1,4 @@
+using System.Linq;
 using UnityEngine;
 
 
@@ -24,9 +25,10 @@ public abstract class CollidableArea : MonoBehaviour
      * so any implementation change will have to take that into account.
      */
     private void OnTriggerEnter2D(Collider2D other)
-    { 
-        if (other.tag != "PlayerTrigger" || !other.isTrigger) { return; }
+    {
+        if (!collidableTags.Contains(other.tag) || !other.isTrigger) { return; }
         collisionHandler(other);
     }
 
+    private static readonly string[] collidableTags = { "PlayerTrigger", "PlayerMeleeAttack", "PlayerRangedAttack" };
 }

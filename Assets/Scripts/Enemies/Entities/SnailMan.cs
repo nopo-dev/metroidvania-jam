@@ -26,8 +26,9 @@ public class SnailMan : Enemy
         rb2d.bodyType = RigidbodyType2D.Static;
         rb2d.velocity = new Vector2(0, 0); // not sure if needed after static
 
-        yield return new WaitForSeconds(4);
-        // todo: run animation, make it noncollidable (physics) but body falls w/ gravity.
+        animator.SetBool("Dead", true);
+        yield return new WaitForSeconds(animationDurations["Death"]);
+        // todo: run animation, make it noncollidable (physics) but body falls w/ gravity ?
 
         callback?.Invoke();
     }
