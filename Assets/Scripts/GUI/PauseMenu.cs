@@ -24,18 +24,13 @@ public class PauseMenu : MonoBehaviour
     
     void Start()
     {
-        Debug.Log("start");
         gameObject.SetActive(false);
-        Debug.Log(gameObject.activeSelf);
     }
 
     public void Pause()
     {
         PauseControl.PauseGame();
-        Debug.Log("pause set active");
-        Debug.Log(gameObject.activeSelf);
         gameObject.SetActive(true);
-        Debug.Log(gameObject.activeSelf);
     }
 
     public void Resume()

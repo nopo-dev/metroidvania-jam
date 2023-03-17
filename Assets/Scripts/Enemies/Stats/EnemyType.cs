@@ -7,5 +7,4 @@ public class EnemyType : ScriptableObject
     [SerializeField] public NavManager navManager = null;
     [SerializeField] public int maximumHP;
     [SerializeField] public int damageOnTouch;
-    [SerializeField] public string name;
 }

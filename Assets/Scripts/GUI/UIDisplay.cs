@@ -11,6 +11,7 @@ public class UIDisplay : MonoBehaviour
     
     public Slider energySlider;
     public CanvasGroup UIcanvas;
+    public GameObject controlMenu;
     public Animator[] HPAnimators;
 
     private float desiredDuration = 0.25f;

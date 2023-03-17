@@ -34,6 +34,7 @@ public class PauseControl : MonoBehaviour
     {
         Debug.Log("PauseControl - Resuming game.");
         UIDisplay.Instance.showUI();
+        UIDisplay.Instance.controlMenu.SetActive(false);
         Time.timeScale = 1;
         gameIsPaused = false;
     }

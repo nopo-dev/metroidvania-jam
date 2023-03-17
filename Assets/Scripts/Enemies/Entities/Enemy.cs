@@ -100,6 +100,7 @@ public class Enemy : CollidableArea
     {
         StopAllCoroutines();
         kill();
+
         StartCoroutine(dyingAnimation(callback));
     }
 
@@ -126,7 +127,6 @@ public class Enemy : CollidableArea
                 this.damageHP(Consts.PLAYER_MELEE_ATTACK_DAMAGE);
                 PlayerStatus.Instance.EnergyManager.healEnergy(Consts.ENERGY_HEAL_ONHIT);
                 int num = UnityEngine.Random.Range(1,4);
-                Debug.Log("meleehit");
                 AudioManager.Instance.PlaySound("MeleeHit" + num);
                 break;
             case "PlayerRangedAttack":
@@ -154,6 +154,10 @@ public class Enemy : CollidableArea
         else 
         {
             AudioManager.Instance.PlaySound("SlimeDeath");
+        }
+        if (!_respawns)
+        {
+            SaveAndLoader.Instance.EnemySaveManager.markEnemyKilled(_id);
         }
         if (!_respawns)
         {

@@ -42,4 +42,9 @@ public class ControlsMenu : MonoBehaviour
     {
         gameObject.SetActive(false);
     }
+
+    public bool getActive()
+    {
+        return gameObject.activeSelf;
+    }
 }
