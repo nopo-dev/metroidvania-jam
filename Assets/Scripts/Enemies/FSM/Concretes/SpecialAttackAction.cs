@@ -12,6 +12,7 @@ namespace FSM
             if (machine.actionLocked) { return; }
             var entity = machine.GetComponent<SnailMan>();
             machine.lockState();
+            entity.nextRandomAttack();
             entity.specialAttack(attack, machine.unlockTransitions);
         }
     }

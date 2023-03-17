@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6643eee03cb6a81469140cb03397c8e3, type: 3}
   m_Name: Spit Decision
   m_EditorClassIdentifier: 
-  conditionalChance: 0.5
+  attackNumber: 1
