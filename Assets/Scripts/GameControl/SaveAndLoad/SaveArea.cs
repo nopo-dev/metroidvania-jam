@@ -47,6 +47,7 @@ public class SaveArea : CollidableArea
         Debug.Log("SaveArea - Healing to full...");
         PlayerStatus.Instance.HPManager.healToFull();
         SaveAndLoader.Instance.save();
+        AudioManager.Instance.PlaySound("SavePoint");
         _animator.SetTrigger("Activate");
     }
     protected override void collisionHandler(Collider2D other)

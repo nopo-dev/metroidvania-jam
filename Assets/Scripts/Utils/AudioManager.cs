@@ -23,13 +23,6 @@ public class AudioManager : MonoBehaviour
 
     public Sound[] sounds;
 
-    //TODO: add all SFX clips here
-    /*
-    public AudioClip sfx1;
-    ..
-
-    */ 
-
     private void Awake()
     {
         if (Instance != null && Instance != this)
