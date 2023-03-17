@@ -1,14 +1,17 @@
 ﻿using System;
 using System.Collections;
+using System.Xml;
 using UnityEngine;
 
 public class SnailMan : Enemy
 {
     [HideInInspector] public bool deciding = false;
+    [HideInInspector] public static int randomAttackDecider; // TODO: this is dumb hack
 
     private TraversalAttacker _traversalAttacker;
     private SpitAttacker _spitAttacker;
     private RockAttacker _rockAttacker;
+    private System.Random _rand = new System.Random();
 
     new protected void Awake()
     {
@@ -17,6 +20,19 @@ public class SnailMan : Enemy
         _traversalAttacker = GetComponent<TraversalAttacker>();
         _spitAttacker = GetComponent<SpitAttacker>();
         _rockAttacker = GetComponent<RockAttacker>();
+        randomAttackDecider = -Consts.NUM_SNAIL_SPECIAL_ATTACKS;
+    }
+
+    public void nextRandomAttack()
+    {
+        if (randomAttackDecider < 0)
+        {
+            randomAttackDecider++;
+        }
+        else
+        {
+            randomAttackDecider = _rand.Next(Consts.NUM_SNAIL_SPECIAL_ATTACKS);
+        }
     }
 
     protected override IEnumerator dyingAnimation(Action callback)

@@ -11,11 +11,6 @@ public class SaveAndLoader : MonoBehaviour
 {
     public static SaveAndLoader Instance { get; private set; }
 
-    // TODO: best way to get key downs?
-    private static KeyCode saveKey = KeyCode.S;
-    private static KeyCode loadKey = KeyCode.L;
-    private static KeyCode restartKey = KeyCode.R;
-
     public LastSaveLocManager LastSaveLocManager { get; private set; }
     public LastSafeLocManager LastSafeLocManager { get; private set; }
     public EnemySaveManager EnemySaveManager { get; private set; }
@@ -41,27 +36,6 @@ public class SaveAndLoader : MonoBehaviour
     private void Start()
     {
         SaveDataManager.initSaveDataManager(); // SaveDataManager is static, we don't need to own it.
-    }
-
-    // TODO: is this really the best way to check for save/load clicks?
-    private void Update()
-    {
-        if (PauseControl.gameIsPaused) { return; }
-
-        // Save take prio over load
-        if (Input.GetKeyDown(saveKey))
-        {
-            Debug.Log("SaveAndLoader - Manual save is for debug purposes, not guaranteed to be soft-lock-safe.");
-            save();
-        }
-        else if (Input.GetKeyDown(loadKey))
-        {
-            load();
-        }
-        else if (Input.GetKeyDown(restartKey))
-        {
-            restart();
-        }
     }
 
     /*

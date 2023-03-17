@@ -7,4 +7,11 @@ public static class Utils
     {
         return (value < min) ? min : (value > max) ? max : value;
     }
+
+    public static int posMod(int x, int m)
+    {
+        if (m < 0) { m = -m; }
+        x = x % m;
+        return x < 0 ? x + m : x;
+    }
 }

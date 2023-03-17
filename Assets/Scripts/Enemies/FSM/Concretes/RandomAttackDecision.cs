@@ -6,20 +6,12 @@ namespace FSM
     [CreateAssetMenu(menuName = "FSM/Decisions/Random Attack")]
     public class RandomAttackDecision : Decision
     {
-        [Range(0.0f, 1.0f)]
-        public float conditionalChance = 0.5f;
-        private bool _firedOnce;
-        private System.Random _rand = new System.Random();
+        [Range(0, Consts.NUM_SNAIL_SPECIAL_ATTACKS - 1)] // hack specific to snailman
+        public int attackNumber;
 
         public override bool Decide(BaseStateMachine machine)
         {
-            bool forceAttack = false;
-            if (!_firedOnce)
-            {
-                _firedOnce = true;
-                forceAttack = true;
-            }
-            if (_rand.NextDouble() < conditionalChance || forceAttack)
+            if (Utils.posMod(SnailMan.randomAttackDecider, Consts.NUM_SNAIL_SPECIAL_ATTACKS) == attackNumber)
             {
                 machine.lockTransitions();
                 return true;
