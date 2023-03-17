@@ -48,6 +48,7 @@ public class UpgradeItem : CollidableArea
     {
         Debug.Log($"UpgradeItem - Obtaining upgrade {this.upgradeID_}");
         PlayerStatus.Instance.UpgradeManager.setUpgrade(this.upgradeID_);
+        AudioManager.Instance.PlaySound("Upgrade");
         hide();
     }
 

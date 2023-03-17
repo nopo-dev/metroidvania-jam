@@ -100,7 +100,6 @@ public class Enemy : CollidableArea
     {
         StopAllCoroutines();
         kill();
-
         StartCoroutine(dyingAnimation(callback));
     }
 
@@ -120,11 +119,15 @@ public class Enemy : CollidableArea
             case "PlayerTrigger":
                 // TODO: animate player taking damage / knock-back
                 PlayerStatus.Instance.HPManager.damageHP(type.damageOnTouch);
+                AudioManager.Instance.PlaySound("PlayerDamage");
                 break;
             case "PlayerMeleeAttack":
                 Debug.Log($"{type.name} - Hit by melee attack");
                 this.damageHP(Consts.PLAYER_MELEE_ATTACK_DAMAGE);
                 PlayerStatus.Instance.EnergyManager.healEnergy(Consts.ENERGY_HEAL_ONHIT);
+                int num = UnityEngine.Random.Range(1,4);
+                Debug.Log("meleehit");
+                AudioManager.Instance.PlaySound("MeleeHit" + num);
                 break;
             case "PlayerRangedAttack":
                 Debug.Log($"{type.name} - Hit by Ranged attack");
@@ -143,6 +146,15 @@ public class Enemy : CollidableArea
     protected virtual void kill()
     {
         _collidable = false;
+        if(type.name == "Mosquito")
+        {
+            AudioManager.Instance.PlaySound("BatDeath");
+        }
+        //hedgehog or charger
+        else 
+        {
+            AudioManager.Instance.PlaySound("SlimeDeath");
+        }
         if (!_respawns)
         {
             SaveAndLoader.Instance.EnemySaveManager.markEnemyKilled(_id);
@@ -178,5 +190,24 @@ public class Enemy : CollidableArea
                 enemy.hide();
             }
         }
+    }
+
+    public void moveAudio()
+    {
+        if (type.name == "Mosquito")
+        {
+            AudioManager.Instance.PlaySound("BatFlap");
+        }
+        //Hedgehog and Charger
+        else
+        {
+            AudioManager.Instance.PlaySound("SlimeMove");
+        }
+    }
+
+    // only have audio clip for slime attack
+    public void attackAudio()
+    {
+        AudioManager.Instance.PlaySound("SlimeAttack");
     }
 }

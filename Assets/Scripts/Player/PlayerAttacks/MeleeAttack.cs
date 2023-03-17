@@ -76,6 +76,8 @@ public class MeleeAttack : PlayerAttack
             _meleeBufferTimer = 0f;
             _meleeTimer = _meleeCooldown;
             _isAttacking = true;
+            int num = Random.Range(1, 4);
+            AudioManager.Instance.PlayDelayedSound("Melee" + num, 0.1f);
             StartCoroutine(CoolDown());
         }
     }

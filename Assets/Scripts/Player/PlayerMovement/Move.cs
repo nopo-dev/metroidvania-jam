@@ -68,4 +68,10 @@ public class Move : MonoBehaviour
         _animator.SetFloat("Velocity X", _velocity.x);
     }
 
+    public void playFootstep()
+    {
+        int num = Random.Range(1,6);
+        AudioManager.Instance.PlaySound("Footstep"+num);
+    }
+
 }

@@ -37,6 +37,7 @@ public class ProjectileBehavior : MonoBehaviour
     {
         if (!collision.gameObject.CompareTag(ignoreTag))
         {
+            AudioManager.Instance.PlayDelayedSound("SpitImpact", 0.1f);
             Destroy(gameObject);
             Instantiate(_particles, transform.position, Quaternion.identity);
         }

@@ -67,7 +67,8 @@ public class Heal : PlayerAttack
     {
         // check whether player is allowed to spit
         if (_healTimer > 0f && !_inHeal && _animator.GetBool("Grounded") &&
-            !_animator.GetBool("Attacking") && !_animator.GetBool("Ranged Attacking"))
+            !_animator.GetBool("Attacking") && !_animator.GetBool("Ranged Attacking") && 
+            PlayerStatus.Instance.HPManager.getCurrentHP() != 5)
         {
             _healBufferTimer = 0f;
             _healTimer = _healCooldown;
@@ -81,6 +82,7 @@ public class Heal : PlayerAttack
         yield return new WaitForSeconds(_healCooldown - _healLockout);
         PlayerStatus.Instance.EnergyManager.damageEnergy(25);
         _healParticles.GetComponent<ParticleSystem>().Play();
+        AudioManager.Instance.PlaySound("Heal");
         PlayerStatus.Instance.HPManager.healHP(1);
         _inHeal = false;
     }

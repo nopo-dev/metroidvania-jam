@@ -83,6 +83,4 @@ public class UIDisplay : MonoBehaviour
         energySlider.value = endEnergy;
     }
     
-  
-
 }

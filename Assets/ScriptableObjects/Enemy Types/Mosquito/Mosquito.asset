@@ -16,3 +16,4 @@ MonoBehaviour:
   navManager: {fileID: 11400000, guid: 18df44244cf8dd6428fff55b731e5d23, type: 2}
   maximumHP: 3
   damageOnTouch: 1
+  name: Mosquito

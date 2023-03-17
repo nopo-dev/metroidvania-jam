@@ -361,8 +361,104 @@ MonoBehaviour:
     pitch: 1
     loop: 0
     source: {fileID: 0}
+  - name: SlimeAttack
+    clip: {fileID: 8300000, guid: b93de040542d00643b5efb6849a675dc, type: 3}
+    volume: 0.1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: SlimeDeath
+    clip: {fileID: 8300000, guid: c69f187186170254fa11ccd68505da4c, type: 3}
+    volume: 0.1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
   - name: SpitImpact
     clip: {fileID: 8300000, guid: 895f2a6fd3576754c8f6b4202ffd876b, type: 3}
+    volume: 0.1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Melee1
+    clip: {fileID: 8300000, guid: cba7396d74d2df94788ad24121acff98, type: 3}
+    volume: 0.1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Melee2
+    clip: {fileID: 8300000, guid: ae10f66175014c14c90e09df58608388, type: 3}
+    volume: 0.1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Melee3
+    clip: {fileID: 8300000, guid: 1ce61fd552d238d4893446378ce2d1a7, type: 3}
+    volume: 0.1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: MeleeHit1
+    clip: {fileID: 8300000, guid: 9dc5a4c0dd8e6ea4d9d7e0d0b143df25, type: 3}
+    volume: 0.1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: MeleeHit2
+    clip: {fileID: 8300000, guid: 0f381849cbae69445975bb8c4d345a79, type: 3}
+    volume: 0.1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: MeleeHit3
+    clip: {fileID: 8300000, guid: 63e0a00794b12e44097e4f9ee26f07d5, type: 3}
+    volume: 0.1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Footstep1
+    clip: {fileID: 8300000, guid: c57c61a8084d54e4abb217f3d4ea7735, type: 3}
+    volume: 0.1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Footstep2
+    clip: {fileID: 8300000, guid: 160faf7794911864abb6dfec09f4e68f, type: 3}
+    volume: 0.1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Footstep3
+    clip: {fileID: 8300000, guid: fef6c365a71a74d47895caf84e483378, type: 3}
+    volume: 0.1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Footstep4
+    clip: {fileID: 8300000, guid: c5c2aac6df1f4f34fa6b9fe128788345, type: 3}
+    volume: 0.1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Footstep5
+    clip: {fileID: 8300000, guid: a250efce0b23de94097cb30ea7576a77, type: 3}
+    volume: 0.1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Heal
+    clip: {fileID: 8300000, guid: 526c49729deb25a42994f0f1e19f5d77, type: 3}
+    volume: 0.1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: SavePoint
+    clip: {fileID: 8300000, guid: 724f1047d5ef6e0479f6f30e2d7ae33f, type: 3}
+    volume: 0.1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Upgrade
+    clip: {fileID: 8300000, guid: 81de1d5e9c4869f4e9ec429c16311c7c, type: 3}
     volume: 0.1
     pitch: 1
     loop: 0

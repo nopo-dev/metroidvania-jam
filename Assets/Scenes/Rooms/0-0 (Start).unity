@@ -52031,9 +52031,37 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7235365040495722037, guid: 8dd285e9388f26b40bd9a36e5cf5845e, type: 3}
+      propertyPath: _aud
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7235365040495722037, guid: 8dd285e9388f26b40bd9a36e5cf5845e, type: 3}
       propertyPath: _input
       value: 
       objectReference: {fileID: 11400000, guid: b5ec8b4803bfccb48bd045843dbdca64, type: 2}
+    - target: {fileID: 7235365040495722037, guid: 8dd285e9388f26b40bd9a36e5cf5845e, type: 3}
+      propertyPath: _footsteps.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7235365040495722037, guid: 8dd285e9388f26b40bd9a36e5cf5845e, type: 3}
+      propertyPath: _footsteps.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: c57c61a8084d54e4abb217f3d4ea7735, type: 3}
+    - target: {fileID: 7235365040495722037, guid: 8dd285e9388f26b40bd9a36e5cf5845e, type: 3}
+      propertyPath: _footsteps.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: 160faf7794911864abb6dfec09f4e68f, type: 3}
+    - target: {fileID: 7235365040495722037, guid: 8dd285e9388f26b40bd9a36e5cf5845e, type: 3}
+      propertyPath: _footsteps.Array.data[2]
+      value: 
+      objectReference: {fileID: 8300000, guid: fef6c365a71a74d47895caf84e483378, type: 3}
+    - target: {fileID: 7235365040495722037, guid: 8dd285e9388f26b40bd9a36e5cf5845e, type: 3}
+      propertyPath: _footsteps.Array.data[3]
+      value: 
+      objectReference: {fileID: 8300000, guid: c5c2aac6df1f4f34fa6b9fe128788345, type: 3}
+    - target: {fileID: 7235365040495722037, guid: 8dd285e9388f26b40bd9a36e5cf5845e, type: 3}
+      propertyPath: _footsteps.Array.data[4]
+      value: 
+      objectReference: {fileID: 8300000, guid: a250efce0b23de94097cb30ea7576a77, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8dd285e9388f26b40bd9a36e5cf5845e, type: 3}
 --- !u!4 &1718369349 stripped
