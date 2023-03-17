@@ -6,7 +6,8 @@ public class TraversalAttacker : SpecialAttacker
 {
     public float jumpStrength;
     public float startDelay;
-    public float duration;
+    public float duration; // this is kinda dumb but don't have a way to calc flight time yet
+    public float standUpDelay;
     public float endDelay;
     public bool startJumpRight;
 
@@ -20,16 +21,31 @@ public class TraversalAttacker : SpecialAttacker
 
     public override IEnumerator doAttack(Action callback)
     {
+        // Pre-attack
         Debug.Log("SnailMan - Beginning traversal attack");
         snailman.facePlayer();
         yield return new WaitForSeconds(startDelay);
+
+        // Attack - begin jump
         Debug.Log("SnailMan - Jumping");
+        snailman.animator.SetTrigger("Traversal");
+        yield return new WaitForSeconds(snailman.animationDurations["Snail Traversal Slam"]);
+
+        // Attack - fly through the air
         snailman.StartCoroutine(jump());
         yield return new WaitForSeconds(duration);
+
+        // Attack - land
         Debug.Log("SnailMan - Landed");
+        snailman.animator.SetTrigger("Landed");
+        yield return new WaitForSeconds(standUpDelay);
+        snailman.animator.SetTrigger("Stand Up");
+
+        // Post-attack
         snailman.facePlayer();
         yield return new WaitForSeconds(endDelay);
 
+        // Finished
         callback?.Invoke();
     }
 

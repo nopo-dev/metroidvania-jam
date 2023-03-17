@@ -16,13 +16,15 @@ namespace FSM.Abstracts
                 if (!(TrueState is RemainInState))
                 {
                     machine.CurrentState = TrueState;
+                    machine.unlockState();
                 }
             }
             else if (!(FalseState is RemainInState))
             {
                 machine.CurrentState = FalseState;
+                machine.unlockState();
             }
-            machine.unlockState();
+            // RemainInState should not unlock state
         }
     }
 }

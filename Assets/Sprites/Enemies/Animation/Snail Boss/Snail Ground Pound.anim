@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Snail Boss High Spit
+  m_Name: Snail Ground Pound
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -20,23 +20,23 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: 256405425, guid: 33d66815c7aed53489dbb64541d53256, type: 3}
+      value: {fileID: -746140410, guid: 33d66815c7aed53489dbb64541d53256, type: 3}
     - time: 0.125
-      value: {fileID: 2009233617, guid: 33d66815c7aed53489dbb64541d53256, type: 3}
+      value: {fileID: -1305630666, guid: 33d66815c7aed53489dbb64541d53256, type: 3}
     - time: 0.25
-      value: {fileID: 1973381206, guid: 33d66815c7aed53489dbb64541d53256, type: 3}
+      value: {fileID: -2089672084, guid: 33d66815c7aed53489dbb64541d53256, type: 3}
     - time: 0.375
-      value: {fileID: -687484200, guid: 33d66815c7aed53489dbb64541d53256, type: 3}
+      value: {fileID: -1346174453, guid: 33d66815c7aed53489dbb64541d53256, type: 3}
     - time: 0.5
-      value: {fileID: -2024672993, guid: 33d66815c7aed53489dbb64541d53256, type: 3}
+      value: {fileID: 420428446, guid: 33d66815c7aed53489dbb64541d53256, type: 3}
     - time: 0.625
-      value: {fileID: -1264583618, guid: 33d66815c7aed53489dbb64541d53256, type: 3}
+      value: {fileID: -1361925300, guid: 33d66815c7aed53489dbb64541d53256, type: 3}
     - time: 0.75
-      value: {fileID: -977298542, guid: 33d66815c7aed53489dbb64541d53256, type: 3}
+      value: {fileID: -1132973608, guid: 33d66815c7aed53489dbb64541d53256, type: 3}
     - time: 0.875
-      value: {fileID: 823258038, guid: 33d66815c7aed53489dbb64541d53256, type: 3}
+      value: {fileID: -1458637054, guid: 33d66815c7aed53489dbb64541d53256, type: 3}
     - time: 1
-      value: {fileID: 1146334739, guid: 33d66815c7aed53489dbb64541d53256, type: 3}
+      value: {fileID: -2048301232, guid: 33d66815c7aed53489dbb64541d53256, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -56,15 +56,15 @@ AnimationClip:
       customType: 23
       isPPtrCurve: 1
     pptrCurveMapping:
-    - {fileID: 256405425, guid: 33d66815c7aed53489dbb64541d53256, type: 3}
-    - {fileID: 2009233617, guid: 33d66815c7aed53489dbb64541d53256, type: 3}
-    - {fileID: 1973381206, guid: 33d66815c7aed53489dbb64541d53256, type: 3}
-    - {fileID: -687484200, guid: 33d66815c7aed53489dbb64541d53256, type: 3}
-    - {fileID: -2024672993, guid: 33d66815c7aed53489dbb64541d53256, type: 3}
-    - {fileID: -1264583618, guid: 33d66815c7aed53489dbb64541d53256, type: 3}
-    - {fileID: -977298542, guid: 33d66815c7aed53489dbb64541d53256, type: 3}
-    - {fileID: 823258038, guid: 33d66815c7aed53489dbb64541d53256, type: 3}
-    - {fileID: 1146334739, guid: 33d66815c7aed53489dbb64541d53256, type: 3}
+    - {fileID: -746140410, guid: 33d66815c7aed53489dbb64541d53256, type: 3}
+    - {fileID: -1305630666, guid: 33d66815c7aed53489dbb64541d53256, type: 3}
+    - {fileID: -2089672084, guid: 33d66815c7aed53489dbb64541d53256, type: 3}
+    - {fileID: -1346174453, guid: 33d66815c7aed53489dbb64541d53256, type: 3}
+    - {fileID: 420428446, guid: 33d66815c7aed53489dbb64541d53256, type: 3}
+    - {fileID: -1361925300, guid: 33d66815c7aed53489dbb64541d53256, type: 3}
+    - {fileID: -1132973608, guid: 33d66815c7aed53489dbb64541d53256, type: 3}
+    - {fileID: -1458637054, guid: 33d66815c7aed53489dbb64541d53256, type: 3}
+    - {fileID: -2048301232, guid: 33d66815c7aed53489dbb64541d53256, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
@@ -75,7 +75,7 @@ AnimationClip:
     m_Level: 0
     m_CycleOffset: 0
     m_HasAdditiveReferencePose: 0
-    m_LoopTime: 0
+    m_LoopTime: 1
     m_LoopBlend: 0
     m_LoopBlendOrientation: 0
     m_LoopBlendPositionY: 0

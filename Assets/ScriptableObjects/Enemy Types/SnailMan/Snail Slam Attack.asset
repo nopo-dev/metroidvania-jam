@@ -12,7 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b598db0e7e6dbc2479f4f0a6ff79b654, type: 3}
   m_Name: Snail Slam Attack
   m_EditorClassIdentifier: 
-  range: 5
-  duration: 3
-  size: 10
-  cooldown: 1
+  range: 10
+  paddingTime: 0.2

@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class SnailMan : Enemy
 {
-    [SerializeField] public Animator animator;
     [HideInInspector] public bool deciding = false;
 
     private TraversalAttacker _traversalAttacker;

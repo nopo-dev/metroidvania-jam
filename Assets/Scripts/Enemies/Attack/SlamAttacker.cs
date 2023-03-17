@@ -8,35 +8,34 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Attacker/Slam Attacker")]
 public class SlamAttacker : Attacker
 {
-    public float duration;
-    public float size;
-    public float cooldown;
+    public float paddingTime;
+
+    private System.Random _rand = new System.Random();
 
     protected override IEnumerator doAttack(Enemy attacker, Action callback)
     {
+        // Pre-attack
         Debug.Log("SnailMan - slam attacking");
         Debug.Log("SnailMan - Pausing decision timer");
         float startTime = Time.time;
         // animations
         attacker.facePlayer();
-        yield return new WaitForSeconds(cooldown);
-        grow(attacker);
-        yield return new WaitForSeconds(duration);
-        shrink(attacker);
-        yield return new WaitForSeconds(cooldown);
+        yield return new WaitForSeconds(paddingTime);
+
+        // Attack
+        int attackNumber = _rand.NextDouble() > 0.5 ? 1 : 2;
+        attacker.animator.SetTrigger($"Basic Attack {attackNumber}");
+        yield return new WaitForSeconds(attacker.animationDurations[$"Snail Basic Swing {attackNumber}"]);
+
+        // Post-attack
+        // Currently, Snail will idle during padding time. We can add a trigger
+        // if we want to freeze last attack frame.
+        yield return new WaitForSeconds(paddingTime);
         float ignoredTime = Time.time - startTime;
         Debug.Log($"SnailMan - Resuming decision timer with {ignoredTime} ignored time.");
         (attacker as SnailMan).addThinkingTime(ignoredTime);
+
+        // Finish
         callback?.Invoke();
-    }
-
-    private void grow(Enemy attacker)
-    {
-        attacker.transform.localScale = new Vector2(size, size);
-    }
-
-    private void shrink(Enemy attacker)
-    {
-        attacker.transform.localScale = new Vector2(1, 1);
     }
 }

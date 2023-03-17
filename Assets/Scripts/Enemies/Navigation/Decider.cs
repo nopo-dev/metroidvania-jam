@@ -11,12 +11,13 @@ public class Decider : NavManager
     [HideInInspector] public float uncountedTime;
 
     public override void doPeacefulNav(Enemy navigator) {
-        SnailMan snailMan = navigator as SnailMan;
-        if (snailMan.deciding) { return; }
+        SnailMan snailman = navigator as SnailMan;
+        snailman.facePlayer();
+        if (snailman.deciding) { return; }
         Debug.Log("SnailMan - Starting decision timer.");
         uncountedTime = 0;
         startTime = Time.time;
-        snailMan.deciding = true;
+        snailman.deciding = true;
     }
 
     public bool hasDecided()

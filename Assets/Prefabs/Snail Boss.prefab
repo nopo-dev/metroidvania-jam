@@ -11,6 +11,14 @@ GameObject:
   - component: {fileID: 2824403240833088861}
   - component: {fileID: 8312098186470903373}
   - component: {fileID: 7718380682953429501}
+  - component: {fileID: -6504249425006614976}
+  - component: {fileID: 5059278728827222892}
+  - component: {fileID: 3854120300851395485}
+  - component: {fileID: -7293680351181892318}
+  - component: {fileID: -3624382847911822622}
+  - component: {fileID: 2529610663352030747}
+  - component: {fileID: -603584070315531975}
+  - component: {fileID: -1162371210932408395}
   m_Layer: 10
   m_Name: Snail Boss
   m_TagString: Untagged
@@ -105,3 +113,155 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+--- !u!114 &-6504249425006614976
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1701406838028980742}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9b5e742a635fa04d848a078d95621a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!50 &5059278728827222892
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1701406838028980742}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 8
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
+--- !u!61 &3854120300851395485
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1701406838028980742}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -1.8, y: -1.3}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 27, y: 13.5}
+    newSize: {x: 27, y: 13.5}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 7, y: 11}
+  m_EdgeRadius: 0
+--- !u!114 &-7293680351181892318
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1701406838028980742}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f97cd6b9155ac7848b7d08fb26fa3f35, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _initialState: {fileID: 11400000, guid: deda30ba75e3ca74e9c3d1483a91a918, type: 2}
+  CurrentState: {fileID: 11400000, guid: deda30ba75e3ca74e9c3d1483a91a918, type: 2}
+--- !u!114 &-3624382847911822622
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1701406838028980742}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4b3990c8c737a44a8b8d7ad23d67f4b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: {fileID: 11400000, guid: ab303376029498f4fa58fdbed6964504, type: 2}
+  patrolA: {x: 0, y: 0}
+  patrolB: {x: 0, y: 0}
+  startDirection: {x: 0, y: 0}
+  _id: snailman
+  _respawns: 0
+  startLoc: {x: 0, y: 0}
+  destinationLoc: {x: 0, y: 0}
+  animator: {fileID: 0}
+  player: {fileID: 0}
+  mover: {fileID: 0}
+  flyer: {fileID: 0}
+  deciding: 0
+--- !u!114 &2529610663352030747
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1701406838028980742}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b644ff8d4f8d73e46b29074064081ee1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startDelay: 0.2
+  rockNumber: 5
+  timeBetweenRocks: 0.5
+  doublePoundNumber: 3
+  transitionDelay: 0.2
+  restDuration: 5
+--- !u!114 &-603584070315531975
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1701406838028980742}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44e929afb4060194e92f572f2d1e493e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startDelay: 0.2
+  spitNumber: 10
+  spitDuration: 0.3
+  timeBetweenSpits: 0.7
+  spitHeightThreshold: 0
+  endDelay: 0.2
+--- !u!114 &-1162371210932408395
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1701406838028980742}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87990a270fbad7746ab52f0acfe4015c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jumpStrength: 45
+  startDelay: 0.2
+  duration: 1.1
+  standUpDelay: 0.5
+  endDelay: 0.2
+  startJumpRight: 0

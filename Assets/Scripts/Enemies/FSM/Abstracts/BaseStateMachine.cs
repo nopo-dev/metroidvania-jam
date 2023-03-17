@@ -15,6 +15,10 @@ namespace FSM.Abstracts
 
         private void Awake()
         {
+            if (_initialState == null)
+            {
+                Debug.Log("BaseStateMachine - Initial state cannot be null!");
+            }
             CurrentState = _initialState;
             actionLocked = false;
             transitionLocked = false;

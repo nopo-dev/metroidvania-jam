@@ -6,47 +6,46 @@ public class RockAttacker : SpecialAttacker
 {
     public float startDelay;
     public int rockNumber;
-    public float durationPerRock;
-    public float poundNumber;
-    public float durationPerPound;
+    public float timeBetweenRocks;
+    public float doublePoundNumber;
     public float transitionDelay;
     public float restDuration;
-
+    
     public override IEnumerator doAttack(Action callback)
     {
+        // Pre-attack
         Debug.Log("SnailMan - Doing rock attack");
         snailman.facePlayer();
         yield return new WaitForSeconds(startDelay);
 
+        // Attack
         snailman.StartCoroutine(pound());
         snailman.StartCoroutine(dropRocks());
-        yield return new WaitForSeconds(poundNumber * durationPerPound);
-        rb2d.velocity = new Vector2(0, 0);
-        yield return new WaitForSeconds(transitionDelay);
+        yield return new WaitForSeconds(doublePoundNumber * snailman.animationDurations["Snail Ground Pound"]);
+
+        // Post-attack rest
         snailman.StartCoroutine(rest());
         yield return new WaitForSeconds(restDuration);
+
+        // Post-rest
+        snailman.animator.SetTrigger("Recovered");
         
+        // Finished
         callback?.Invoke();
     }
 
     private IEnumerator rest()
     {
         Debug.Log("SnailMan - Tired");
-        // play rest animation;
+        snailman.animator.SetTrigger("Tired");
         yield return null;
     }
 
     private IEnumerator pound()
     {
         Debug.Log("SnailMan - Pounding");
-        for (int i = 0; i < poundNumber; i++)
-        {
-            rb2d.velocity = new Vector2(0, 5);
-            yield return new WaitForSeconds(durationPerPound / 2);
-            rb2d.velocity = new Vector2(0, -3);
-            yield return new WaitForSeconds(durationPerPound / 2);
-
-        }
+        snailman.animator.SetTrigger("Ground Pound");
+        yield return null;
     }
     
     private IEnumerator dropRocks()
@@ -54,7 +53,7 @@ public class RockAttacker : SpecialAttacker
         Debug.Log("SnailMan - Dropping rocks");
         for (int i = 0; i < rockNumber; i++)
         {
-            yield return new WaitForSeconds(durationPerRock);
+            yield return new WaitForSeconds(timeBetweenRocks);
             dropRock();
         }
     }

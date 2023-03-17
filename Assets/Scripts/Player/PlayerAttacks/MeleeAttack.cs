@@ -64,7 +64,7 @@ public class MeleeAttack : PlayerAttack
 
     public override void enable(bool enabled)
     {
-        _enabled = enabled;
+        base.enable(enabled);
         _animator.SetBool("Tentacled", enabled);
     }
 
