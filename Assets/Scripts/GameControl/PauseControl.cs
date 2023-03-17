@@ -9,7 +9,7 @@ public class PauseControl : MonoBehaviour
     void Update()
     {
         //TODO: other checks to make sure you are allowed to pause?
-        if (Input.GetKeyDown(KeyCode.Escape) && !MainMenu.Instance.getActive())
+        if (Input.GetKeyDown(KeyCode.Escape) && SceneLoader.getCurrentSceneName() != "Menu Scene Test")
         {
             if (PauseControl.gameIsPaused)
             {
