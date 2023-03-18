@@ -79049,6 +79049,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Snail Boss
       objectReference: {fileID: 0}
+    - target: {fileID: 2529610663352030747, guid: 332572647d87be545a494b9a12e988f1, type: 3}
+      propertyPath: _restDuration
+      value: 4.5
+      objectReference: {fileID: 0}
     - target: {fileID: 2824403240833088861, guid: 332572647d87be545a494b9a12e988f1, type: 3}
       propertyPath: m_RootOrder
       value: 2

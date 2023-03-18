@@ -22,13 +22,10 @@ public class KnockBack : MonoBehaviour
         var rot = Quaternion.AngleAxis(_degreesUp, Vector3.forward);
         _knockLeft = Quaternion.Inverse(rot) * Vector2.left;
         _knockRight = rot * Vector2.right;
-        Debug.Log("left " + _knockLeft);
-        Debug.Log("right " + _knockRight);
     }
 
     public void knockPlayer(Vector2 knocker)
     {
-        Debug.Log("knocking player");
         if (knocker != null)
         {
             StartCoroutine(iframes(knocker));
