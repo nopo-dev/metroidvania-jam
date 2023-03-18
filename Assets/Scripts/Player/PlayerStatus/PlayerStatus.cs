@@ -41,5 +41,6 @@ public class PlayerStatus : MonoBehaviour
     {
         Debug.Log($"PlayerStatus - Teleporting to ({loc.x}, {loc.y})...");
         transform.position = new Vector2(loc.x, loc.y);
+        GetComponent<Rigidbody2D>().velocity = Vector2.zero;
     }
 }
