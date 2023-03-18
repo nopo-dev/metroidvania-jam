@@ -82,4 +82,15 @@ public class SnailMan : Enemy
         Spit,
         Rocks
     }
+
+    public void snailAudio(string clip)
+    {
+        if (clip == "BossPound")
+        {
+            int num = UnityEngine.Random.Range(1,5);
+            AudioManager.Instance.PlaySound(clip+num);
+            return;
+        }
+        AudioManager.Instance.PlaySound(clip);
+    }
 }

@@ -33,9 +33,13 @@ public class RockAttacker : SpecialAttacker
         yield return new WaitForSeconds(_startDelay);
 
         // Attack
+        Debug.Log("play debris sfx");
+        AudioManager.Instance.PlaySound("BossDebris");
+        //AudioManager.Instance.FadeIn("BossDebris", 1f);
         snailman.StartCoroutine(pound());
         snailman.StartCoroutine(dropRocks());
         yield return new WaitForSeconds(_doublePoundNumber * snailman.animationDurations["Snail Ground Pound"]);
+        AudioManager.Instance.FadeOut("BossDebris", 3f);
 
         // Post-attack rest
         snailman.StartCoroutine(rest());
@@ -82,5 +86,8 @@ public class RockAttacker : SpecialAttacker
         projectile.GetComponent<ProjectileBehavior>().SetAngle(Vector2.down);
         projectile.GetComponent<ProjectileBehavior>().SetSpeed(_dropStartingSpeed);
         projectile.GetComponent<ProjectileBehavior>().SetIgnoreTag(gameObject.tag);
+        int num = UnityEngine.Random.Range(1,4);
+        projectile.GetComponent<ProjectileBehavior>().SetImpactAudioClip("RockFall"+num);
     }
+
 }

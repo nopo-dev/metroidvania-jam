@@ -55,10 +55,16 @@ public class AudioManager : MonoBehaviour
         s.source.Play();
     }
 
-    public void FadeOut(string name)
+    public void FadeOut(string name, float duration)
     {
         Sound s = Array.Find(sounds, sound => sound.name == name);
-        StartCoroutine(FadeSound(s, 1f, 0.05f));
+        StartCoroutine(FadeSound(s, duration, 0.05f));
+    }
+
+    public void FadeIn(string name, float duration)
+    {
+        Sound s = Array.Find(sounds, sound => sound.name == name);
+        StartCoroutine(FadeSound(s, duration, 0.1f));
     }
 
     public static IEnumerator FadeSound(Sound s, float duration, float targetVolume)

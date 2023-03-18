@@ -50,7 +50,7 @@ public class PauseMenu : MonoBehaviour
     {
         Location defaultLocation = new Location(0, 0, "Menu Scene Test");
         SceneManager.LoadScene("Menu Scene Test");
-        AudioManager.Instance.FadeOut("BackgroundTheme");
+        AudioManager.Instance.FadeOut("BackgroundTheme", 1f);
         AudioManager.Instance.PlayDelayedSound("MainMenuTheme", 2f);
         PauseControl.PauseGame();
     }

@@ -23,4 +23,9 @@ public class EnemySaveManager
     {
         return _killedEnemies.ToArray();
     }
+
+    public bool bossKilled()
+    {
+        return _killedEnemies.Contains("snailman");
+    }
 }

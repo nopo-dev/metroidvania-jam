@@ -39,6 +39,8 @@ public class HPManager
         {
             // TODO 
             Debug.Log("HPManager - Out of HP, loading latest save.");
+            AudioManager.Instance.FadeOut("BossBGM", 1f);
+            AudioManager.Instance.PlayDelayedSound("BackgroundTheme", 2f);
             SaveAndLoader.Instance.load();
         }
     }

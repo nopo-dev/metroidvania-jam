@@ -351,13 +351,13 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: BatFlap
     clip: {fileID: 8300000, guid: 4ae119129c120904e8387041d786a88a, type: 3}
-    volume: 0.1
+    volume: 0.03
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: SlimeMove
     clip: {fileID: 8300000, guid: 88653dd4fb6dc8c47aead6936322e3ba, type: 3}
-    volume: 0.1
+    volume: 0.03
     pitch: 1
     loop: 0
     source: {fileID: 0}
@@ -417,31 +417,31 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: Footstep1
     clip: {fileID: 8300000, guid: c57c61a8084d54e4abb217f3d4ea7735, type: 3}
-    volume: 0.1
+    volume: 0.03
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: Footstep2
     clip: {fileID: 8300000, guid: 160faf7794911864abb6dfec09f4e68f, type: 3}
-    volume: 0.1
+    volume: 0.03
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: Footstep3
     clip: {fileID: 8300000, guid: fef6c365a71a74d47895caf84e483378, type: 3}
-    volume: 0.1
+    volume: 0.03
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: Footstep4
     clip: {fileID: 8300000, guid: c5c2aac6df1f4f34fa6b9fe128788345, type: 3}
-    volume: 0.1
+    volume: 0.03
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: Footstep5
     clip: {fileID: 8300000, guid: a250efce0b23de94097cb30ea7576a77, type: 3}
-    volume: 0.1
+    volume: 0.03
     pitch: 1
     loop: 0
     source: {fileID: 0}
@@ -459,6 +459,102 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: Upgrade
     clip: {fileID: 8300000, guid: 81de1d5e9c4869f4e9ec429c16311c7c, type: 3}
+    volume: 0.1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: BossJump
+    clip: {fileID: 8300000, guid: bfcecae5ed410af4e81278f7070a1abe, type: 3}
+    volume: 0.1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: BossLand
+    clip: {fileID: 8300000, guid: fbfc038c56b06524aa8f69cd327b88ea, type: 3}
+    volume: 0.1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: BossDebris
+    clip: {fileID: 8300000, guid: 64776f74ad3a64f46bbe1505c8cc4044, type: 3}
+    volume: 0.03
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: BossGargle
+    clip: {fileID: 8300000, guid: 34c9043260c47d5459d3abe067679239, type: 3}
+    volume: 0.1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: BossSwipe
+    clip: {fileID: 8300000, guid: 28ca523a9a22063448db11b60a46c5e9, type: 3}
+    volume: 0.1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: BossSpit
+    clip: {fileID: 8300000, guid: 4634770f1eb079c409e48ef19f3310f6, type: 3}
+    volume: 0.1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: BossPound1
+    clip: {fileID: 8300000, guid: 28b12329012d94f4bb5041c797f54f50, type: 3}
+    volume: 0.1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: BossPound2
+    clip: {fileID: 8300000, guid: 5ecd83120bfeddf49b3f3916b222cab8, type: 3}
+    volume: 0.1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: BossPound3
+    clip: {fileID: 8300000, guid: a062810a2daf9944fb4966d8bb3b0e76, type: 3}
+    volume: 0.1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: BossPound4
+    clip: {fileID: 8300000, guid: 92a0546fe318793409851d96761e8177, type: 3}
+    volume: 0.1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: RockFall1
+    clip: {fileID: 8300000, guid: 150e7c655cebd6c46842fb72f245e7f0, type: 3}
+    volume: 0.03
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: RockFall2
+    clip: {fileID: 8300000, guid: 32f859422c13e9041b27a674467239b9, type: 3}
+    volume: 0.03
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: RockFall3
+    clip: {fileID: 8300000, guid: 4238acf0707628a4dbabd08ff2191a9a, type: 3}
+    volume: 0.03
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: BossBGM
+    clip: {fileID: 8300000, guid: 0957d61940b336a4cb39014dac93e65d, type: 3}
+    volume: 0.08
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: BossBGMIntro
+    clip: {fileID: 8300000, guid: 99a3b95767971cc41a1ccbf495d2c356, type: 3}
+    volume: 0.08
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: BossDeath
+    clip: {fileID: 8300000, guid: 2b3cf43a47433504bbae928098fcf95e, type: 3}
     volume: 0.1
     pitch: 1
     loop: 0

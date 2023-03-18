@@ -26,7 +26,7 @@ public class MainMenu : MonoBehaviour
     public void PlayButton()
     {
         SaveAndLoader.Instance.load();
-        AudioManager.Instance.FadeOut("MainMenuTheme");
+        AudioManager.Instance.FadeOut("MainMenuTheme", 1f);
         AudioManager.Instance.PlayDelayedSound("BackgroundTheme", 2f);
     }
 
