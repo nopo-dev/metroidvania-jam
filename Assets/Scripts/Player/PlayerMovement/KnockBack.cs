@@ -38,7 +38,7 @@ public class KnockBack : MonoBehaviour
     private IEnumerator iframes(Vector2 knocker)
     {
         _playerTriggerCollider.enabled = false;
-        PauseControl.PausePlayer();
+        //PauseControl.PausePlayer();
 
         // this doesn't strictly have to live in the coroutine
         // but i might've seen a race condition with this vs PausePlayer
@@ -50,7 +50,7 @@ public class KnockBack : MonoBehaviour
         _playerBody.velocity = _knockbackSpeed * (left ? _knockLeft : _knockRight);
 
         yield return new WaitForSeconds(_iseconds);
-        PauseControl.ResumePlayer();
+        //PauseControl.ResumePlayer();
 
         yield return new WaitForSeconds(_ibuffer);
         _playerTriggerCollider.enabled = true;
