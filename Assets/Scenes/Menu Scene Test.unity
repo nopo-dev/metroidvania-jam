@@ -351,13 +351,13 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: BatFlap
     clip: {fileID: 8300000, guid: 4ae119129c120904e8387041d786a88a, type: 3}
-    volume: 0.03
+    volume: 0.01
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: SlimeMove
     clip: {fileID: 8300000, guid: 88653dd4fb6dc8c47aead6936322e3ba, type: 3}
-    volume: 0.03
+    volume: 0.01
     pitch: 1
     loop: 0
     source: {fileID: 0}
