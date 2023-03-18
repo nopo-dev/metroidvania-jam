@@ -559,6 +559,12 @@ MonoBehaviour:
     pitch: 1
     loop: 0
     source: {fileID: 0}
+  - name: BossDeathJingle
+    clip: {fileID: 8300000, guid: b6a7979477343d140b36425d9b280416, type: 3}
+    volume: 0.1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
 --- !u!1001 &603003330
 PrefabInstance:
   m_ObjectHideFlags: 0

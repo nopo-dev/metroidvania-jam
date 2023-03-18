@@ -83,4 +83,9 @@ public class AudioManager : MonoBehaviour
         s.source.Stop();
         s.source.volume = vol;
     }
+
+    public Sound[] getSounds()
+    {
+        return sounds;
+    }
 }

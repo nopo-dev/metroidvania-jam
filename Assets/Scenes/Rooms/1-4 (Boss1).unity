@@ -307,7 +307,7 @@ GameObject:
   - component: {fileID: 453596824}
   - component: {fileID: 453596823}
   m_Layer: 5
-  m_Name: Image
+  m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -384,13 +384,14 @@ GameObject:
   - component: {fileID: 666765170}
   - component: {fileID: 666765169}
   - component: {fileID: 666765173}
+  - component: {fileID: 666765174}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: FinalMenu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &666765169
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -482,10 +483,23 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 666765168}
   m_Enabled: 1
-  m_Alpha: 1
+  m_Alpha: 0
   m_Interactable: 0
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!114 &666765174
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 666765168}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea94d1d53381e2d4bb6acd3a63a6af91, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  finalMenuCanvas: {fileID: 666765173}
 --- !u!1001 &740019478
 PrefabInstance:
   m_ObjectHideFlags: 0

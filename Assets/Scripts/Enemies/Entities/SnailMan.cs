@@ -44,9 +44,13 @@ public class SnailMan : Enemy
         AudioManager.Instance.PlayDelayedSound("BossDeathJingle", 1f);
 
         animator.SetBool("Dead", true);
-        yield return new WaitForSeconds(animationDurations["Death"]);
+        yield return new WaitForSeconds(animationDurations["Death"] + 4f);
         // todo: run animation, make it noncollidable (physics) but body falls w/ gravity ?
-
+        FinalMenu.Instance.show();
+        foreach (Sound s in AudioManager.Instance.getSounds())
+        {
+            s.source.Stop();
+        }
         callback?.Invoke();
     }
 
