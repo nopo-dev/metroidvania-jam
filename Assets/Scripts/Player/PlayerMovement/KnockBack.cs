@@ -1,7 +1,5 @@
 ﻿using System.Collections;
-using Unity.VisualScripting;
 using UnityEngine;
-using static UnityEngine.Rendering.DebugUI.Table;
 
 /*
  * idk this could probably be static
@@ -11,6 +9,7 @@ public class KnockBack : MonoBehaviour
     [SerializeField] private float _knockbackSpeed;
     [SerializeField] private float _iseconds;
     [SerializeField] private float _degreesUp;
+    [SerializeField] private float _ibuffer;
     private Rigidbody2D _playerBody;
     private Collider2D _playerTriggerCollider;
     private Vector2 _knockLeft;
@@ -50,9 +49,10 @@ public class KnockBack : MonoBehaviour
 
         _playerBody.velocity = _knockbackSpeed * (left ? _knockLeft : _knockRight);
 
-        Debug.Log(_playerBody.velocity);
         yield return new WaitForSeconds(_iseconds);
-        _playerTriggerCollider.enabled = true;
         PauseControl.ResumePlayer();
+
+        yield return new WaitForSeconds(_ibuffer);
+        _playerTriggerCollider.enabled = true;
     }
 }
