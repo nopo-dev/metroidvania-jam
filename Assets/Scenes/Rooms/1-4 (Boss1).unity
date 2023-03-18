@@ -79347,6 +79347,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -1162371210932408395, guid: 332572647d87be545a494b9a12e988f1, type: 3}
+      propertyPath: startJumpRight
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1701406838028980742, guid: 332572647d87be545a494b9a12e988f1, type: 3}
       propertyPath: m_Name
       value: Snail Boss
@@ -79361,11 +79365,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2824403240833088861, guid: 332572647d87be545a494b9a12e988f1, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -5.5152035
+      value: -55.015236
       objectReference: {fileID: 0}
     - target: {fileID: 2824403240833088861, guid: 332572647d87be545a494b9a12e988f1, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.459835
+      value: 3.8150291
       objectReference: {fileID: 0}
     - target: {fileID: 2824403240833088861, guid: 332572647d87be545a494b9a12e988f1, type: 3}
       propertyPath: m_LocalPosition.z
