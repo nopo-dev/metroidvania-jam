@@ -16,8 +16,8 @@ public class SlamAttacker : Attacker
     {
         // Pre-attack
         Debug.Log("SnailMan - slam attacking");
-        Debug.Log("SnailMan - Pausing decision timer");
-        float startTime = Time.time;
+        // Debug.Log("SnailMan - Pausing decision timer");
+        // float startTime = Time.time;
         // animations
         attacker.facePlayer();
         yield return new WaitForSeconds(paddingTime);
@@ -31,9 +31,9 @@ public class SlamAttacker : Attacker
         // Currently, Snail will idle during padding time. We can add a trigger
         // if we want to freeze last attack frame.
         yield return new WaitForSeconds(paddingTime);
-        float ignoredTime = Time.time - startTime;
-        Debug.Log($"SnailMan - Resuming decision timer with {ignoredTime} ignored time.");
-        (attacker as SnailMan).addThinkingTime(ignoredTime);
+        // float ignoredTime = Time.time - startTime;
+        // Debug.Log($"SnailMan - Resuming decision timer with {ignoredTime} ignored time.");
+        // (attacker as SnailMan).addThinkingTime(ignoredTime);
 
         // Finish
         callback?.Invoke();
