@@ -399,7 +399,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _input: {fileID: 11400000, guid: b5ec8b4803bfccb48bd045843dbdca64, type: 2}
-  _healParticles: {fileID: 5325537169687925561, guid: 633e7b1805e41b542b0aec074f17a131, type: 3}
+  _healParticles: {fileID: 399364880212554660}
   _healLockout: 0
   _healBufferThreshold: 0.1
 --- !u!114 &-7225620900529165460
@@ -479,6 +479,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 633e7b1805e41b542b0aec074f17a131, type: 3}
+--- !u!1 &399364880212554660 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5325537169687925561, guid: 633e7b1805e41b542b0aec074f17a131, type: 3}
+  m_PrefabInstance: {fileID: 5504190294665896093}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &399364880212554681 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5325537169687925540, guid: 633e7b1805e41b542b0aec074f17a131, type: 3}
