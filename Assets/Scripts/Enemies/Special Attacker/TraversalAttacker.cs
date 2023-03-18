@@ -12,6 +12,8 @@ public class TraversalAttacker : SpecialAttacker
     public float endDelay;
     public bool startJumpRight;
 
+    public GameObject traversalHitbox;
+
     private bool _jumpRight;
 
     new protected void Awake()
@@ -29,8 +31,10 @@ public class TraversalAttacker : SpecialAttacker
 
         // Attack - begin jump
         Debug.Log("SnailMan - Jumping");
+        GameObject initialSlam = Instantiate(traversalHitbox, transform.GetChild(3).position, transform.rotation);
         snailman.animator.SetTrigger("Traversal");
         yield return new WaitForSeconds(snailman.animationDurations["Snail Traversal Slam"]);
+        GameObject.Destroy(initialSlam);
 
         // Attack - fly through the air
         snailman.StartCoroutine(jump());
@@ -39,8 +43,10 @@ public class TraversalAttacker : SpecialAttacker
         // Attack - land
         Debug.Log("SnailMan - Landed");
         snailman.animator.SetTrigger("Landed");
+        GameObject landingSlam = Instantiate(traversalHitbox, transform.GetChild(3).position, transform.rotation);
         yield return new WaitForSeconds(standUpDelay);
         snailman.animator.SetTrigger("Stand Up");
+        GameObject.Destroy(landingSlam);
 
         // Post-attack
         snailman.facePlayer();

@@ -9,6 +9,7 @@ using UnityEngine;
 public class SlamAttacker : Attacker
 {
     public float paddingTime;
+    public GameObject meleeHitbox;
 
     private System.Random _rand = new System.Random();
 
@@ -25,7 +26,11 @@ public class SlamAttacker : Attacker
         // Attack
         int attackNumber = _rand.NextDouble() > 0.5 ? 1 : 2;
         attacker.animator.SetTrigger($"Basic Attack {attackNumber}");
-        yield return new WaitForSeconds(attacker.animationDurations[$"Snail Basic Swing {attackNumber}"]);
+        yield return new WaitForSeconds(attacker.animationDurations[$"Snail Basic Swing {attackNumber}"] * 0.66f);
+        GameObject hitbox = Instantiate(meleeHitbox, attacker.transform.GetChild(2).position,
+            attacker.transform.rotation);
+        yield return new WaitForSeconds(attacker.animationDurations[$"Snail Basic Swing {attackNumber}"] * 0.33f);
+        GameObject.Destroy(hitbox);
 
         // Post-attack
         // Currently, Snail will idle during padding time. We can add a trigger

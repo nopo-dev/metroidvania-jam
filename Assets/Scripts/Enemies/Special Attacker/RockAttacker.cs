@@ -16,6 +16,7 @@ public class RockAttacker : SpecialAttacker
     [SerializeField] private float _doublePoundNumber;
     [SerializeField] private float _transitionDelay;
     [SerializeField] private float _restDuration;
+    [SerializeField] private GameObject _slamHitbox;
 
     private System.Random _rand;
 
@@ -82,5 +83,25 @@ public class RockAttacker : SpecialAttacker
         projectile.GetComponent<ProjectileBehavior>().SetAngle(Vector2.down);
         projectile.GetComponent<ProjectileBehavior>().SetSpeed(_dropStartingSpeed);
         projectile.GetComponent<ProjectileBehavior>().SetIgnoreTag(gameObject.tag);
+    }
+
+    public void SpawnMeleeHitbox(int side)
+    {
+        GameObject hitbox = null;
+        if (side == 1)
+        {
+            hitbox = Instantiate(_slamHitbox, transform.GetChild(2).position, transform.rotation);
+        }
+        else if (side == -1)
+        {
+            hitbox = Instantiate(_slamHitbox, transform.GetChild(4).position, transform.rotation);
+        }
+        StartCoroutine(SlamCd(hitbox));
+    }
+
+    private IEnumerator SlamCd(GameObject hitbox)
+    {
+        yield return new WaitForSeconds(0.25f);
+        GameObject.Destroy(hitbox);
     }
 }
