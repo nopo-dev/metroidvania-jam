@@ -119,7 +119,7 @@ public class Enemy : CollidableArea
         {
             case "PlayerTrigger":
                 // TODO: animate player taking damage / knock-back
-                PlayerStatus.Instance.HPManager.damageHP(type.damageOnTouch);
+                PlayerStatus.Instance.HPManager.damageHP(type.damageOnTouch, other);
                 AudioManager.Instance.PlaySound("PlayerDamage");
                 break;
             case "PlayerMeleeAttack":

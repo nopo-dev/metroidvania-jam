@@ -52,6 +52,7 @@ public class HPManager
     public void damageHP(int damageAmount, Collider2D damager)
     {
         Debug.Log($"HPManager - Damaging for {damageAmount}");
+        AudioManager.Instance.PlaySound("PlayerDamage");
         setCurrentHP(this.currentHP_ - damageAmount);
         _knockback.knockPlayer(damager);
     }

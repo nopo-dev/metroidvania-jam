@@ -8,7 +8,7 @@ public class DamagingArea : CollidableArea
     {
         if (other.tag == "PlayerTrigger")
         {
-            PlayerStatus.Instance.HPManager.damageHP(_damage);
+            PlayerStatus.Instance.HPManager.damageHP(_damage, other);
         }
     }
 }

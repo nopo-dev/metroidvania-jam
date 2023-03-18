@@ -1,6 +1,9 @@
 ﻿using System.Collections;
 using UnityEngine;
 
+/*
+ * idk this could probably be static
+ */
 public class KnockBack : MonoBehaviour
 {
     [SerializeField] private float _knockbackSpeed;
