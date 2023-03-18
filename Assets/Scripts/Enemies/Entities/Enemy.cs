@@ -100,8 +100,6 @@ public class Enemy : CollidableArea
     {
         StopAllCoroutines();
         kill();
-        AudioManager.Instance.FadeOut("BossBGM", 0.5f);
-        AudioManager.Instance.PlayDelayedSound("BossDeathJingle", 1f);
         StartCoroutine(dyingAnimation(callback));
     }
 
