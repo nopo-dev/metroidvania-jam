@@ -83,6 +83,7 @@ public class Heal : PlayerAttack
     {
         yield return new WaitForSeconds(_healCooldown - _healLockout);
         PlayerStatus.Instance.EnergyManager.damageEnergy(25);
+        Debug.Log("play that shit");
         _healParticles.GetComponent<ParticleSystem>().Play();
         AudioManager.Instance.PlaySound("Heal");
         PlayerStatus.Instance.HPManager.healHP(1);
