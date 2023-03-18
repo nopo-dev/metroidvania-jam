@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class TraversalAttacker : SpecialAttacker
 {
+    // these shoudl be [SerializeField] private
     public float jumpStrength;
     public float startDelay;
     public float duration; // this is kinda dumb but don't have a way to calc flight time yet

@@ -76,6 +76,7 @@ public class SpitAttacker : SpecialAttacker
         projectile.GetComponent<ProjectileBehavior>().SetAngle(angle);
         projectile.GetComponent<ProjectileBehavior>().SetSpeed(_projectileSpeed);
         projectile.GetComponent<ProjectileBehavior>().SetIgnoreTag(gameObject.tag);
+        projectile.GetComponent<ProjectileBehavior>().SetImpactAudioClip("SpitImpact");
 
         AudioManager.Instance.PlaySound("PlayerSpit");
     }

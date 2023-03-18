@@ -111,6 +111,7 @@ GameObject:
   - component: {fileID: 8137443565011401875}
   - component: {fileID: 6776012479363169123}
   - component: {fileID: 6332216392676051266}
+  - component: {fileID: -7225620900529165460}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -306,6 +307,7 @@ MonoBehaviour:
   _shortJumpGravity: 40
   _coyoteThreshold: 0.1
   _jumpBufferThreshold: 0.1
+  _freezeFallWhileAttack: 1
 --- !u!114 &1407382289540425134
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -400,6 +402,21 @@ MonoBehaviour:
   _healParticles: {fileID: 5325537169687925561, guid: 633e7b1805e41b542b0aec074f17a131, type: 3}
   _healLockout: 0
   _healBufferThreshold: 0.1
+--- !u!114 &-7225620900529165460
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6903462835959967356}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abe480326637b9b41a851bdfd452e056, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _knockbackSpeed: 80
+  _iseconds: 0.5
+  _degreesUp: 30
 --- !u!1001 &5504190294665896093
 PrefabInstance:
   m_ObjectHideFlags: 0

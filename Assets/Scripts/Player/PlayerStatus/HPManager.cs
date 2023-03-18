@@ -32,7 +32,7 @@ public class HPManager
      */
     public void setCurrentHP(int newCurrentHP)
     {
-        this.currentHP_ = Utils.Clamp(newCurrentHP, 0, this.maximumHP_);
+        this.currentHP_ = (int) Utils.Clamp(newCurrentHP, 0, this.maximumHP_);
         UIDisplay.Instance.updateHP(this.currentHP_);
 
         if (isOutOfHP())
@@ -49,7 +49,7 @@ public class HPManager
         setCurrentHP(this.currentHP_ + healAmount);
     }
 
-    public void damageHP(int damageAmount, Collider2D damager)
+    public void damageHP(int damageAmount, Vector2 damager)
     {
         Debug.Log($"HPManager - Damaging for {damageAmount}");
         AudioManager.Instance.PlaySound("PlayerDamage");

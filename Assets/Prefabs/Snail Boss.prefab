@@ -52,7 +52,7 @@ GameObject:
   - component: {fileID: -1162371210932408395}
   m_Layer: 10
   m_Name: Snail Boss
-  m_TagString: Untagged
+  m_TagString: SnailBoss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -256,12 +256,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b644ff8d4f8d73e46b29074064081ee1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startDelay: 0.2
-  rockNumber: 5
-  timeBetweenRocks: 0.5
-  doublePoundNumber: 3
-  transitionDelay: 0.2
-  restDuration: 5
+  _rockbox: {fileID: 4108582060728428017, guid: 1c3b471010e63e04a9f65939e0272790, type: 3}
+  _dropHeight: 30
+  _dropLeft: -61
+  _dropRight: 0
+  _dropStartingSpeed: 1
+  _startDelay: 0.2
+  _rockNumber: 40
+  _timeBetweenRocks: 0.2
+  _doublePoundNumber: 6
+  _transitionDelay: 0.2
+  _restDuration: 3
 --- !u!114 &-603584070315531975
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -276,13 +281,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _spitbox: {fileID: 4108582060728428017, guid: afd7b2c6714a6664d80939a261f5cfe1, type: 3}
   _rangedAnimationSpeed: 1
-  _projectileSpeed: 1
-  _projectileAngle: {x: 1, y: 1, z: 0}
+  _projectileSpeed: 2500
+  _projectileAngle: {x: 1, y: 0, z: 0}
   _startDelay: 0.2
   _spitNumber: 8
-  _spitDuration: 0.3
-  _timeBetweenSpits: 0.7
-  _spitHeightThreshold: 0
+  _spitDuration: 0.2
+  _timeBetweenSpits: 0.3
+  _spitHeightThreshold: -1
   _endDelay: 0.5
 --- !u!114 &-1162371210932408395
 MonoBehaviour:

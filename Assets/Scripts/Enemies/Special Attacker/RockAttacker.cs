@@ -4,28 +4,42 @@ using UnityEngine;
 
 public class RockAttacker : SpecialAttacker
 {
-    public float startDelay;
-    public int rockNumber;
-    public float timeBetweenRocks;
-    public float doublePoundNumber;
-    public float transitionDelay;
-    public float restDuration;
-    
+    [SerializeField] private GameObject _rockbox;
+    [SerializeField] private float _dropHeight;
+    [SerializeField] private float _dropLeft;
+    [SerializeField] private float _dropRight;
+    [SerializeField] private float _dropStartingSpeed;
+
+    [SerializeField] private float _startDelay;
+    [SerializeField] private int _rockNumber;
+    [SerializeField] private float _timeBetweenRocks;
+    [SerializeField] private float _doublePoundNumber;
+    [SerializeField] private float _transitionDelay;
+    [SerializeField] private float _restDuration;
+
+    private System.Random _rand;
+
+    new protected void Awake()
+    {
+        base.Awake();
+        _rand = new System.Random();
+    }
+
     public override IEnumerator doAttack(Action callback)
     {
         // Pre-attack
         Debug.Log("SnailMan - Doing rock attack");
         snailman.facePlayer();
-        yield return new WaitForSeconds(startDelay);
+        yield return new WaitForSeconds(_startDelay);
 
         // Attack
         snailman.StartCoroutine(pound());
         snailman.StartCoroutine(dropRocks());
-        yield return new WaitForSeconds(doublePoundNumber * snailman.animationDurations["Snail Ground Pound"]);
+        yield return new WaitForSeconds(_doublePoundNumber * snailman.animationDurations["Snail Ground Pound"]);
 
         // Post-attack rest
         snailman.StartCoroutine(rest());
-        yield return new WaitForSeconds(restDuration);
+        yield return new WaitForSeconds(_restDuration);
 
         // Post-rest
         snailman.animator.SetTrigger("Recovered");
@@ -51,12 +65,22 @@ public class RockAttacker : SpecialAttacker
     private IEnumerator dropRocks()
     {
         Debug.Log("SnailMan - Dropping rocks");
-        for (int i = 0; i < rockNumber; i++)
+        for (int i = 0; i < _rockNumber; i++)
         {
-            yield return new WaitForSeconds(timeBetweenRocks);
+            yield return new WaitForSeconds(_timeBetweenRocks);
             dropRock();
         }
     }
 
-    private void dropRock() { }
+    private void dropRock() 
+    {
+        double x = _rand.NextDouble() * (_dropRight - _dropLeft) + _dropLeft;
+
+        GameObject projectile = Instantiate(_rockbox, new Vector2((float) x, _dropHeight), Quaternion.identity);
+        projectile.SetActive(true);
+
+        projectile.GetComponent<ProjectileBehavior>().SetAngle(Vector2.down);
+        projectile.GetComponent<ProjectileBehavior>().SetSpeed(_dropStartingSpeed);
+        projectile.GetComponent<ProjectileBehavior>().SetIgnoreTag(gameObject.tag);
+    }
 }

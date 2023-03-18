@@ -9,7 +9,12 @@ public class ProjectileBehavior : MonoBehaviour
     private Vector3 _projectileAngle = new Vector3(1f, 1f, 0f);
     private string ignoreTag;
     private Rigidbody2D _rb;
-    private Vector3 velocity;
+    private string _impactClip;
+
+    public void SetImpactAudioClip(string clipName)
+    {
+        _impactClip = clipName;
+    }
 
     public void SetSpeed(float speed)
     {
@@ -19,7 +24,7 @@ public class ProjectileBehavior : MonoBehaviour
     public void SetAngle(Vector3 angle)
     {
         _projectileAngle = angle;
-        transform.localScale = new Vector3(transform.localScale.x * Mathf.Sign(angle.x), 1, 1);
+        transform.localScale = new Vector3(transform.localScale.x * Mathf.Sign(angle.x), transform.localScale.y, 1);
     }
 
     public void SetIgnoreTag(string tag)
@@ -37,7 +42,10 @@ public class ProjectileBehavior : MonoBehaviour
     {
         if (!collision.gameObject.CompareTag(ignoreTag))
         {
-            AudioManager.Instance.PlayDelayedSound("SpitImpact", 0.1f);
+            if (_impactClip != null)
+            {
+                AudioManager.Instance.PlayDelayedSound(_impactClip, 0.1f);
+            }
             Destroy(gameObject);
             Instantiate(_particles, transform.position, Quaternion.identity);
         }

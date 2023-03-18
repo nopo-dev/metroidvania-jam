@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections;
-using System.Xml;
 using UnityEngine;
 
 public class SnailMan : Enemy

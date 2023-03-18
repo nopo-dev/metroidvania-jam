@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Snail Decider
   m_EditorClassIdentifier: 
   flying: 0
-  thinkingTime: 2.5
-  startTime: 63.982468
+  thinkingTime: 2
+  startTime: 61.475574
   uncountedTime: 0
