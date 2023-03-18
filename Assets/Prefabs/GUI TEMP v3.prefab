@@ -1820,6 +1820,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   energySlider: {fileID: 1542521915}
   UIcanvas: {fileID: 2072623338}
+  controlMenu: {fileID: 0}
   HPAnimators:
   - {fileID: 1015702217}
   - {fileID: 704206224}

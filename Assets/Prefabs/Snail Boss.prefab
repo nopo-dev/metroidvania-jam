@@ -301,7 +301,8 @@ MonoBehaviour:
   _doublePoundNumber: 6
   _transitionDelay: 0.2
   _restDuration: 3
-  _slamHitbox: {fileID: 1785282527260649546, guid: 7772330fcfbbeae4894ae2bef976dc27, type: 3}
+  _slamHitboxL: {fileID: 1785282527260649546, guid: 28bc3733574730c40a55cb3ed3f202a3, type: 3}
+  _slamHitboxR: {fileID: 1785282527260649546, guid: b017c8dcd4bd774478a31064aecfbb6a, type: 3}
 --- !u!114 &-603584070315531975
 MonoBehaviour:
   m_ObjectHideFlags: 0
