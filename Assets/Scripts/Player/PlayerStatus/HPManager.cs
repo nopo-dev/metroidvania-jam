@@ -8,7 +8,9 @@ using UnityEngine;
  * TODO:'s on this also apply to EnergyManager.
  */
 public class HPManager
-{
+{ 
+    private KnockBack _knockback;
+   
     // Maybe these could be uint, or byte or smth.
     private int maximumHP_;
     private int currentHP_; // We could use set/get here but I don't like the format, I'd rather call setCurrentHP. Makes it clearer that it might do some processing on the input.
@@ -17,6 +19,7 @@ public class HPManager
     {
         this.currentHP_ = maximumHP;
         this.maximumHP_ = maximumHP;
+        _knockback = GameObject.FindWithTag("Player").GetComponent<KnockBack>();
     }
 
     public int getCurrentHP()
@@ -46,10 +49,11 @@ public class HPManager
         setCurrentHP(this.currentHP_ + healAmount);
     }
 
-    public void damageHP(int damageAmount)
+    public void damageHP(int damageAmount, Collider2D damager)
     {
         Debug.Log($"HPManager - Damaging for {damageAmount}");
         setCurrentHP(this.currentHP_ - damageAmount);
+        _knockback.knockPlayer(damager);
     }
 
     public void healToFull()

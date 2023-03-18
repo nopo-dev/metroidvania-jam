@@ -31,8 +31,8 @@ public class WallInteraction : MonoBehaviour
 
     private void Update()
     {
-        if (PauseControl.gameIsPaused) { return; }
-        
+        if (PauseControl.gameIsPaused || PauseControl.playerIsPaused) { return; }
+
         if (_coyoteTimer > 0f && !_grounded)
         {
             _jumpPress |= _input.JumpPress();

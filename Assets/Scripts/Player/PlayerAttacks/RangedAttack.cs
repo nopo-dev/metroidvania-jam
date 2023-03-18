@@ -29,7 +29,7 @@ public class RangedAttack : PlayerAttack
 
     private void Update()
     {
-        if (PauseControl.gameIsPaused) { return; }
+        if (PauseControl.gameIsPaused || PauseControl.playerIsPaused) { return; }
         _rangedPress |= (_input.RangedPress() && _enabled &&
             PlayerStatus.Instance.EnergyManager.getCurrentEnergy() >= 25);
     }

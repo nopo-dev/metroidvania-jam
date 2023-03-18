@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class PauseControl : MonoBehaviour
 {
-    public static bool gameIsPaused = true;
+    public static bool gameIsPaused { get; private set; } = true;
+    public static bool playerIsPaused { get; private set; } = false;
 
     void Update()
     {
@@ -20,6 +21,16 @@ public class PauseControl : MonoBehaviour
                 PauseMenu.Instance.Pause();
             }
         }
+    }
+
+    public static void PausePlayer()
+    {
+        playerIsPaused = true;
+    }
+
+    public static void ResumePlayer()
+    {
+        playerIsPaused = false;
     }
 
     public static void PauseGame()

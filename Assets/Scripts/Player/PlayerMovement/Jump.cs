@@ -34,8 +34,8 @@ public class Jump : MonoBehaviour
 
     private void Update()
     {
-        if (PauseControl.gameIsPaused) { return; } // TODO: is there some way to make sure we have
-                                                   //       pause checks on future input scripts
+        if (PauseControl.gameIsPaused || PauseControl.playerIsPaused) { return; } // TODO: is there some way to make sure we have
+                                                                                  //       pause checks on future input scripts
         _jumpPress |= (_input.JumpPress() && !_animator.GetBool("In Heal"));
     }
 

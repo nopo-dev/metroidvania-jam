@@ -26,7 +26,7 @@ public class MeleeAttack : PlayerAttack
 
     private void Update()
     {
-        if (PauseControl.gameIsPaused) { return; }
+        if (PauseControl.gameIsPaused || PauseControl.playerIsPaused) { return; }
         _meleePress |= (_input.MeleePress() && _enabled);
     }
 

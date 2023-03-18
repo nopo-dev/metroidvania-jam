@@ -33,7 +33,7 @@ public class Move : MonoBehaviour
 
     private void Update()
     {
-        if (PauseControl.gameIsPaused) { return; }
+        if (PauseControl.gameIsPaused || PauseControl.playerIsPaused) { return; }
 
         _direction.x = _input.MoveInput();
         // determine how fast we're allowed to move

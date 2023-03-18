@@ -27,7 +27,7 @@ public class Heal : PlayerAttack
 
     private void Update()
     {
-        if (PauseControl.gameIsPaused) { return; }
+        if (PauseControl.gameIsPaused || PauseControl.playerIsPaused) { return; }
         _healPress |= (_input.HealPress() && PlayerStatus.Instance.EnergyManager.getCurrentEnergy() >= 25
             && PlayerStatus.Instance.HPManager.getCurrentHP() <= PlayerStatus.Instance.HPManager.getMaximumHP());
         // We could check for enable but we assume Heal is always available as Upgrade.Base
