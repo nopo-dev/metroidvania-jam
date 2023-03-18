@@ -284,9 +284,9 @@ MonoBehaviour:
   _maxSpeed: 16
   _maxAcceleration: 250
   _maxAerialAcceleration: 250
-  _allowMoveDuringAttack: 0
+  _allowMoveDuringAttack: 1
   _allowMoveDuringRanged: 0
-  _moveDuringAttackVelocity: 0
+  _moveDuringAttackVelocity: 1
 --- !u!114 &2377381417911680806
 MonoBehaviour:
   m_ObjectHideFlags: 0
