@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8732896714828890096}
   - component: {fileID: 2194171582275570837}
   m_Layer: 12
-  m_Name: Snail Melee
+  m_Name: Snail Melee L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 1785282527260649546}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: -1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2701976540312627592}

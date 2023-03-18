@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8732896714828890096}
   - component: {fileID: 2194171582275570837}
   m_Layer: 12
-  m_Name: Snail Melee
+  m_Name: Snail Melee R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

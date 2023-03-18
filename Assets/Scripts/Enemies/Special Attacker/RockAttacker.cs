@@ -16,7 +16,8 @@ public class RockAttacker : SpecialAttacker
     [SerializeField] private float _doublePoundNumber;
     [SerializeField] private float _transitionDelay;
     [SerializeField] private float _restDuration;
-    [SerializeField] private GameObject _slamHitbox;
+    [SerializeField] private GameObject _slamHitboxL;
+    [SerializeField] private GameObject _slamHitboxR;
 
     private System.Random _rand;
 
@@ -96,12 +97,15 @@ public class RockAttacker : SpecialAttacker
         GameObject hitbox = null;
         if (side == 1)
         {
-            hitbox = Instantiate(_slamHitbox, transform.GetChild(2).position, transform.rotation);
+            hitbox = Instantiate(_slamHitboxR, transform.GetChild(2).position, transform.rotation);
         }
         else if (side == -1)
         {
-            hitbox = Instantiate(_slamHitbox, transform.GetChild(4).position, transform.rotation);
+            hitbox = Instantiate(_slamHitboxL, transform.GetChild(4).position, transform.rotation);
         }
+        if (Mathf.Sign(transform.localScale.x) == -1)
+            hitbox.transform.localScale = new Vector3(hitbox.transform.localScale.x * -1, hitbox.transform.localScale.y,
+                hitbox.transform.localScale.z);
         StartCoroutine(SlamCd(hitbox));
     }
 

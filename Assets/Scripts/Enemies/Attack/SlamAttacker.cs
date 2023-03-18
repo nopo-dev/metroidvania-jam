@@ -29,6 +29,9 @@ public class SlamAttacker : Attacker
         yield return new WaitForSeconds(attacker.animationDurations[$"Snail Basic Swing {attackNumber}"] * 0.66f);
         GameObject hitbox = Instantiate(meleeHitbox, attacker.transform.GetChild(2).position,
             attacker.transform.rotation);
+        if (Mathf.Sign(attacker.transform.localScale.x) == -1)
+            hitbox.transform.localScale = new Vector3(hitbox.transform.localScale.x * -1, hitbox.transform.localScale.y,
+                hitbox.transform.localScale.z);
         yield return new WaitForSeconds(attacker.animationDurations[$"Snail Basic Swing {attackNumber}"] * 0.33f);
         GameObject.Destroy(hitbox);
 
