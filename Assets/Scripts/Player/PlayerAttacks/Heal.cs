@@ -69,7 +69,8 @@ public class Heal : PlayerAttack
         // check whether player is allowed to spit
         if (_healTimer > 0f && !_inHeal && _animator.GetBool("Grounded") &&
             !_animator.GetBool("Attacking") && !_animator.GetBool("Ranged Attacking") && 
-            PlayerStatus.Instance.HPManager.getCurrentHP() != 5)
+            PlayerStatus.Instance.HPManager.getCurrentHP() != 5 &&
+            PlayerStatus.Instance.EnergyManager.getCurrentEnergy() >= 25)
         {
             _healBufferTimer = 0f;
             _healTimer = _healCooldown;
